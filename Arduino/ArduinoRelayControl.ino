@@ -10,6 +10,7 @@ byte buttonState[relayCount];
 byte lastButtonState[relayCount];
 
 String receivedCom;
+String sentStatus;
 
 void setup()
 {
@@ -41,11 +42,25 @@ void loop()
         {
             receivedCom.replace(String(i), "");
             relayState[i] = !relayState[i];
-            Serial.println(i);
+        }
+
+        if (receivedCom == "off")
+        {
+            relayState[i] = LOW;
+        }
+
+        if (receivedCom == "on")
+        {
+            relayState[i] = HIGH;
         }
 
         digitalWrite(relayPin[i], relayState[i]);
         EEPROM.update(i, relayState[i]);
         lastButtonState[i] = buttonState[i];
+        sentStatus += relayState[i];
     }
+
+    Serial.println(sentStatus);
+    sentStatus = "";
+    receivedCom = "";
 }
