@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import SerialPort from 'serialport';
 
 export default class Login extends Component {
   static propTypes = {
@@ -24,11 +25,17 @@ export default class Login extends Component {
   };
 
   render() {
+    const port = new SerialPort('COM3');
+    const triggerOn = () => {
+      port.write('on');
+    };
+    const triggerOff = () => {
+      port.write('off');
+    };
     return (
       <div>
-        <h2>Login</h2>
-        <input onChange={this.handleChange} type="text" value={this.state.username} />
-        <button onClick={this.handleLogin}>Log In</button>
+        <button onClick={triggerOn}>ON</button>
+        <button onClick={triggerOff}>OFF</button>
       </div>
     );
   }
