@@ -20,8 +20,8 @@ const installExtensions = async () => {
 };
 
 crashReporter.start({
-  productName: 'YourName',
-  companyName: 'YourCompany',
+  productName: 'GHOSCHTS Lamp control',
+  companyName: 'GHOSCHT',
   submitURL: 'https://your-domain.com/url-to-submit',
   uploadToServer: false,
 });
@@ -40,14 +40,14 @@ app.on('ready', async () => {
   }
 
   mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 800,
-    minWidth: 640,
-    minHeight: 480,
+    width: 630,
+    height: 370,
+    resizable: false,
     show: false,
     webPreferences: {
       nodeIntegration: true,
     },
+    icon: path.join(__dirname, '../../dist-assets/icon.png'),
   });
 
   mainWindow.setMenu(null);
