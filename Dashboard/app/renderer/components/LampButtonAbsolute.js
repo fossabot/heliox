@@ -11,9 +11,7 @@ export default function LampButtonToggle(props) {
       <Button
         style={{ height: 130, width: 130, marginRight: 20 }}
         variant="contained"
-        color="primary"
-        href="#contained-buttons"
-        size="large"
+        color="secondary"
         endIcon={<EmojiObjectsIcon />}
         onClick={() => {
           comConnection.port.write(props.title);
