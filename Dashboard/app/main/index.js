@@ -1,10 +1,14 @@
 import path from 'path';
-import { app, crashReporter, BrowserWindow, Menu } from 'electron';
+import { app, crashReporter, BrowserWindow, Menu, Tray } from 'electron';
+const screenz = require('screenz');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 let mainWindow = null;
 let forceQuit = false;
+
+const windowSize = { width: 630, height: 350 };
+const taskBarHeight = 40;
 
 const installExtensions = async () => {
   const installer = require('electron-devtools-installer');
@@ -18,13 +22,6 @@ const installExtensions = async () => {
     }
   }
 };
-
-crashReporter.start({
-  productName: 'GHOSCHTS Lamp control',
-  companyName: 'GHOSCHT',
-  submitURL: 'https://your-domain.com/url-to-submit',
-  uploadToServer: false,
-});
 
 app.on('window-all-closed', () => {
   // On OS X it is common for applications and their menu bar
@@ -40,10 +37,15 @@ app.on('ready', async () => {
   }
 
   mainWindow = new BrowserWindow({
-    width: 630,
-    height: 370,
+    width: windowSize.width,
+    height: windowSize.height,
+    x: screenz.width - windowSize.width,
+    y: screenz.height - windowSize.height - taskBarHeight,
+    movable: false,
     resizable: false,
+    frame: false,
     show: false,
+    alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true,
     },
@@ -83,8 +85,50 @@ app.on('ready', async () => {
       mainWindow.on('closed', () => {
         mainWindow = null;
       });
+
+      app.on('browser-window-blur', () => {
+        if (mainWindow) {
+          mainWindow.hide();
+        }
+      });
     }
+
+    let tray = null;
+    tray = createTray();
   });
+
+  function createTray() {
+    let appIcon = new Tray(path.join(__dirname, '../../dist-assets/icon.png'));
+    const contextMenu = Menu.buildFromTemplate([
+      {
+        label: 'Show',
+        click: () => {
+          mainWindow.show();
+        },
+      },
+      {
+        label: 'Hide',
+        click: () => {
+          mainWindow.hide();
+        },
+      },
+      {
+        label: 'Exit',
+        click: () => {
+          app.isQuiting = true;
+          app.quit();
+        },
+      },
+    ]);
+
+    appIcon.on('click', (event) => {
+      mainWindow.show();
+    });
+
+    appIcon.setToolTip('Light Control');
+    appIcon.setContextMenu(contextMenu);
+    return appIcon;
+  }
 
   if (isDevelopment) {
     // auto-open dev tools

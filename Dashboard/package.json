@@ -26,6 +26,7 @@
     "redux-actions": "^2.6.5",
     "redux-localstorage": "^0.4.1",
     "redux-thunk": "^2.2.0",
+    "screenz": "^1.0.0",
     "serialport": "^9.0.0",
     "yarn": "^1.22.4"
   },
