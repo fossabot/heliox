@@ -52,7 +52,7 @@ app.on('ready', async () => {
     webPreferences: {
       nodeIntegration: true,
     },
-    icon: path.join(__dirname, '../../dist-assets/icon.png'),
+    icon: path.join(__dirname, '../../dist-assets/icon.ico'),
   });
 
   mainWindow.setMenu(null);
@@ -101,7 +101,7 @@ app.on('ready', async () => {
   });
 
   function createTray() {
-    let appIcon = new Tray(path.join(__dirname, '../../dist-assets/icon.png'));
+    let appIcon = new Tray(path.join(__dirname, '../../dist-assets/icon.ico'));
     const contextMenu = Menu.buildFromTemplate([
       {
         label: 'Show',
