@@ -4,15 +4,13 @@ import LampButtonAbsolute from './LampButtonAbsolute';
 
 export default function LampButtonList() {
   return (
-    <div>
+    <div style={{ margin: 20 }}>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div style={{ display: 'flex', margin: 20 }}>
-          <LampButtonAbsolute title="on" />
-          <LampButtonAbsolute title="off" />
-        </div>
+        <LampButtonAbsolute title="on" />
+        <LampButtonAbsolute title="off" />
       </div>
 
-      <div style={{ display: 'flex', margin: 20 }}>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
         <LampButtonToggle lampnumber={0} />
         <LampButtonToggle lampnumber={1} />
         <LampButtonToggle lampnumber={2} />

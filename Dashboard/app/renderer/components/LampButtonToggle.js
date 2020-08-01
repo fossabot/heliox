@@ -13,7 +13,7 @@ export default function LampButtonToggle(props) {
   return (
     <div>
       <Button
-        style={{ height: 130, width: 130, marginRight: 20, userSelect: 'none' }}
+        style={{ height: 130, width: 130, marginLeft: 10, marginRight: 10 }}
         variant="contained"
         color={lampEnabled ? 'secondary' : 'primary'}
         endIcon={<EmojiObjectsIcon />}
