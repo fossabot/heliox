@@ -93,8 +93,7 @@ app.on('ready', async () => {
       });
     }
 
-    let tray = null;
-    tray = createTray();
+    let tray = createTray();
   });
 
   function createTray() {
