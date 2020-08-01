@@ -10,7 +10,7 @@ byte buttonState[relayCount];
 byte lastButtonState[relayCount];
 
 String receivedCom;
-String sentStatus;
+String statusToSend;
 
 void setup()
 {
@@ -30,7 +30,7 @@ void loop()
 {
     while (Serial.available())
     {
-        receivedCom = Serial.readString(); //FORMAT: 0123 -> toggles all | 12 -> toggles only relay 1 and 2
+        receivedCom = Serial.readString(); //FORMAT: 0123 -> toggles all relays | 12 -> toggles only relay with the index 1 and 2
         Serial.flush();
     }
 
@@ -57,10 +57,10 @@ void loop()
         digitalWrite(relayPin[i], relayState[i]);
         EEPROM.update(i, relayState[i]);
         lastButtonState[i] = buttonState[i];
-        sentStatus += relayState[i];
+        statusToSend += relayState[i];
     }
 
-    Serial.println(sentStatus);
-    sentStatus = "";
+    Serial.println(statusToSend);
+    statusToSend = "";
     receivedCom = "";
 }
