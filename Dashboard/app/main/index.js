@@ -5,9 +5,10 @@ const screenz = require('screenz');
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 let mainWindow = null;
+let tray = null;
 let forceQuit = false;
 
-const windowSize = { width: 630, height: 350 };
+const windowSize = { width: 620, height: 320 };
 const taskBarHeight = 40;
 
 const installExtensions = async () => {
@@ -43,8 +44,10 @@ app.on('ready', async () => {
     y: screenz.height - windowSize.height - taskBarHeight,
     movable: false,
     resizable: false,
+    transparent: true,
     frame: false,
     show: false,
+    skipTaskbar: true,
     alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true,
@@ -83,6 +86,7 @@ app.on('ready', async () => {
       });
     } else {
       mainWindow.on('closed', () => {
+        tray.destroy();
         mainWindow = null;
       });
 
@@ -93,7 +97,7 @@ app.on('ready', async () => {
       });
     }
 
-    let tray = createTray();
+    tray = createTray();
   });
 
   function createTray() {
