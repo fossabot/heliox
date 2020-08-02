@@ -9,6 +9,6 @@ const parser = port.pipe(new Readline({ delimiter: '\r\n' }));
 
 const initialState = { port, parser };
 
-export default (state = initialState, { type, payload }) => {
+export default (state = initialState) => {
   return state;
 };
