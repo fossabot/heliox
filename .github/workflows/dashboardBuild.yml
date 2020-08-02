@@ -24,9 +24,9 @@ jobs:
     - name: Install dependencies
       run: cd Dashboard && yarn --network-timeout 1000000000
     - name: Package for Windows
-      run: yarn pack:win
+      run: cd Dashboard && yarn pack:win
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
       with:
         name: Winx64_executable
-        path: dist/win-unpacked
+        path: Dashboard/dist/win-unpacked
