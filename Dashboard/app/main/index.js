@@ -1,5 +1,5 @@
 import path from 'path';
-import { app, crashReporter, BrowserWindow, Menu, Tray } from 'electron';
+import { app, BrowserWindow, Menu, Tray } from 'electron';
 const screenz = require('screenz');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
@@ -52,7 +52,7 @@ app.on('ready', async () => {
     webPreferences: {
       nodeIntegration: true,
     },
-    icon: path.join(__dirname, '../../dist-assets/icon.ico'),
+    icon: path.join(__dirname, '../../dist-assets/icon2.ico'),
   });
 
   mainWindow.setMenu(null);
@@ -101,7 +101,7 @@ app.on('ready', async () => {
   });
 
   function createTray() {
-    let appIcon = new Tray(path.join(__dirname, '../../dist-assets/icon.ico'));
+    const appIcon = new Tray(path.join(__dirname, '../../dist-assets/tray.ico'));
     const contextMenu = Menu.buildFromTemplate([
       {
         label: 'Show',
@@ -124,7 +124,7 @@ app.on('ready', async () => {
       },
     ]);
 
-    appIcon.on('click', (event) => {
+    appIcon.on('click', () => {
       mainWindow.show();
     });
 
