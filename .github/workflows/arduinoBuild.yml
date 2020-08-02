@@ -1,0 +1,19 @@
+name: Arduino Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run arduino-builder
+      uses: Legion2/arduino-builder-action@v2.0.0
+      with:
+        sketch: ./Arduino/ArduinoRelayControl.ino
