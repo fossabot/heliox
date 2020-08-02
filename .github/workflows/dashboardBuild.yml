@@ -21,8 +21,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install dependencies    
-      run: yarn --network-timeout 1000000000
+    - name: Install dependencies
+      run: cd Dashboard && yarn --network-timeout 1000000000
     - name: Package for Windows
       run: yarn pack:win
     - name: Upload a Build Artifact
