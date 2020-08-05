@@ -9,7 +9,7 @@ const gotTheLock = app.requestSingleInstanceLock();
 app.allowRendererProcessReuse = false;
 
 const windowSize = { width: 620, height: 320 };
-const taskBarHeight = 40;
+const windowOffset = 40;
 const appIconPath = '../../dist-assets/icon2.ico';
 const trayIconPath = '../../dist-assets/tray.ico';
 
@@ -47,7 +47,7 @@ if (!gotTheLock) {
       width: windowSize.width,
       height: windowSize.height,
       x: screenz.width - windowSize.width,
-      y: screenz.height - windowSize.height - taskBarHeight,
+      y: screenz.height - windowSize.height - windowOffset,
       movable: false,
       resizable: false,
       frame: false,
