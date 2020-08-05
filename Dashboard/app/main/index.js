@@ -2,14 +2,16 @@ import path from 'path';
 import { app, BrowserWindow, Menu, Tray } from 'electron';
 const screenz = require('screenz');
 
-const isDevelopment = process.env.NODE_ENV === 'development';
-
 let mainWindow = null;
-let tray = null;
-let forceQuit = false;
+
+const isDevelopment = process.env.NODE_ENV === 'development';
+const gotTheLock = app.requestSingleInstanceLock();
+app.allowRendererProcessReuse = false;
 
 const windowSize = { width: 620, height: 320 };
 const taskBarHeight = 40;
+const appIconPath = '../../dist-assets/icon2.ico';
+const trayIconPath = '../../dist-assets/tray.ico';
 
 const installExtensions = async () => {
   const installer = require('electron-devtools-installer');
@@ -24,129 +26,96 @@ const installExtensions = async () => {
   }
 };
 
-app.on('window-all-closed', () => {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
-
-app.on('ready', async () => {
-  if (isDevelopment) {
-    await installExtensions();
-  }
-
-  mainWindow = new BrowserWindow({
-    width: windowSize.width,
-    height: windowSize.height,
-    x: screenz.width - windowSize.width,
-    y: screenz.height - windowSize.height - taskBarHeight,
-    movable: false,
-    resizable: false,
-    transparent: true,
-    frame: false,
-    show: false,
-    skipTaskbar: true,
-    alwaysOnTop: true,
-    webPreferences: {
-      nodeIntegration: true,
-    },
-    icon: path.join(__dirname, '../../dist-assets/icon2.ico'),
+if (!gotTheLock) {
+  app.quit();
+} else {
+  app.on('second-instance', () => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (mainWindow) {
+      mainWindow.show();
+      mainWindow.focus();
+    }
   });
 
-  mainWindow.setMenu(null);
-
-  mainWindow.loadFile(path.resolve(path.join(__dirname, '../renderer/index.html')));
-
-  // show window once on first load
-  mainWindow.webContents.once('did-finish-load', () => {
-    mainWindow.show();
-  });
-
-  mainWindow.webContents.on('did-finish-load', () => {
-    // Handle window logic properly on macOS:
-    // 1. App should not terminate if window has been closed
-    // 2. Click on icon in dock should re-open the window
-    // 3. ⌘+Q should close the window and quit the app
-    if (process.platform === 'darwin') {
-      mainWindow.on('close', function (e) {
-        if (!forceQuit) {
-          e.preventDefault();
-          mainWindow.hide();
-        }
-      });
-
-      app.on('activate', () => {
-        mainWindow.show();
-      });
-
-      app.on('before-quit', () => {
-        forceQuit = true;
-      });
-    } else {
-      mainWindow.on('closed', () => {
-        tray.destroy();
-        mainWindow = null;
-      });
-
-      app.on('browser-window-blur', () => {
-        if (mainWindow) {
-          mainWindow.hide();
-        }
-      });
+  // Create mainWindow, load the rest of the app, etc...
+  app.on('ready', async () => {
+    if (isDevelopment) {
+      await installExtensions();
     }
 
-    tray = createTray();
+    mainWindow = new BrowserWindow({
+      width: windowSize.width,
+      height: windowSize.height,
+      x: screenz.width - windowSize.width,
+      y: screenz.height - windowSize.height - taskBarHeight,
+      movable: false,
+      resizable: false,
+      frame: false,
+      show: false,
+      skipTaskbar: true,
+      alwaysOnTop: true,
+      webPreferences: {
+        nodeIntegration: true,
+      },
+      icon: path.join(__dirname, appIconPath),
+    });
+
+    mainWindow.setMenu(null);
+    mainWindow.loadFile(path.resolve(path.join(__dirname, '../renderer/index.html')));
+
+    mainWindow.webContents.on('did-finish-load', () => {
+      createTray();
+    });
+
+    if (isDevelopment) {
+      mainWindow.webContents.openDevTools();
+
+      mainWindow.webContents.on('context-menu', (e, props) => {
+        Menu.buildFromTemplate([
+          {
+            label: 'Inspect element',
+            click() {
+              mainWindow.inspectElement(props.x, props.y);
+            },
+          },
+        ]).popup(mainWindow);
+      });
+    }
+  });
+}
+
+function createTray() {
+  const trayIcon = new Tray(path.join(__dirname, trayIconPath));
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Show',
+      click: () => {
+        mainWindow.show();
+        mainWindow.focus();
+      },
+    },
+    {
+      label: 'Exit',
+      click: () => {
+        app.quit();
+      },
+    },
+  ]);
+
+  trayIcon.on('click', () => {
+    mainWindow.show();
+    mainWindow.focus();
   });
 
-  function createTray() {
-    const appIcon = new Tray(path.join(__dirname, '../../dist-assets/tray.ico'));
-    const contextMenu = Menu.buildFromTemplate([
-      {
-        label: 'Show',
-        click: () => {
-          mainWindow.show();
-        },
-      },
-      {
-        label: 'Hide',
-        click: () => {
-          mainWindow.hide();
-        },
-      },
-      {
-        label: 'Exit',
-        click: () => {
-          app.isQuiting = true;
-          app.quit();
-        },
-      },
-    ]);
+  trayIcon.setToolTip('Light Control');
+  trayIcon.setContextMenu(contextMenu);
+  return trayIcon;
+}
 
-    appIcon.on('click', () => {
-      mainWindow.show();
-    });
+app.on('browser-window-blur', () => {
+  mainWindow.hide();
+});
 
-    appIcon.setToolTip('Light Control');
-    appIcon.setContextMenu(contextMenu);
-    return appIcon;
-  }
-
-  if (isDevelopment) {
-    // auto-open dev tools
-    mainWindow.webContents.openDevTools();
-
-    // add inspect element on right click menu
-    mainWindow.webContents.on('context-menu', (e, props) => {
-      Menu.buildFromTemplate([
-        {
-          label: 'Inspect element',
-          click() {
-            mainWindow.inspectElement(props.x, props.y);
-          },
-        },
-      ]).popup(mainWindow);
-    });
-  }
+app.on('window-all-closed', () => {
+  app.quit();
 });
