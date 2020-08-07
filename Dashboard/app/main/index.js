@@ -1,6 +1,7 @@
 import path from 'path';
 import { app, BrowserWindow, Menu, Tray } from 'electron';
 import screenz from 'screenz';
+import els from 'electron-localshortcut';
 
 //App preferences
 const windowSize = { width: 620, height: 320 };
@@ -62,17 +63,21 @@ if (!gotTheLock) {
     mainWindow.setMenu(null);
     mainWindow.loadFile(path.resolve(path.join(__dirname, '../renderer/index.html')));
 
+    //Register shortcut to open devtools
+    els.register(mainWindow, 'Ctrl+Shift+I', () => {
+      if (mainWindow.webContents.isDevToolsOpened()) {
+        mainWindow.webContents.closeDevTools();
+      } else {
+        mainWindow.webContents.openDevTools();
+      }
+    });
+
     //Create tray icon with context menu
     trayIcon = createTray();
 
     //Listen to tray icon onclick event
     trayIcon.on('click', () => {
       mainWindow.show();
-    });
-
-    //Open devtools on startup
-    mainWindow.webContents.on('did-finish-load', () => {
-      mainWindow.webContents.openDevTools();
     });
   });
 }
