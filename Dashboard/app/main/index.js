@@ -1,18 +1,20 @@
 import path from 'path';
 import { app, BrowserWindow, Menu, Tray } from 'electron';
-const screenz = require('screenz');
+import screenz from 'screenz';
 
-let mainWindow = null;
-
-const isDevelopment = process.env.NODE_ENV === 'development';
-const gotTheLock = app.requestSingleInstanceLock();
-app.allowRendererProcessReuse = false;
-
+//App preferences
 const windowSize = { width: 620, height: 320 };
 const windowOffset = 40;
 const appIconPath = '../../dist-assets/icon2.ico';
 const trayIconPath = '../../dist-assets/tray.ico';
 
+let mainWindow = null;
+let mainWindowHidden = true;
+const isDevelopment = process.env.NODE_ENV === 'development';
+const gotTheLock = app.requestSingleInstanceLock();
+app.allowRendererProcessReuse = false;
+
+//Install chrome devtools extensions
 const installExtensions = async () => {
   const installer = require('electron-devtools-installer');
   const extensions = ['REACT_DEVELOPER_TOOLS', 'REDUX_DEVTOOLS'];
@@ -26,18 +28,15 @@ const installExtensions = async () => {
   }
 };
 
+//Force single app instance
 if (!gotTheLock) {
   app.quit();
 } else {
   app.on('second-instance', () => {
-    // Someone tried to run a second instance, we should focus our window.
-    if (mainWindow) {
-      mainWindow.show();
-      mainWindow.focus();
-    }
+    mainWindow.show();
+    mainWindow.focus();
   });
 
-  // Create mainWindow, load the rest of the app, etc...
   app.on('ready', async () => {
     if (isDevelopment) {
       await installExtensions();
@@ -63,13 +62,13 @@ if (!gotTheLock) {
     mainWindow.setMenu(null);
     mainWindow.loadFile(path.resolve(path.join(__dirname, '../renderer/index.html')));
 
+    createTray();
+
     mainWindow.webContents.on('did-finish-load', () => {
-      createTray();
+      mainWindow.webContents.openDevTools();
     });
 
     if (isDevelopment) {
-      mainWindow.webContents.openDevTools();
-
       mainWindow.webContents.on('context-menu', (e, props) => {
         Menu.buildFromTemplate([
           {
@@ -84,6 +83,7 @@ if (!gotTheLock) {
   });
 }
 
+//Create tray icon with context menu
 function createTray() {
   const trayIcon = new Tray(path.join(__dirname, trayIconPath));
   const contextMenu = Menu.buildFromTemplate([
@@ -112,6 +112,7 @@ function createTray() {
   return trayIcon;
 }
 
+//Hide window when out of focus
 app.on('browser-window-blur', () => {
   mainWindow.hide();
 });
