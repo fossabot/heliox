@@ -9,7 +9,6 @@ const appIconPath = '../../dist-assets/icon.ico';
 const trayIconPath = '../../dist-assets/tray.ico';
 
 let mainWindow = null;
-let mainWindowHidden = true;
 let trayIcon = null;
 const isDevelopment = process.env.NODE_ENV === 'development';
 const gotTheLock = app.requestSingleInstanceLock();
