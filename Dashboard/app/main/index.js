@@ -34,7 +34,6 @@ if (!gotTheLock) {
 } else {
   app.on('second-instance', () => {
     mainWindow.show();
-    mainWindow.focus();
   });
 
   app.on('ready', async () => {
@@ -69,7 +68,6 @@ if (!gotTheLock) {
     //Listen to tray icon onclick event
     trayIcon.on('click', () => {
       mainWindow.show();
-      mainWindow.focus();
     });
 
     //Open devtools on startup
@@ -87,7 +85,6 @@ function createTray() {
       label: 'Show',
       click: () => {
         mainWindow.show();
-        mainWindow.focus();
       },
     },
     {
