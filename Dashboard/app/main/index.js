@@ -72,12 +72,14 @@ if (!gotTheLock) {
       }
     });
 
-    //Create tray icon with context menu
-    trayIcon = createTray();
+    mainWindow.webContents.on('did-frame-finish-load', () => {
+      //Create tray icon with context menu
+      trayIcon = createTray();
 
-    //Listen to tray icon onclick event
-    trayIcon.on('click', () => {
-      mainWindow.show();
+      //Listen to tray icon onclick event
+      trayIcon.on('click', () => {
+        mainWindow.show();
+      });
     });
   });
 }
