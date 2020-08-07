@@ -1,13 +1,12 @@
 {
-  "name": "electron-react-redux-boilerplate",
-  "version": "0.0.0",
-  "description": "electron-react-redux-boilerplate",
+  "name": "light-control",
+  "version": "1.0.0",
+  "description": "light-control",
   "main": "init.js",
   "author": {
-    "name": "Jordan Schroter",
-    "email": "email@author.com"
+    "name": "GHOSCHT"
   },
-  "repository": "https://github.com/jschr/electron-react-redux-boilerplate",
+  "repository": "https://github.com/GHOSCHT/light-control",
   "license": "MIT",
   "dependencies": {
     "@babel/register": "^7.9.0",
