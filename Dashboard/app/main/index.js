@@ -10,6 +10,7 @@ const trayIconPath = '../../dist-assets/tray.ico';
 
 let mainWindow = null;
 let mainWindowHidden = true;
+let trayIcon = null;
 const isDevelopment = process.env.NODE_ENV === 'development';
 const gotTheLock = app.requestSingleInstanceLock();
 app.allowRendererProcessReuse = false;
@@ -62,24 +63,16 @@ if (!gotTheLock) {
     mainWindow.setMenu(null);
     mainWindow.loadFile(path.resolve(path.join(__dirname, '../renderer/index.html')));
 
-    createTray();
+    trayIcon = createTray();
+
+    trayIcon.on('click', () => {
+      mainWindow.show();
+      mainWindow.focus();
+    });
 
     mainWindow.webContents.on('did-finish-load', () => {
       mainWindow.webContents.openDevTools();
     });
-
-    if (isDevelopment) {
-      mainWindow.webContents.on('context-menu', (e, props) => {
-        Menu.buildFromTemplate([
-          {
-            label: 'Inspect element',
-            click() {
-              mainWindow.inspectElement(props.x, props.y);
-            },
-          },
-        ]).popup(mainWindow);
-      });
-    }
   });
 }
 
@@ -101,11 +94,6 @@ function createTray() {
       },
     },
   ]);
-
-  trayIcon.on('click', () => {
-    mainWindow.show();
-    mainWindow.focus();
-  });
 
   trayIcon.setToolTip('Light Control');
   trayIcon.setContextMenu(contextMenu);
