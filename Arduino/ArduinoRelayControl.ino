@@ -2,9 +2,9 @@
 
 const int relayCount = 4;
 
-const int relayPin[relayCount] = {3, 4, 5, 6};
-const int btnPin[relayCount] = {7, 8, 9, 10};
-byte relayState[relayCount] = {HIGH, HIGH, HIGH, HIGH}; //high -> relay off
+const int relayPin[relayCount] ={ 2, 3, 5, 6 };
+const int btnPin[relayCount] ={ 7, 8, 9, 10 };
+byte relayState[relayCount] ={ HIGH, HIGH, HIGH, HIGH }; //high -> relay off
 
 byte buttonState[relayCount];
 byte lastButtonState[relayCount];
