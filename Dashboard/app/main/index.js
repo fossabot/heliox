@@ -43,6 +43,7 @@ if (!gotTheLock) {
       await installExtensions();
     }
 
+    //Initialize window
     mainWindow = new BrowserWindow({
       width: windowSize.width,
       height: windowSize.height,
@@ -63,20 +64,23 @@ if (!gotTheLock) {
     mainWindow.setMenu(null);
     mainWindow.loadFile(path.resolve(path.join(__dirname, '../renderer/index.html')));
 
+    //Create tray icon with context menu
     trayIcon = createTray();
 
+    //Listen to tray icon onclick event
     trayIcon.on('click', () => {
       mainWindow.show();
       mainWindow.focus();
     });
 
+    //Open devtools on startup
     mainWindow.webContents.on('did-finish-load', () => {
       mainWindow.webContents.openDevTools();
     });
   });
 }
 
-//Create tray icon with context menu
+//Tray creation
 function createTray() {
   const trayIcon = new Tray(path.join(__dirname, trayIconPath));
   const contextMenu = Menu.buildFromTemplate([
