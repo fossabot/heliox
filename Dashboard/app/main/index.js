@@ -116,7 +116,3 @@ function createTray() {
 app.on('browser-window-blur', () => {
   mainWindow.hide();
 });
-
-app.on('window-all-closed', () => {
-  app.quit();
-});
