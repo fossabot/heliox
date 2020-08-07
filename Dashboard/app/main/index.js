@@ -5,7 +5,7 @@ import screenz from 'screenz';
 //App preferences
 const windowSize = { width: 620, height: 320 };
 const windowOffset = 40;
-const appIconPath = '../../dist-assets/icon2.ico';
+const appIconPath = '../../dist-assets/icon.ico';
 const trayIconPath = '../../dist-assets/tray.ico';
 
 let mainWindow = null;
