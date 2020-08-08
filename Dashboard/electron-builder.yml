@@ -1,6 +1,6 @@
-appId: com.example.app
-copyright: Example co
-productName: LampControl
+appId: light.control.yeet
+copyright: GHOSCHT
+productName: LightControl
 
 asar: true
 
