@@ -1,7 +1,6 @@
 {
   "name": "light-control",
-  "version": "1.0.0",
-  "description": "light-control",
+  "version": "4.2.0",
   "main": "init.js",
   "author": {
     "name": "GHOSCHT"

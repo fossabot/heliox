@@ -1,4 +1,3 @@
-appId: light.control.yeet
 copyright: GHOSCHT
 productName: LightControl
 
@@ -36,3 +35,9 @@ linux:
   target:
     - deb
     - AppImage
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  perMachine: false
+  artifactName: ${productName} Setup.${ext}
