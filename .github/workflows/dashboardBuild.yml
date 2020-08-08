@@ -25,13 +25,13 @@ jobs:
       run: cd Dashboard && yarn --network-timeout 1000000000
     - name: Package for Windows
       run: cd Dashboard && yarn pack:win
-    - name: Upload unpacked files
-      uses: actions/upload-artifact@v2
-      with:
-        name: LightControl-Unpacked.zip
-        path: Dashboard/dist/win-unpacked
     - name: Upload installer
       uses: actions/upload-artifact@v2
       with:
-        name: LightControl-Setup.exe
+        name: LightControl-Setup
         path: Dashboard/dist/LightControl-Setup.exe
+    - name: Upload portable files
+      uses: actions/upload-artifact@v2
+      with:
+        name: LightControl-Portable
+        path: Dashboard/dist/win-unpacked  
