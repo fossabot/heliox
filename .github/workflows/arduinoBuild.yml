@@ -16,4 +16,4 @@ jobs:
     - name: Run arduino-builder
       uses: Legion2/arduino-builder-action@v2.0.0
       with:
-        sketch: ./Arduino/ArduinoRelayControl.ino
+        sketch: ./Arduino/ArduinoControl.ino
