@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/';
 import Button from '@material-ui/core/Button';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
@@ -6,10 +6,20 @@ import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
 export default function LampButtonToggle(props) {
   const comConnection = useSelector((state) => state.comConnectionReducer);
   const [comData, setComData] = useState('');
-  comConnection.parser.on('data', (data) => {
+
+  const comDataListener = (data) => {
     setComData(data);
-  });
+  };
+
+  useEffect(() => {
+    comConnection.parser.on('data', comDataListener);
+    return () => {
+      comConnection.parser.removeListener('data', comDataListener);
+    };
+  }, []);
+
   const lampEnabled = comData[props.lampnumber] === '1';
+
   return (
     <div>
       <Button
