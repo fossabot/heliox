@@ -40,4 +40,4 @@ nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
   perMachine: false
-  artifactName: ${productName} Setup.${ext}
+  artifactName: ${productName}-Setup.${ext}
