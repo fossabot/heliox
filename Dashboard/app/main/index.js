@@ -2,12 +2,7 @@ import path from 'path';
 import { app, BrowserWindow, Menu, Tray } from 'electron';
 import screenz from 'screenz';
 import els from 'electron-localshortcut';
-
-//App preferences
-const windowSize = { width: 620, height: 320 };
-const windowOffset = 40;
-const appIconPath = '../../dist-assets/icon.ico';
-const trayIconPath = '../../dist-assets/tray.ico';
+import { windowSize, windowOffset, appIconPath, trayIconPath } from './constants';
 
 let mainWindow = null;
 let trayIcon = null;
