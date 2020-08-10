@@ -7,6 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import { ThemeProvider } from '@material-ui/core/styles';
 import LampButtonList from './components/LampButtonList';
+import Header from './components/Header';
 
 const store = createStore(
   rootReducer,
@@ -31,6 +32,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
+      <Header error={false} />
       <LampButtonList />
     </ThemeProvider>
   </Provider>,
