@@ -2,9 +2,9 @@
 
 const int bjtCount = 4;
 
-const int bjtPin[bjtCount] ={ 2, 3, 5, 6 };
-const int btnPin[bjtCount] ={ 7, 8, 9, 10 };
-byte bjtState[bjtCount] ={ HIGH, HIGH, HIGH, HIGH }; //high -> bjt "open"
+const int bjtPin[bjtCount] = {6, 5, 3, 10};
+const int btnPin[bjtCount] = {7, 8, 9, 4};
+int bjtState[bjtCount] = {255, 255, 255, 255}; //255 -> bjt max "open"
 
 byte btnState[bjtCount];
 byte lastbtnState[bjtCount];
@@ -40,23 +40,31 @@ void loop()
         if ((btnState[i] == LOW && btnState[i] != lastbtnState[i]) || (receivedData.indexOf(String(i)) >= 0))
         {
             receivedData.replace(String(i), "");
-            bjtState[i] = !bjtState[i];
+
+            if (bjtState[i] != 0)
+            {
+                bjtState[i] = 0;
+            }
+            else
+            {
+                bjtState[i] = 255;
+            }
         }
 
         if (receivedData == "off")
         {
-            bjtState[i] = LOW;
+            bjtState[i] = 0;
         }
 
         if (receivedData == "on")
         {
-            bjtState[i] = HIGH;
+            bjtState[i] = 255;
         }
 
-        digitalWrite(bjtPin[i], bjtState[i]);
+        analogWrite(bjtPin[i], bjtState[i]);
         EEPROM.update(i, bjtState[i]);
         lastbtnState[i] = btnState[i];
-        pendingData += bjtState[i];
+        pendingData += String(bjtState[i]) + ",";
     }
 
     Serial.println(pendingData);
