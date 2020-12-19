@@ -25,11 +25,36 @@ void setup()
     }
 }
 
+void toggleLED(int i)
+{
+    if (bjtState[i] != 0)
+    {
+        bjtState[i] = 0;
+    }
+    else
+    {
+        bjtState[i] = 255;
+    }
+}
+
+void absoluteLED(String data, int i)
+{
+    if (data == "off")
+    {
+        bjtState[i] = 0;
+    }
+
+    if (data == "on")
+    {
+        bjtState[i] = 255;
+    }
+}
+
 void loop()
 {
     while (Serial.available())
     {
-        receivedData = Serial.readString(); //FORMAT: 0123 -> toggles all bjts | 12 -> toggles only bjts with the index 1 and 2
+        receivedData = Serial.readString(); //FORMAT: index of light + t oggle, i ncrease, d ecrease -> eg. 0t
         Serial.flush();
     }
 
@@ -37,28 +62,38 @@ void loop()
     {
         btnState[i] = digitalRead(btnPin[i]);
 
-        if ((btnState[i] == LOW && btnState[i] != lastbtnState[i]) || (receivedData.indexOf(String(i)) >= 0))
+        if ((btnState[i] == LOW && btnState[i] != lastbtnState[i]))
         {
-            receivedData.replace(String(i), "");
+            toggleLED(i);
+        }
 
-            if (bjtState[i] != 0)
+        if (receivedData.indexOf(String(i)) == 0 && receivedData.length() == 2)
+        {
+            if (receivedData.indexOf("t") >= 0)
             {
-                bjtState[i] = 0;
+                toggleLED(i);
             }
-            else
+            else if (receivedData.indexOf("i") >= 0)
             {
-                bjtState[i] = 255;
+                bjtState[i] += 5;
+            }
+            else if (receivedData.indexOf("d") >= 0)
+            {
+                bjtState[i] -= 5;
             }
         }
 
-        if (receivedData == "off")
-        {
-            bjtState[i] = 0;
-        }
+        absoluteLED(receivedData, i);
 
-        if (receivedData == "on")
+        //clamp state between 0 and 255
+        if (bjtState[i] > 255)
         {
             bjtState[i] = 255;
+        }
+
+        if (bjtState[i] < 0)
+        {
+            bjtState[i] = 0;
         }
 
         analogWrite(bjtPin[i], bjtState[i]);
