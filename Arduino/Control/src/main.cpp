@@ -12,14 +12,73 @@ String receivedSerialData;
 String pendingSerialData;
 String receivedI2cData;
 
-void receiveEvent(int howMany)
+void changeLights(String data)
 {
-  char buff[howMany];
-  for (int i = 0; i < howMany; i++)
+  for (int i = 0; i < bjtCount; i++)
   {
-    buff[i] = Wire.read();
+    if (data.indexOf(String(i)) == 0) //changed to i2c for testing
+    {
+      if (data.indexOf("t") == 1) //changed to i2c for testing
+      {
+        if (bjtState[i] != 0)
+        {
+          bjtState[i] = 0;
+        }
+        else
+        {
+          bjtState[i] = 255;
+        }
+      }
+      else if (data.indexOf("i") == 1)
+      {
+        bjtState[i] += 5;
+      }
+      else if (data.indexOf("d") == 1)
+      {
+        bjtState[i] -= 5;
+      }
+    }
+
+    //clamp state between 0 and 255
+    if (bjtState[i] > 255)
+    {
+      bjtState[i] = 255;
+    }
+
+    if (bjtState[i] < 0)
+    {
+      bjtState[i] = 0;
+    }
+
+    //set absolute state for all
+    if (data == "off")
+    {
+      bjtState[i] = 0;
+    }
+
+    if (data == "on")
+    {
+      bjtState[i] = 255;
+    }
+
+    analogWrite(bjtPin[i], bjtState[i]);
+    EEPROM.update(i, bjtState[i]);
   }
-  receivedI2cData = String(buff);
+
+  receivedSerialData = "";
+  receivedI2cData = "";
+}
+
+void receiveEvent(int byteCount)
+{
+  char buffer[byteCount];
+  for (int i = 0; i < byteCount; i++)
+  {
+    buffer[i] = Wire.read();
+  }
+  receivedI2cData = String(buffer);
+
+  changeLights(receivedI2cData);
 }
 
 void setup()
@@ -37,77 +96,22 @@ void setup()
   }
 }
 
-void toggleLED(int i)
-{
-  if (bjtState[i] != 0)
-  {
-    bjtState[i] = 0;
-  }
-  else
-  {
-    bjtState[i] = 255;
-  }
-}
-
-void absoluteLED(String data, int i)
-{
-  if (data == "off")
-  {
-    bjtState[i] = 0;
-  }
-
-  if (data == "on")
-  {
-    bjtState[i] = 255;
-  }
-}
-
 void loop()
 {
   while (Serial.available())
   {
     receivedSerialData = Serial.readString(); //FORMAT: index of light + t oggle, i ncrease, d ecrease -> eg. 0t
     Serial.flush();
-    Serial.println("cum");
   }
 
+  changeLights(receivedSerialData);
+
+  pendingSerialData = "";
   for (int i = 0; i < bjtCount; i++)
   {
-    if ((receivedI2cData.indexOf(String(i)) == 0)) //changed to i2c for testing
-    {
-      if (receivedI2cData.indexOf("t") >= 0) //changed to i2c for testing
-      {
-        toggleLED(i);
-      }
-      else if (receivedSerialData.indexOf("i") >= 0)
-      {
-        bjtState[i] += 5;
-      }
-      else if (receivedSerialData.indexOf("d") >= 0)
-      {
-        bjtState[i] -= 5;
-      }
-    }
-
-    absoluteLED(receivedSerialData, i);
-
-    //clamp state between 0 and 255 if (bjtState[i] > 255)
-    {
-      bjtState[i] = 255;
-    }
-
-    if (bjtState[i] < 0)
-    {
-      bjtState[i] = 0;
-    }
-
-    analogWrite(bjtPin[i], bjtState[i]);
-    EEPROM.update(i, bjtState[i]);
+    noInterrupts();
     pendingSerialData += String(bjtState[i]) + ",";
+    interrupts();
   }
-
   Serial.println(pendingSerialData);
-  pendingSerialData = "";
-  receivedSerialData = "";
-  receivedI2cData = "";
 }
