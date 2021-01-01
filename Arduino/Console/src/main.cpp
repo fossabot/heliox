@@ -2,12 +2,13 @@
 #include <Wire.h>
 
 const int SLAVE_ADDR = 9;
-const int CLK_PIN = 5;
-const int DATA_PIN = 6;
+const int CLK_PIN = 6;
+const int DATA_PIN = 5;
 
 //int prevPlus;
 const int bjtCount = 4;
 const int btnPin[bjtCount] = {7, 8, 9, 10};
+int prevPlus = 0;
 
 byte btnState[bjtCount];
 byte lastbtnState[bjtCount];
@@ -35,34 +36,34 @@ void transmit(String plus)
 
 void loop()
 {
-    // static uint16_t state = 0;
+    static uint16_t state = 0;
 
-    // delayMicroseconds(100);
+    delayMicroseconds(100);
 
-    // state = (state << 1) | digitalRead(CLK_PIN) | 0xe000;
+    state = (state << 1) | digitalRead(CLK_PIN) | 0xe000;
 
-    // if (state == 0xf000)
-    // {
-    //     state = 0x0000;
-    //     if (digitalRead(DATA_PIN))
-    //     {
-    //         if (prevPlus == 1)
-    //         {
-    //             Serial.println("+");
-    //             transmit(1);
-    //         }
-    //         prevPlus = 1;
-    //     }
-    //     else
-    //     {
-    //         if (prevPlus == 0)
-    //         {
-    //             Serial.println("-");
-    //             transmit(0);
-    //         }
-    //         prevPlus = 0;
-    //     }
-    // }
+    if (state == 0xf000)
+    {
+        state = 0x0000;
+        if (digitalRead(DATA_PIN))
+        {
+            if (prevPlus == 1)
+            {
+                Serial.println("+");
+                transmit("2i");
+            }
+            prevPlus = 1;
+        }
+        else
+        {
+            if (prevPlus == 0)
+            {
+                Serial.println("-");
+                transmit("2d");
+            }
+            prevPlus = 0;
+        }
+    }
 
     for (int i = 0; i < bjtCount; i++)
     {
