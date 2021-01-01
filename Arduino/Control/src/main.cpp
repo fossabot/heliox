@@ -8,17 +8,20 @@ const int bjtCount = 4;
 const int bjtPin[bjtCount] = {6, 5, 3, 10};
 int bjtState[bjtCount] = {255, 255, 255, 255}; //255 -> bjt max "open"
 
-String receivedSerialData;
+char receivedSerialData[4];
+char receivedI2cData[4];
 String pendingSerialData;
-String receivedI2cData;
 
-void changeLights(String data)
+void changeLights(char data[])
 {
   for (int i = 0; i < bjtCount; i++)
   {
-    if (data.indexOf(String(i)) == 0) //changed to i2c for testing
+    char numChar[2];
+    itoa(i, numChar, 10);
+
+    if (data[0] == numChar[0])
     {
-      if (data.indexOf("t") == 1) //changed to i2c for testing
+      if (data[1] == 't')
       {
         if (bjtState[i] != 0)
         {
@@ -29,11 +32,11 @@ void changeLights(String data)
           bjtState[i] = 255;
         }
       }
-      else if (data.indexOf("i") == 1)
+      else if (data[1] == 'i')
       {
         bjtState[i] += 5;
       }
-      else if (data.indexOf("d") == 1)
+      else if (data[1] == 'd')
       {
         bjtState[i] -= 5;
       }
@@ -51,12 +54,12 @@ void changeLights(String data)
     }
 
     //set absolute state for all
-    if (data == "off")
+    if (!strcmp(data, "off"))
     {
       bjtState[i] = 0;
     }
 
-    if (data == "on")
+    if (!strcmp(data, "on"))
     {
       bjtState[i] = 255;
     }
@@ -65,8 +68,7 @@ void changeLights(String data)
     EEPROM.update(i, bjtState[i]);
   }
 
-  receivedSerialData = "";
-  receivedI2cData = "";
+  memset(data, ' ', 3);
 }
 
 void receiveEvent(int byteCount)
@@ -76,9 +78,8 @@ void receiveEvent(int byteCount)
   {
     buffer[i] = Wire.read();
   }
-  receivedI2cData = String(buffer);
-
-  changeLights(receivedI2cData);
+  memset(receivedI2cData, ' ', 3);
+  strcpy(receivedI2cData, buffer);
 }
 
 void setup()
@@ -92,7 +93,7 @@ void setup()
   {
     pinMode(bjtPin[i], OUTPUT);
     bjtState[i] = EEPROM.read(i);
-    digitalWrite(bjtPin[i], bjtState[i]);
+    analogWrite(bjtPin[i], bjtState[i]);
   }
 }
 
@@ -100,11 +101,11 @@ void loop()
 {
   while (Serial.available())
   {
-    receivedSerialData = Serial.readString(); //FORMAT: index of light + t oggle, i ncrease, d ecrease -> eg. 0t
-    Serial.flush();
+    strcpy(receivedSerialData, Serial.readString().c_str());
   }
 
   changeLights(receivedSerialData);
+  changeLights(receivedI2cData);
 
   pendingSerialData = "";
   for (int i = 0; i < bjtCount; i++)
@@ -113,5 +114,6 @@ void loop()
     pendingSerialData += String(bjtState[i]) + ",";
     interrupts();
   }
+  pendingSerialData.remove(pendingSerialData.length() - 1);
   Serial.println(pendingSerialData);
 }
