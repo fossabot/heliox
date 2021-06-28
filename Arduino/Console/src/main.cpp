@@ -1,14 +1,6 @@
 #include <Arduino.h>
 #include <Wire.h>
 
-//I2C
-const int SLAVE_ADDR = 9;
-
-//Rotary Encoder
-const int CLK_PIN = 6;
-const int DATA_PIN = 5;
-int prevPlus = 0;
-
 //General
 const int bjtCount = 4;
 const int btnPin[bjtCount] = {7, 8, 9, 10};
@@ -19,17 +11,23 @@ byte lastBtnState[bjtCount] = {HIGH, HIGH, HIGH, HIGH};
 unsigned long lastDebounceTime[bjtCount] = {0, 0, 0, 0};
 unsigned long debounceDelay = 50;
 
+//I2C
+const int SLAVE_ADDR = 9;
+
+//Rotary Encoder
+const int encClkPin[1] = {6};
+const int encDtPin[1] = {5};
+
 void setup()
 {
     Serial.begin(9600);
     Wire.begin();
 
-    pinMode(CLK_PIN, INPUT);
-    pinMode(DATA_PIN, INPUT);
-
     for (int i = 0; i < bjtCount; i++)
     {
         pinMode(btnPin[i], INPUT_PULLUP);
+        pinMode(encClkPin[i], INPUT_PULLUP);
+        pinMode(encDtPin[i], INPUT_PULLUP);
     }
 }
 
@@ -72,30 +70,23 @@ void loop()
     }
 
     //Rotary Encoder
-    static uint16_t state = 0;
+    static uint16_t state[1] = {0};
 
-    delayMicroseconds(100);
+    //delayMicroseconds(100); // Simulate doing somehing else as well.
 
-    state = (state << 1) | digitalRead(CLK_PIN) | 0xe000;
-
-    if (state == 0xf000)
+    for (int i = 0; i < 1; i++)
     {
-        state = 0x0000;
-        if (digitalRead(DATA_PIN))
+        state[i] = (state[i] << 1) | digitalRead(encClkPin[i]) | 0xe000;
+
+        if (state[i] == 0xf000)
         {
-            if (prevPlus == 1)
-            {
+            state[i] = 0x0000;
+            if (digitalRead(encDtPin[i]))
+                //transmit(String(i) + "i");
                 transmit("2i");
-            }
-            prevPlus = 1;
-        }
-        else
-        {
-            if (prevPlus == 0)
-            {
+            else
+                //transmit(String(i) + "d");
                 transmit("2d");
-            }
-            prevPlus = 0;
         }
     }
 }
