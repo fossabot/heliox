@@ -4,7 +4,8 @@ import Button from '@material-ui/core/Button';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
 
 export default function LampButtonToggle(props) {
-  const comConnection = useSelector((state) => state.comConnectionReducer);
+  //const comConnection = useSelector((state) => state.comConnectionReducer);
+  const comConnection = null;
   const [comData, setComData] = useState('');
 
   const comDataListener = (data) => {

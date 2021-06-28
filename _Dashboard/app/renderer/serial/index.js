@@ -8,7 +8,3 @@ const port = new SerialPort('COM6', {
 const parser = port.pipe(new Readline({ delimiter: '\r\n' }));
 
 const initialState = { port, parser };
-
-export default (state = initialState) => {
-  return state;
-};
