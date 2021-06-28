@@ -1,24 +1,31 @@
 #include <Arduino.h>
 #include <Wire.h>
 
+//I2C
 const int SLAVE_ADDR = 9;
+
+//Rotary Encoder
 const int CLK_PIN = 6;
 const int DATA_PIN = 5;
-
-//int prevPlus;
-const int bjtCount = 4;
-const int btnPin[bjtCount] = {7, 8, 9, 10};
 int prevPlus = 0;
 
+//General
+const int bjtCount = 4;
+const int btnPin[bjtCount] = {7, 8, 9, 10};
+
 byte btnState[bjtCount];
-byte lastbtnState[bjtCount];
+byte lastBtnState[bjtCount] = {HIGH, HIGH, HIGH, HIGH};
+
+unsigned long lastDebounceTime[bjtCount] = {0, 0, 0, 0};
+unsigned long debounceDelay = 50;
 
 void setup()
 {
-    pinMode(CLK_PIN, INPUT);
-    pinMode(DATA_PIN, INPUT);
     Serial.begin(9600);
     Wire.begin();
+
+    pinMode(CLK_PIN, INPUT);
+    pinMode(DATA_PIN, INPUT);
 
     for (int i = 0; i < bjtCount; i++)
     {
@@ -26,16 +33,45 @@ void setup()
     }
 }
 
-void transmit(String plus)
+void transmit(String data)
 {
     Wire.beginTransmission(SLAVE_ADDR);
-    Wire.write(plus.c_str(), 2);
-    Serial.println(plus.c_str());
+    Wire.write(data.c_str(), 2);
+    Serial.println(data.c_str());
     Wire.endTransmission();
 }
 
 void loop()
 {
+    //Buttons
+    byte btnReading[bjtCount];
+
+    for (int i = 0; i < bjtCount; i++)
+    {
+        btnReading[i] = digitalRead(btnPin[i]);
+
+        if (btnReading[i] != lastBtnState[i])
+        {
+            lastDebounceTime[i] = millis();
+        }
+
+        if ((millis() - lastDebounceTime[i]) > debounceDelay)
+        {
+            if (btnReading[i] != btnState[i])
+            {
+                btnState[i] = btnReading[i];
+
+                if (btnState[i] == LOW)
+                {
+                    transmit(String(i) + "t");
+                }
+            }
+        }
+
+        lastBtnState[i] = btnReading[i];
+    }
+
+    //Rotary Encoder
     static uint16_t state = 0;
 
     delayMicroseconds(100);
@@ -49,7 +85,6 @@ void loop()
         {
             if (prevPlus == 1)
             {
-                Serial.println("+");
                 transmit("2i");
             }
             prevPlus = 1;
@@ -58,22 +93,9 @@ void loop()
         {
             if (prevPlus == 0)
             {
-                Serial.println("-");
                 transmit("2d");
             }
             prevPlus = 0;
         }
-    }
-
-    for (int i = 0; i < bjtCount; i++)
-    {
-        btnState[i] = digitalRead(btnPin[i]);
-
-        if ((btnState[i] == LOW && btnState[i] != lastbtnState[i]))
-        {
-            transmit(String(i) + "t");
-        }
-
-        lastbtnState[i] = btnState[i];
     }
 }
