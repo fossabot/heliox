@@ -1,0 +1,24 @@
+{
+  "name": "smart-lamp-control",
+  "version": "1.0.0",
+  "description": "[![Dashboard Build](https://github.com/GHOSCHT/light-control/workflows/Dashboard%20Build/badge.svg)](https://github.com/GHOSCHT/light-control/actions?query=workflow%3A%22Dashboard+Build%22)\r [![Arduino Build](https://github.com/GHOSCHT/light-control/workflows/Arduino%20Build/badge.svg)](https://github.com/GHOSCHT/light-control/actions?query=workflow%3A%22Arduino+Build%22)\r [![Dashboard Lint](https://github.com/GHOSCHT/light-control/workflows/Dashboard%20Lint/badge.svg)](https://github.com/GHOSCHT/light-control/actions?query=workflow%3A%22Dashboard+Lint%22)\r [![Codacy Badge](https://app.codacy.com/project/badge/Grade/a9b402f8172d416db53b7dd282133094)](https://www.codacy.com/manual/GHOSCHT/light-control?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=GHOSCHT/light-control&amp;utm_campaign=Badge_Grade)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GHOSCHT/light-control.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GHOSCHT/light-control/issues"
+  },
+  "homepage": "https://github.com/GHOSCHT/light-control#readme",
+  "devDependencies": {
+    "husky": "^6.0.0"
+  }
+}
