@@ -20,5 +20,16 @@
   "homepage": "https://github.com/GHOSCHT/light-control#readme",
   "devDependencies": {
     "husky": "^6.0.0"
+  },
+  "dependencies": {
+    "lint-staged": "^11.0.0"
+  },
+  "lint-staged": {
+    "*": "yarn --cwd ./Dashboard run lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
