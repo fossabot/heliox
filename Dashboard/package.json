@@ -40,7 +40,8 @@
     "electron": "wait-on tcp:8080 && electron .",
     "package": "yarn build && electron-builder --publish never",
     "postinstall": "electron-builder install-app-deps",
-    "lint": "cross-env NODE_ENV=development eslint . --cache --fix --ext .js,.jsx,.ts,.tsx"
+    "lint": "cross-env NODE_ENV=development eslint . --cache --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "cross-env NODE_ENV=development eslint . --cache --fix --ext .js,.jsx,.ts,.tsx"
   },
   "license": "ISC",
   "dependencies": {
