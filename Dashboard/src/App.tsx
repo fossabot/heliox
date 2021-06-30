@@ -36,6 +36,16 @@ const App = () => {
         close
       </button>
       <button type="button" onClick={handler}>send</button>
+      <button
+        type="button"
+        onClick={() => {
+          const list = SerialPort.list();
+          list.then((arg) => { console.log(arg); });
+        }}
+      >
+        list
+      </button>
+
     </div>
   );
 };
