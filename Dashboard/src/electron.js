@@ -97,7 +97,7 @@ app.on("browser-window-blur", () => {
 // code. You can also put them in separate files and require them here.
 
 function createTray() {
-  const trayIcon = new Tray(getAssetPath("tray.png"));
+  const trayIcon = new Tray(getAssetPath("tray.ico"));
   const contextMenu = Menu.buildFromTemplate([
     {
       label: "Show",
