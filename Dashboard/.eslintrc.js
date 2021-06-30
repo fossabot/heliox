@@ -21,6 +21,7 @@ module.exports = {
     "consistent-return": ["error", { treatUndefinedAsUnspecified: false }],
     quotes: ["error", "double"],
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
+    "no-console": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
