@@ -8,7 +8,7 @@
   "main": "src/electron.js",
   "private": true,
   "build": {
-    "productName": "LighControl",
+    "productName": "Light Control",
     "appId": "lightcontrol.dashboard",
     "buildDependenciesFromSource": true,
     "npmRebuild": false,
@@ -17,6 +17,11 @@
         "nsis"
       ],
       "icon": "./assets/icons/win/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "include": "./scripts/installer.nsh"
     },
     "directories": {
       "buildResources": "assets",
