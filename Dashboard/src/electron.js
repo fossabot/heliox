@@ -90,7 +90,9 @@ app.on("activate", () => {
 
 // Hide window when out of focus
 app.on("browser-window-blur", () => {
-  mainWindow.hide();
+  if (!isDev) {
+    mainWindow.hide();
+  }
 });
 
 // In this file you can include the rest of your app's specific main process
