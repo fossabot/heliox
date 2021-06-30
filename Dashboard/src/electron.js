@@ -31,7 +31,7 @@ const getAssetPath = (...paths) => path.join(RESOURCES_PATH, ...paths);
 
 function createWindow() {
   // Create the browser window.
-  const win = new BrowserWindow({
+  const mainWindow = new BrowserWindow({
     width: 620,
     height: 350,
     x: screenz.width - 620,
@@ -54,7 +54,7 @@ function createWindow() {
   tray.setTitle("hello world");
 
   // and load the index.html of the app.
-  win.loadURL(
+  mainWindow.loadURL(
     isDev
       ? "http://localhost:8080"
       : `file://${path.join(__dirname, "../build/index.html")}`,
@@ -62,7 +62,7 @@ function createWindow() {
 
   // Open the DevTools.
   if (isDev) {
-    win.webContents.openDevTools({ mode: "detach" });
+    mainWindow.webContents.openDevTools({ mode: "detach" });
   }
 }
 
