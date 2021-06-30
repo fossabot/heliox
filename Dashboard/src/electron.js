@@ -46,7 +46,7 @@ function createWindow() {
     vibrancy: {
       effect: "acrylic",
       useCustomWindowRefreshMethod: true,
-      disableOnBlur: true,
+      disableOnBlur: false,
     },
   });
 
