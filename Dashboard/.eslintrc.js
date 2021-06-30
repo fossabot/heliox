@@ -20,5 +20,24 @@ module.exports = {
     "react/jsx-filename-extension": [1, { extensions: [".tsx", ".ts"] }],
     "consistent-return": ["error", { treatUndefinedAsUnspecified: false }],
     quotes: ["error", "double"],
+    "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
+      },
+    ],
   },
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
+  },
+
 };
