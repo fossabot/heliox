@@ -1,8 +1,10 @@
 /* eslint global-require: off, no-console: off */
 const path = require("path");
+const { BrowserWindow } = require("electron-acrylic-window");
 
-const { app, BrowserWindow, Tray } = require("electron");
+const { app, Tray } = require("electron");
 const isDev = require("electron-is-dev");
+const screenz = require("screenz");
 
 let tray = null;
 
@@ -30,12 +32,21 @@ const getAssetPath = (...paths) => path.join(RESOURCES_PATH, ...paths);
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 620,
+    height: 350,
+    x: screenz.width - 620,
+    y: screenz.height - 350 - 40,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
       contextIsolation: false,
+    },
+    transparent: true,
+    frame: false,
+    vibrancy: {
+      effect: "acrylic",
+      useCustomWindowRefreshMethod: true,
+      disableOnBlur: true,
     },
   });
 
