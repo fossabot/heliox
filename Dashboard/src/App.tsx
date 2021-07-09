@@ -1,5 +1,6 @@
 import React from "react";
 import SerialPort from "serialport";
+import Knob from "../assets/Knob.svg";
 
 const App = () => {
   const port = new SerialPort("COM5", {
@@ -18,7 +19,8 @@ const App = () => {
 
   return (
     <div>
-      <h3>Hello World</h3>
+      <img src={Knob} alt="Knob" height="180px" />
+
       <button
         type="button"
         onClick={() => {
