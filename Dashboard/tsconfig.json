@@ -22,6 +22,6 @@
     "resolveJsonModule": true,
     "allowJs": true
   },
-  "include": ["src"],
+  "include": ["src", "assets/assets.d.ts"],
   "exclude": ["src/electron.js"]
 }
