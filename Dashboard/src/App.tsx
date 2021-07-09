@@ -1,8 +1,14 @@
 import React from "react";
 import SerialPort from "serialport";
+import { remote } from "electron";
 import Knob from "../assets/Knob.svg";
 
 const App = () => {
+  // https://www.electronjs.org/docs/api/system-preferences#systempreferencesgetcolorcolor-windows-macos
+  console.log(remote.systemPreferences.getColor("active-border")); // border
+  // https://www.electronjs.org/docs/api/system-preferences#systempreferencesgetaccentcolor-windows-macos
+  console.log(remote.systemPreferences.getAccentColor()); // accent color
+
   const port = new SerialPort("COM5", {
     baudRate: 9600,
     autoOpen: false,
