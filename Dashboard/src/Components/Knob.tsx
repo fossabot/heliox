@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import styled from "styled-components";
 
 const SvgHeight = 180;
+const steps = 5;
 
 const KnobSVG = styled.svg`
   .cls-1 {
@@ -23,18 +24,23 @@ const KnobSVG = styled.svg`
   }
 `;
 
-const Knob = () => {
+interface Proptypes {
+  increase: () => void;
+  decrease: () => void;
+  toggle: () => void;
+}
+
+const Knob = (props: Proptypes) => {
   const overlayRef = useRef<SVGGElement>(null);
 
   let isMouseDown = false;
+  let prevAngle = 0;
 
   const move = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
     const relativePosX = e.nativeEvent.offsetX - SvgHeight / 2;
     const relativePosY = e.nativeEvent.offsetY - SvgHeight / 2;
-    // console.log(`X:${relativePosX}|Y:${relativePosY}`);
 
     const angleDegree = Math.atan2(relativePosY, relativePosX) * (180 / Math.PI);
-    // console.log(angleDegree);
 
     let angle = 0;
     angle = angleDegree + 85;
@@ -43,12 +49,20 @@ const Knob = () => {
     } else if (angle > 360) {
       angle = 360 - angle;
     }
-    //   console.log(angle);
 
     if (overlayRef.current !== null) {
       overlayRef.current.style.transformOrigin = "50% 50%";
       overlayRef.current.style.transform = `rotate(${angle}deg)`;
     }
+
+    if (angle % steps === Math.round(angle % steps)) {
+      if (prevAngle < angle) {
+        props.increase();
+      } else if (prevAngle > angle) {
+        props.decrease();
+      }
+    }
+    prevAngle = angle;
   };
 
   const mouseDownHandler: React.MouseEventHandler<SVGElement> = (e) => {
@@ -74,19 +88,7 @@ const Knob = () => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 141.73 141.73"
         height={`${SvgHeight}px`}
-        // onClick={() => {
-        //   if (overlayRef.current !== null) {
-        //     overlayRef.current.style.transformOrigin = "50% 50%";
-        //     overlayRef.current.style.transform = `rotate(${i}deg)`;
-        //     i += 20;
-        //   }
-        // }}
-        onContextMenu={() => {
-          if (overlayRef.current !== null) {
-            overlayRef.current.style.transformOrigin = "50% 50%";
-            overlayRef.current.style.transform = `rotate(${0}deg)`;
-          }
-        }}
+        onContextMenu={() => { props.toggle(); }}
         onMouseDown={mouseDownHandler}
         onMouseUp={mouseUpHandler}
         onMouseMove={mouseMoveHandler}

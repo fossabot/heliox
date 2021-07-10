@@ -25,7 +25,7 @@ const App = () => {
 
   return (
     <div>
-      <Knob />
+      <Knob increase={() => { console.log("inc"); }} decrease={() => { console.log("dec"); }} toggle={() => { console.log("togg"); }} />
       {/* <button
         type="button"
         onClick={() => {
