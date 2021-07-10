@@ -5,20 +5,16 @@ const { BrowserWindow } = require("electron-acrylic-window");
 const { app, Tray, Menu } = require("electron");
 const isDev = require("electron-is-dev");
 const screenz = require("screenz");
+const els = require("electron-localshortcut");
+const devTools = require("electron-devtools-installer");
 
 let tray = null;
 let mainWindow = null;
 const gotTheLock = app.requestSingleInstanceLock();
 
 // Conditionally include the dev tools installer to load React Dev Tools
-let installExtension;
-let REACT_DEVELOPER_TOOLS;
-
-if (isDev) {
-  const devTools = require("electron-devtools-installer");
-  installExtension = devTools.default;
-  REACT_DEVELOPER_TOOLS = devTools.REACT_DEVELOPER_TOOLS;
-}
+const installExtension = devTools.default;
+const { REACT_DEVELOPER_TOOLS } = devTools;
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling
 if (require("electron-squirrel-startup")) {
@@ -68,6 +64,16 @@ function createWindow() {
   if (isDev) {
     win.webContents.openDevTools({ mode: "detach" });
   }
+
+  // Register shortcut to open devtools
+  els.register(win, "Ctrl+Shift+I", () => {
+    if (win.webContents.isDevToolsOpened()) {
+      win.webContents.closeDevTools();
+    } else {
+      win.webContents.openDevTools({ mode: "detach" });
+    }
+  });
+
   return win;
 }
 
@@ -132,11 +138,9 @@ if (!gotTheLock) {
     app.allowRendererProcessReuse = false;
     mainWindow = createWindow();
 
-    if (isDev) {
-      installExtension(REACT_DEVELOPER_TOOLS)
-        .then((name) => console.log(`Added Extension:  ${name}`))
-        .catch((error) => console.log(`An error occurred: , ${error}`));
-    }
+    installExtension(REACT_DEVELOPER_TOOLS)
+      .then((name) => console.log(`Added Extension:  ${name}`))
+      .catch((error) => console.log(`An error occurred: , ${error}`));
 
     mainWindow.setMenu(null);
 
