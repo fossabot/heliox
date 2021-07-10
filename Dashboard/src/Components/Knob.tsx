@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import styled from "styled-components";
 
 const SvgHeight = 180;
-const steps = 5;
+const steps = 10;
 
 const KnobSVG = styled.svg`
   .cls-1 {
