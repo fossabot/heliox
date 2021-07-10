@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 
+const SvgHeight = 180;
+
 const KnobSVG = styled.svg`
   .cls-1 {
     fill: #545353;
@@ -23,24 +25,71 @@ const KnobSVG = styled.svg`
 
 const Knob = () => {
   const overlayRef = useRef<SVGGElement>(null);
-  let i = 20;
+
+  let isMouseDown = false;
+
+  const move = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
+    const relativePosX = e.nativeEvent.offsetX - SvgHeight / 2;
+    const relativePosY = e.nativeEvent.offsetY - SvgHeight / 2;
+    // console.log(`X:${relativePosX}|Y:${relativePosY}`);
+
+    const angleDegree = Math.atan2(relativePosY, relativePosX) * (180 / Math.PI);
+    // console.log(angleDegree);
+
+    let angle = 0;
+    angle = angleDegree + 85;
+    if (angle < 0) {
+      angle = 360 + angle;
+    } else if (angle > 360) {
+      angle = 360 - angle;
+    }
+    //   console.log(angle);
+
+    if (overlayRef.current !== null) {
+      overlayRef.current.style.transformOrigin = "50% 50%";
+      overlayRef.current.style.transform = `rotate(${angle}deg)`;
+    }
+  };
+
+  const mouseDownHandler: React.MouseEventHandler<SVGElement> = (e) => {
+    if (e.button !== 2) {
+      move(e);
+      isMouseDown = true;
+    }
+  };
+
+  const mouseUpHandler: React.MouseEventHandler<SVGElement> = () => {
+    isMouseDown = false;
+  };
+
+  const mouseMoveHandler: React.MouseEventHandler<SVGElement> = (e) => {
+    if (isMouseDown) {
+      move(e);
+    }
+  };
 
   return (
     <div>
       <KnobSVG
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 141.73 141.73"
-        height="180px"
-        onClick={() => {
+        height={`${SvgHeight}px`}
+        // onClick={() => {
+        //   if (overlayRef.current !== null) {
+        //     overlayRef.current.style.transformOrigin = "50% 50%";
+        //     overlayRef.current.style.transform = `rotate(${i}deg)`;
+        //     i += 20;
+        //   }
+        // }}
+        onContextMenu={() => {
           if (overlayRef.current !== null) {
             overlayRef.current.style.transformOrigin = "50% 50%";
-            overlayRef.current.style.transform = `rotate(${i}deg)`;
-            i += 20;
+            overlayRef.current.style.transform = `rotate(${0}deg)`;
           }
         }}
-        onContextMenu={() => {
-          alert("off"); // absolute on/off
-        }}
+        onMouseDown={mouseDownHandler}
+        onMouseUp={mouseUpHandler}
+        onMouseMove={mouseMoveHandler}
       >
         <g id="Base">
           <path
