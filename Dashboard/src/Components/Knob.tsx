@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { remote } from "electron";
 
 const SvgHeight = 180;
-const steps = 10;
+const steps = 5;
 const accentColor = remote.systemPreferences.getAccentColor();
 
 const KnobSVG = styled.svg`

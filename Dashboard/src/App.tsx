@@ -20,20 +20,24 @@ const App = () => {
     baudRate: 9600,
     autoOpen: false,
   });
-  const handler = () => {
-    // eslint-disable-next-line
-    port.write("off", (err) => {
-      if (err) {
-        return console.log("Error on write: ", err.message);
-      }
-      console.log("message written");
-    });
+  const sendIncreaseHandler = () => {
+    port.write("2i");
+  };
+  const sendDecreaseHandler = () => {
+    port.write("2d");
+  };
+  const sendToggleHandler = () => {
+    port.write("2t");
   };
 
   return (
     <div>
       <GlobalStyle />
-      <Knob increase={() => { console.log("inc"); }} decrease={() => { console.log("dec"); }} toggle={() => { console.log("togg"); }} />
+      <Knob
+        increase={sendIncreaseHandler}
+        decrease={sendDecreaseHandler}
+        toggle={sendToggleHandler}
+      />
       <button
         type="button"
         onClick={() => {
@@ -49,9 +53,6 @@ const App = () => {
         }}
       >
         close
-      </button>
-      <button type="button" onClick={handler}>
-        send
       </button>
       <button
         type="button"
