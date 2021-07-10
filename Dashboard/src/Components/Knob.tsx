@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
+import { remote } from "electron";
 
 const SvgHeight = 180;
 const steps = 10;
+const accentColor = remote.systemPreferences.getAccentColor();
 
 const KnobSVG = styled.svg`
   .cls-1 {
@@ -17,11 +19,12 @@ const KnobSVG = styled.svg`
   }
 
   .cls-3 {
-    fill: #2f6087;
+    //TODO: change to styled theme
+    fill: rgba(${parseInt(accentColor.substr(0, 2), 16)}, ${parseInt(accentColor.substr(2, 2), 16)}, ${parseInt(accentColor.substr(4, 2), 16)},${parseInt(accentColor.substr(6, 8), 16)});
   }
   #Status {
-    user-select: none;
-  }
+  user-select: none;
+}
 `;
 
 interface Proptypes {
