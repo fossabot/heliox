@@ -35,8 +35,6 @@ F 3 "https://datasheet.octopart.com/PEC11R-4220F-S0012-Bourns-datasheet-68303416
 	1    6450 1150
 	1    0    0    -1  
 $EndComp
-Text Notes -850 -800 0    50   ~ 0
-use jumper (solderswitch) to change between i2c / uart
 $Comp
 L TYPE-C-31-M-12:TYPE-C-31-M-12 J3
 U 1 1 6112D89A
@@ -857,4 +855,76 @@ NoConn ~ 2400 1500
 NoConn ~ 1200 1600
 NoConn ~ 1200 1500
 NoConn ~ 1200 1300
+$Comp
+L Connector_Generic:Conn_01x13 J2
+U 1 1 61285557
+P 9000 2050
+F 0 "J2" H 9080 2092 50  0000 L CNN
+F 1 "Conn_01x13" H 9080 2001 50  0000 L CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x13_P1.00mm_Vertical" H 9000 2050 50  0001 C CNN
+F 3 "~" H 9000 2050 50  0001 C CNN
+	1    9000 2050
+	1    0    0    -1  
+$EndComp
+Text HLabel 8700 1450 0    50   Input ~ 0
+ENC1A
+Text HLabel 8700 1550 0    50   Input ~ 0
+ENC1B
+Text HLabel 8700 1650 0    50   Input ~ 0
+ENC2A
+Text HLabel 8700 1750 0    50   Input ~ 0
+ENC2B
+Text HLabel 8700 1850 0    50   Input ~ 0
+ENC3A
+Text HLabel 8700 1950 0    50   Input ~ 0
+ENC3B
+Text HLabel 8700 2050 0    50   Input ~ 0
+ENC4A
+Text HLabel 8700 2150 0    50   Input ~ 0
+ENC4B
+Text HLabel 8700 2250 0    50   Input ~ 0
+BTN1
+Text HLabel 8700 2350 0    50   Input ~ 0
+BTN2
+Text HLabel 8700 2450 0    50   Input ~ 0
+BTN3
+Text HLabel 8700 2550 0    50   Input ~ 0
+BTN4
+$Comp
+L power:GND #PWR0122
+U 1 1 61289C4F
+P 8700 2650
+F 0 "#PWR0122" H 8700 2400 50  0001 C CNN
+F 1 "GND" V 8705 2522 50  0000 R CNN
+F 2 "" H 8700 2650 50  0001 C CNN
+F 3 "" H 8700 2650 50  0001 C CNN
+	1    8700 2650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8700 1450 8800 1450
+Wire Wire Line
+	8700 1550 8800 1550
+Wire Wire Line
+	8700 1650 8800 1650
+Wire Wire Line
+	8700 1750 8800 1750
+Wire Wire Line
+	8700 1850 8800 1850
+Wire Wire Line
+	8700 1950 8800 1950
+Wire Wire Line
+	8700 2050 8800 2050
+Wire Wire Line
+	8700 2150 8800 2150
+Wire Wire Line
+	8700 2250 8800 2250
+Wire Wire Line
+	8700 2350 8800 2350
+Wire Wire Line
+	8700 2450 8800 2450
+Wire Wire Line
+	8700 2550 8800 2550
+Wire Wire Line
+	8700 2650 8800 2650
 $EndSCHEMATC
