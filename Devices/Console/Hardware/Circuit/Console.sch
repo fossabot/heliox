@@ -1,4 +1,60 @@
-EESchema Schematic File Version 2
-EELAYER 25 0
+EESchema Schematic File Version 4
+EELAYER 30 0
 EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "LightControl Console"
+Date "2021-08-10"
+Rev "v00"
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 "Author: GHOSCHT"
+$EndDescr
+$Comp
+L MCU_Microchip_ATmega:ATmega328P-AU U1
+U 1 1 61124B57
+P 3800 3350
+F 0 "U1" H 3800 1761 50  0000 C CNN
+F 1 "ATmega328P-AU" H 3800 1670 50  0000 C CNN
+F 2 "Package_QFP:TQFP-32_7x7mm_P0.8mm" H 3800 3350 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf" H 3800 3350 50  0001 C CNN
+	1    3800 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:USB_B_Micro J2
+U 1 1 611277F0
+P 6350 2350
+F 0 "J2" H 6407 2817 50  0000 C CNN
+F 1 "U254-051T-4BH83-F1S" H 6407 2726 50  0000 C CNN
+F 2 "XKB-U254-051T-4BH83-F1S:XKB_U254-051T-4BH83-F1S" H 6500 2300 50  0001 C CNN
+F 3 "~" H 6500 2300 50  0001 C CNN
+	1    6350 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Rotary_Encoder_Switch SW1
+U 1 1 6112A1C1
+P 6200 3550
+F 0 "SW1" H 6200 3917 50  0000 C CNN
+F 1 "PEC11R-4220F-S0012" H 6200 3826 50  0000 C CNN
+F 2 "Bourns-PEC11R-4220F-S0012:Bourns-PEC11R-4220F-S0012-MFG" H 6050 3710 50  0001 C CNN
+F 3 "https://datasheet.octopart.com/PEC11R-4220F-S0012-Bourns-datasheet-68303416.pdf" H 6200 3810 50  0001 C CNN
+	1    6200 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:AVR-ISP-6 J1
+U 1 1 61134728
+P 5350 2550
+F 0 "J1" H 5021 2646 50  0000 R CNN
+F 1 "AVR-ISP-6" H 5021 2555 50  0000 R CNN
+F 2 "AVR-ISP:AVR-ISP" V 5100 2600 50  0001 C CNN
+F 3 " ~" H 4075 2000 50  0001 C CNN
+	1    5350 2550
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

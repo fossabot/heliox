@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name Bourns-PEC11R-4220F-S0012)(type KiCad)(uri ${KIPRJMOD}/Libraries/Bourns-PEC11R-4220F-S0012.pretty)(options "")(descr ""))
+  (lib (name XKB-U254-051T-4BH83-F1S)(type KiCad)(uri ${KIPRJMOD}/Libraries/XKB-U254-051T-4BH83-F1S.pretty)(options "")(descr ""))
+  (lib (name AVR-ISP)(type KiCad)(uri ${KIPRJMOD}/Libraries/AVR-ISP.pretty)(options "")(descr ""))
+)
