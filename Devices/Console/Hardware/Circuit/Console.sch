@@ -866,39 +866,39 @@ F 3 "~" H 9000 2050 50  0001 C CNN
 	1    9000 2050
 	1    0    0    -1  
 $EndComp
-Text HLabel 8700 1450 0    50   Input ~ 0
-ENC1A
 Text HLabel 8700 1550 0    50   Input ~ 0
-ENC1B
+ENC1A
 Text HLabel 8700 1650 0    50   Input ~ 0
-ENC2A
+ENC1B
 Text HLabel 8700 1750 0    50   Input ~ 0
-ENC2B
+ENC2A
 Text HLabel 8700 1850 0    50   Input ~ 0
-ENC3A
+ENC2B
 Text HLabel 8700 1950 0    50   Input ~ 0
-ENC3B
+ENC3A
 Text HLabel 8700 2050 0    50   Input ~ 0
-ENC4A
+ENC3B
 Text HLabel 8700 2150 0    50   Input ~ 0
-ENC4B
+ENC4A
 Text HLabel 8700 2250 0    50   Input ~ 0
-BTN1
+ENC4B
 Text HLabel 8700 2350 0    50   Input ~ 0
-BTN2
+BTN1
 Text HLabel 8700 2450 0    50   Input ~ 0
-BTN3
+BTN2
 Text HLabel 8700 2550 0    50   Input ~ 0
+BTN3
+Text HLabel 8700 2650 0    50   Input ~ 0
 BTN4
 $Comp
 L power:GND #PWR0122
 U 1 1 61289C4F
-P 8700 2650
-F 0 "#PWR0122" H 8700 2400 50  0001 C CNN
-F 1 "GND" V 8705 2522 50  0000 R CNN
-F 2 "" H 8700 2650 50  0001 C CNN
-F 3 "" H 8700 2650 50  0001 C CNN
-	1    8700 2650
+P 8700 1450
+F 0 "#PWR0122" H 8700 1200 50  0001 C CNN
+F 1 "GND" V 8705 1322 50  0000 R CNN
+F 2 "" H 8700 1450 50  0001 C CNN
+F 3 "" H 8700 1450 50  0001 C CNN
+	1    8700 1450
 	0    1    1    0   
 $EndComp
 Wire Wire Line
@@ -927,4 +927,87 @@ Wire Wire Line
 	8700 2550 8800 2550
 Wire Wire Line
 	8700 2650 8800 2650
+Text Notes 3700 1050 0    50   ~ 0
+Todo: add reset button\n
+$Comp
+L Connector_Generic:Conn_01x04 J5
+U 1 1 613021A3
+P 9000 3450
+F 0 "J5" H 9080 3442 50  0000 L CNN
+F 1 "Conn_01x04" H 9080 3351 50  0000 L CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x04_P1.00mm_Vertical" H 9000 3450 50  0001 C CNN
+F 3 "~" H 9000 3450 50  0001 C CNN
+	1    9000 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x04 J4
+U 1 1 613031C0
+P 9000 2950
+F 0 "J4" H 9080 2942 50  0000 L CNN
+F 1 "Conn_01x04" H 9080 2851 50  0000 L CNN
+F 2 "Connector_PinHeader_1.00mm:PinHeader_1x04_P1.00mm_Vertical" H 9000 2950 50  0001 C CNN
+F 3 "~" H 9000 2950 50  0001 C CNN
+	1    9000 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0123
+U 1 1 613043F8
+P 8700 2850
+F 0 "#PWR0123" H 8700 2600 50  0001 C CNN
+F 1 "GND" V 8705 2722 50  0000 R CNN
+F 2 "" H 8700 2850 50  0001 C CNN
+F 3 "" H 8700 2850 50  0001 C CNN
+	1    8700 2850
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0124
+U 1 1 6130498C
+P 8700 3350
+F 0 "#PWR0124" H 8700 3100 50  0001 C CNN
+F 1 "GND" V 8705 3222 50  0000 R CNN
+F 2 "" H 8700 3350 50  0001 C CNN
+F 3 "" H 8700 3350 50  0001 C CNN
+	1    8700 3350
+	0    1    1    0   
+$EndComp
+Text HLabel 8700 2950 0    50   Input ~ 0
+RX
+Text HLabel 8700 3050 0    50   Input ~ 0
+TX
+Text HLabel 8700 3150 0    50   Input ~ 0
+RST
+Text HLabel 8700 3450 0    50   Input ~ 0
+SDA
+Text HLabel 8700 3550 0    50   Input ~ 0
+SCL
+$Comp
+L power:VCC #PWR0125
+U 1 1 613057E4
+P 8700 3650
+F 0 "#PWR0125" H 8700 3500 50  0001 C CNN
+F 1 "VCC" V 8715 3777 50  0000 L CNN
+F 2 "" H 8700 3650 50  0001 C CNN
+F 3 "" H 8700 3650 50  0001 C CNN
+	1    8700 3650
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	8700 2850 8800 2850
+Wire Wire Line
+	8700 2950 8800 2950
+Wire Wire Line
+	8700 3050 8800 3050
+Wire Wire Line
+	8700 3150 8800 3150
+Wire Wire Line
+	8700 3350 8800 3350
+Wire Wire Line
+	8700 3450 8800 3450
+Wire Wire Line
+	8700 3550 8800 3550
+Wire Wire Line
+	8700 3650 8800 3650
 $EndSCHEMATC
