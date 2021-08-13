@@ -244,17 +244,6 @@ Connection ~ 7050 4850
 Wire Wire Line
 	7050 4850 7050 5000
 $Comp
-L Jumper:SolderJumper_2_Open JP10
-U 1 1 611A3577
-P 10550 5000
-F 0 "JP10" H 10550 5205 50  0000 C CNN
-F 1 "SolderJumper" H 10550 5114 50  0000 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 10550 5000 50  0001 C CNN
-F 3 "~" H 10550 5000 50  0001 C CNN
-	1    10550 5000
-	-1   0    0    1   
-$EndComp
-$Comp
 L Jumper:SolderJumper_2_Open JP8
 U 1 1 611A3587
 P 10550 4400
@@ -263,7 +252,7 @@ F 1 "SolderJumper" H 10550 4514 50  0000 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 10550 4400 50  0001 C CNN
 F 3 "~" H 10550 4400 50  0001 C CNN
 	1    10550 4400
-	-1   0    0    1   
+	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	10750 5000 10700 5000
@@ -788,72 +777,6 @@ Text Notes 0    150  0    79   ~ 16
 Todo: add reset button, status rgb led and power led
 Wire Wire Line
 	7050 5000 6900 5000
-$Comp
-L Jumper:SolderJumper_2_Open JP6
-U 1 1 611BB7CB
-P 10550 3800
-F 0 "JP6" H 10550 4005 50  0000 C CNN
-F 1 "SolderJumper" H 10550 3914 50  0000 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 10550 3800 50  0001 C CNN
-F 3 "~" H 10550 3800 50  0001 C CNN
-	1    10550 3800
-	-1   0    0    1   
-$EndComp
-$Comp
-L Jumper:SolderJumper_2_Open JP9
-U 1 1 611A3581
-P 10550 4700
-F 0 "JP9" H 10550 4905 50  0000 C CNN
-F 1 "SolderJumper" H 10550 4814 50  0000 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 10550 4700 50  0001 C CNN
-F 3 "~" H 10550 4700 50  0001 C CNN
-	1    10550 4700
-	-1   0    0    1   
-$EndComp
-$Comp
-L Jumper:SolderJumper_2_Open JP7
-U 1 1 611A358D
-P 10550 4100
-F 0 "JP7" H 10550 4305 50  0000 C CNN
-F 1 "SolderJumper" H 10550 4214 50  0000 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 10550 4100 50  0001 C CNN
-F 3 "~" H 10550 4100 50  0001 C CNN
-	1    10550 4100
-	-1   0    0    1   
-$EndComp
-$Comp
-L Jumper:SolderJumper_2_Open JP5
-U 1 1 611B209C
-P 6750 5300
-F 0 "JP5" H 6750 5505 50  0000 C CNN
-F 1 "SolderJumper" H 6750 5414 50  0000 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 6750 5300 50  0001 C CNN
-F 3 "~" H 6750 5300 50  0001 C CNN
-	1    6750 5300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Jumper:SolderJumper_2_Open JP4
-U 1 1 61182926
-P 6750 5000
-F 0 "JP4" H 6750 5205 50  0000 C CNN
-F 1 "SolderJumper" H 6750 5114 50  0000 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 6750 5000 50  0001 C CNN
-F 3 "~" H 6750 5000 50  0001 C CNN
-	1    6750 5000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Jumper:SolderJumper_2_Open JP2
-U 1 1 611823D1
-P 6750 4400
-F 0 "JP2" H 6750 4605 50  0000 C CNN
-F 1 "SolderJumper" H 6750 4514 50  0000 C CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 6750 4400 50  0001 C CNN
-F 3 "~" H 6750 4400 50  0001 C CNN
-	1    6750 4400
-	1    0    0    -1  
-$EndComp
 Text GLabel 10750 3800 2    50   Input ~ 0
 RST
 NoConn ~ 1200 1300
@@ -1204,6 +1127,83 @@ F 1 "VCC" H 2615 6173 50  0000 C CNN
 F 2 "" H 2600 6000 50  0001 C CNN
 F 3 "" H 2600 6000 50  0001 C CNN
 	1    2600 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 611AC9C3
+P 6750 4400
+F 0 "JP?" H 6750 4605 50  0000 C CNN
+F 1 "SolderJumper_Bridged" H 6750 4514 50  0000 C CNN
+F 2 "" H 6750 4400 50  0001 C CNN
+F 3 "~" H 6750 4400 50  0001 C CNN
+	1    6750 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 611AE464
+P 6750 5000
+F 0 "JP?" H 6750 5205 50  0000 C CNN
+F 1 "SolderJumper_Bridged" H 6750 5114 50  0000 C CNN
+F 2 "" H 6750 5000 50  0001 C CNN
+F 3 "~" H 6750 5000 50  0001 C CNN
+	1    6750 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 611AECF9
+P 6750 5300
+F 0 "JP?" H 6750 5505 50  0000 C CNN
+F 1 "SolderJumper_Bridged" H 6750 5414 50  0000 C CNN
+F 2 "" H 6750 5300 50  0001 C CNN
+F 3 "~" H 6750 5300 50  0001 C CNN
+	1    6750 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 611AF363
+P 10550 3800
+F 0 "JP?" H 10550 4005 50  0000 C CNN
+F 1 "SolderJumper_Bridged" H 10550 3914 50  0000 C CNN
+F 2 "" H 10550 3800 50  0001 C CNN
+F 3 "~" H 10550 3800 50  0001 C CNN
+	1    10550 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 611B0523
+P 10550 4100
+F 0 "JP?" H 10550 4305 50  0000 C CNN
+F 1 "SolderJumper_Bridged" H 10550 4214 50  0000 C CNN
+F 2 "" H 10550 4100 50  0001 C CNN
+F 3 "~" H 10550 4100 50  0001 C CNN
+	1    10550 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 611B0A60
+P 10550 4700
+F 0 "JP?" H 10550 4905 50  0000 C CNN
+F 1 "SolderJumper_Bridged" H 10550 4814 50  0000 C CNN
+F 2 "" H 10550 4700 50  0001 C CNN
+F 3 "~" H 10550 4700 50  0001 C CNN
+	1    10550 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP10
+U 1 1 611A3577
+P 10550 5000
+F 0 "JP10" H 10550 5205 50  0000 C CNN
+F 1 "SolderJumper" H 10550 5114 50  0000 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 10550 5000 50  0001 C CNN
+F 3 "~" H 10550 5000 50  0001 C CNN
+	1    10550 5000
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
