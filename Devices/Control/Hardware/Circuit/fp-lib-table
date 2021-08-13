@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name CUI_TB006-508-03BE)(type KiCad)(uri ${KIPRJMOD}/Libraries/CUI_TB006-508-03BE.pretty)(options "")(descr ""))
+  (lib (name HRO_TYPE-C-31-M-12)(type KiCad)(uri ${KIPRJMOD}/Libraries/HRO_TYPE-C-31-M-12.pretty)(options "")(descr ""))
+  (lib (name AVR-ISP)(type KiCad)(uri ${KIPRJMOD}/Libraries/AVR-ISP.pretty)(options "")(descr ""))
+)
