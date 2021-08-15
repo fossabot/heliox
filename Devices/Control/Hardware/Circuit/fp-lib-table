@@ -3,4 +3,5 @@
   (lib (name HRO_TYPE-C-31-M-12)(type KiCad)(uri ${KIPRJMOD}/Libraries/HRO_TYPE-C-31-M-12.pretty)(options "")(descr ""))
   (lib (name AVR-ISP)(type KiCad)(uri ${KIPRJMOD}/Libraries/AVR-ISP.pretty)(options "")(descr ""))
   (lib (name CD74HC4053PWR)(type KiCad)(uri ${KIPRJMOD}/Libraries/CD74HC4053PWR.pretty)(options "")(descr ""))
+  (lib (name SKRKAEE020)(type KiCad)(uri ${KIPRJMOD}/Libraries/SKRKAEE020.pretty)(options "")(descr ""))
 )
