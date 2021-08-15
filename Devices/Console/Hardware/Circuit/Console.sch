@@ -1135,7 +1135,7 @@ U 1 1 611AC9C3
 P 6750 4400
 F 0 "JP2" H 6750 4605 50  0000 C CNN
 F 1 "SolderJumper_Bridged" H 6750 4514 50  0000 C CNN
-F 2 "" H 6750 4400 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged2Bar_Pad1.0x1.5mm" H 6750 4400 50  0001 C CNN
 F 3 "~" H 6750 4400 50  0001 C CNN
 	1    6750 4400
 	1    0    0    -1  
@@ -1146,7 +1146,7 @@ U 1 1 611AE464
 P 6750 5000
 F 0 "JP4" H 6750 5205 50  0000 C CNN
 F 1 "SolderJumper_Bridged" H 6750 5114 50  0000 C CNN
-F 2 "" H 6750 5000 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged2Bar_Pad1.0x1.5mm" H 6750 5000 50  0001 C CNN
 F 3 "~" H 6750 5000 50  0001 C CNN
 	1    6750 5000
 	1    0    0    -1  
@@ -1157,7 +1157,7 @@ U 1 1 611AECF9
 P 6750 5300
 F 0 "JP5" H 6750 5505 50  0000 C CNN
 F 1 "SolderJumper_Bridged" H 6750 5414 50  0000 C CNN
-F 2 "" H 6750 5300 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged2Bar_Pad1.0x1.5mm" H 6750 5300 50  0001 C CNN
 F 3 "~" H 6750 5300 50  0001 C CNN
 	1    6750 5300
 	1    0    0    -1  
@@ -1168,7 +1168,7 @@ U 1 1 611AF363
 P 10550 3800
 F 0 "JP6" H 10550 4005 50  0000 C CNN
 F 1 "SolderJumper_Bridged" H 10550 3914 50  0000 C CNN
-F 2 "" H 10550 3800 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged2Bar_Pad1.0x1.5mm" H 10550 3800 50  0001 C CNN
 F 3 "~" H 10550 3800 50  0001 C CNN
 	1    10550 3800
 	1    0    0    -1  
@@ -1179,7 +1179,7 @@ U 1 1 611B0523
 P 10550 4100
 F 0 "JP7" H 10550 4305 50  0000 C CNN
 F 1 "SolderJumper_Bridged" H 10550 4214 50  0000 C CNN
-F 2 "" H 10550 4100 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged2Bar_Pad1.0x1.5mm" H 10550 4100 50  0001 C CNN
 F 3 "~" H 10550 4100 50  0001 C CNN
 	1    10550 4100
 	1    0    0    -1  
@@ -1190,7 +1190,7 @@ U 1 1 611B0A60
 P 10550 4700
 F 0 "JP9" H 10550 4905 50  0000 C CNN
 F 1 "SolderJumper_Bridged" H 10550 4814 50  0000 C CNN
-F 2 "" H 10550 4700 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged2Bar_Pad1.0x1.5mm" H 10550 4700 50  0001 C CNN
 F 3 "~" H 10550 4700 50  0001 C CNN
 	1    10550 4700
 	1    0    0    -1  
@@ -1206,17 +1206,12 @@ F 3 "~" H 10550 5000 50  0001 C CNN
 	1    10550 5000
 	1    0    0    -1  
 $EndComp
-$Comp
-L Switch:SW_MEC_5G SW5
-U 1 1 612E67FB
-P 2350 5000
-F 0 "SW5" H 2350 5285 50  0000 C CNN
-F 1 "SW_MEC_5G" H 2350 5194 50  0000 C CNN
-F 2 "SKRKAEE020:SKRKAEE020" H 2350 5200 50  0001 C CNN
-F 3 "http://www.apem.com/int/index.php?controller=attachment&id_attachment=488" H 2350 5200 50  0001 C CNN
-	1    2350 5000
-	1    0    0    -1  
-$EndComp
+Text GLabel 2050 5000 0    50   Input ~ 0
+RST
+Wire Wire Line
+	2050 5000 2150 5000
+Wire Wire Line
+	2550 5000 2650 5000
 $Comp
 L power:GND #PWR0103
 U 1 1 612E73C3
@@ -1228,10 +1223,15 @@ F 3 "" H 2650 5000 50  0001 C CNN
 	1    2650 5000
 	0    -1   -1   0   
 $EndComp
-Text GLabel 2050 5000 0    50   Input ~ 0
-RST
-Wire Wire Line
-	2050 5000 2150 5000
-Wire Wire Line
-	2550 5000 2650 5000
+$Comp
+L Switch:SW_Push SW5
+U 1 1 6132D0B4
+P 2350 5000
+F 0 "SW5" H 2350 5285 50  0000 C CNN
+F 1 "SW_Push" H 2350 5194 50  0000 C CNN
+F 2 "SKRKAEE020:SKRKAEE020" H 2350 5200 50  0001 C CNN
+F 3 "~" H 2350 5200 50  0001 C CNN
+	1    2350 5000
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
