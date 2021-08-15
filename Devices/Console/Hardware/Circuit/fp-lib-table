@@ -3,4 +3,5 @@
   (lib (name XKB-U254-051T-4BH83-F1S)(type KiCad)(uri ${KIPRJMOD}/Libraries/XKB-U254-051T-4BH83-F1S.pretty)(options "")(descr ""))
   (lib (name AVR-ISP)(type KiCad)(uri ${KIPRJMOD}/Libraries/AVR-ISP.pretty)(options "")(descr ""))
   (lib (name HRO_TYPE-C-31-M-12)(type KiCad)(uri ${KIPRJMOD}/Libraries/HRO_TYPE-C-31-M-12.pretty)(options "")(descr ""))
+  (lib (name SKRKAEE020)(type KiCad)(uri "D:/Dokumente/Coding/Visual Studio Code/smart-lamp-control/Devices/Control/Hardware/Circuit/Libraries/SKRKAEE020.pretty")(options "")(descr ""))
 )
