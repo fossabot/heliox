@@ -461,14 +461,14 @@ UART
 Text Notes 8950 2800 0    50   ~ 0
 I2C
 Wire Notes Line
-	10950 5750 10950 3550
+	11050 5750 11050 3550
 Wire Notes Line
-	10950 3550 6250 3550
+	11050 3550 6150 3550
 Wire Notes Line
-	6250 3550 6250 5750
-Text Notes 6250 3550 0    50   ~ 0
+	6150 3550 6150 5750
+Text Notes 6150 3550 0    50   ~ 0
 USB C connector repurposed as communication header
-Text Notes 6250 3650 0    50   ~ 10
+Text Notes 6150 3650 0    50   ~ 10
 CHOOSE PROTOCOL WITH JUMERS
 Text GLabel 2500 1600 2    50   Input ~ 0
 MOSI
@@ -520,14 +520,6 @@ Text GLabel 8550 1600 0    50   Input ~ 0
 ENC4A
 Text GLabel 8550 1700 0    50   Input ~ 0
 ENC4B
-Text GLabel 10700 4300 2    50   Input ~ 0
-TX
-Text GLabel 10700 4900 2    50   Input ~ 0
-RX
-Text GLabel 6500 5200 0    50   Input ~ 0
-TX
-Text GLabel 6500 4600 0    50   Input ~ 0
-RX
 Text GLabel 6500 4300 0    50   Input ~ 0
 SDA
 Text GLabel 6500 4900 0    50   Input ~ 0
@@ -536,17 +528,13 @@ Text GLabel 10700 4600 2    50   Input ~ 0
 SCL
 Text GLabel 10700 5200 2    50   Input ~ 0
 SDA
-Text GLabel 6500 5500 0    50   Input ~ 0
-RST
 Text Notes 0    150  0    79   ~ 16
 Todo: add reset button, status rgb led and power led
 Wire Wire Line
 	7000 5200 6850 5200
-Text GLabel 10700 4000 2    50   Input ~ 0
-RST
 NoConn ~ 1200 1300
 Wire Notes Line
-	6250 5750 10950 5750
+	6150 5750 11050 5750
 Text Notes 1800 6950 0    50   ~ 0
 ERC Flags
 Wire Notes Line
@@ -1025,10 +1013,6 @@ Text GLabel 8550 2400 0    50   Input ~ 0
 TX
 Text GLabel 8550 2500 0    50   Input ~ 0
 RX
-Text GLabel 7150 2000 2    50   Input ~ 0
-RX
-Text GLabel 7150 2100 2    50   Input ~ 0
-TX
 Text GLabel 3600 2150 0    50   Input ~ 0
 D+
 Text GLabel 3600 2250 0    50   Input ~ 0
@@ -1068,8 +1052,6 @@ F 3 "~" H 7300 2800 50  0001 C CNN
 	1    7300 2800
 	0    1    1    0   
 $EndComp
-Text GLabel 7550 2800 2    50   Input ~ 0
-RST
 Wire Wire Line
 	7050 2800 7150 2800
 Wire Wire Line
@@ -1365,51 +1347,182 @@ F 3 "" H 4750 4450 50  0001 L BNN
 	1    4750 4450
 	1    0    0    -1  
 $EndComp
-Text Notes 3400 3500 0    50   ~ 0
+Text Notes 3650 4650 0    50   ~ 0
 CD74HC4053PWR decoupling
 Wire Notes Line
-	3900 3500 3400 3500
+	4150 4650 3650 4650
 Wire Notes Line
-	3900 4600 3900 3500
+	4150 5750 4150 4650
 Wire Notes Line
-	3400 4600 3900 4600
+	3650 5750 4150 5750
 Wire Notes Line
-	3400 3500 3400 4600
+	3650 4650 3650 5750
 Wire Wire Line
-	3550 4200 3550 4300
+	3800 5350 3800 5450
 Wire Wire Line
-	3550 3800 3550 3900
+	3800 4950 3800 5050
 $Comp
-L Device:C C?
+L Device:C C7
 U 1 1 611E06B0
-P 3550 4050
-F 0 "C?" H 3665 4096 50  0000 L CNN
-F 1 "100n" H 3665 4005 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3588 3900 50  0001 C CNN
-F 3 "~" H 3550 4050 50  0001 C CNN
-	1    3550 4050
+P 3800 5200
+F 0 "C7" H 3915 5246 50  0000 L CNN
+F 1 "100n" H 3915 5155 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3838 5050 50  0001 C CNN
+F 3 "~" H 3800 5200 50  0001 C CNN
+	1    3800 5200
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR023
 U 1 1 611E06B6
-P 3550 4300
-F 0 "#PWR?" H 3550 4050 50  0001 C CNN
-F 1 "GND" H 3555 4127 50  0000 C CNN
-F 2 "" H 3550 4300 50  0001 C CNN
-F 3 "" H 3550 4300 50  0001 C CNN
-	1    3550 4300
+P 3800 5450
+F 0 "#PWR023" H 3800 5200 50  0001 C CNN
+F 1 "GND" H 3805 5277 50  0000 C CNN
+F 2 "" H 3800 5450 50  0001 C CNN
+F 3 "" H 3800 5450 50  0001 C CNN
+	1    3800 5450
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:VCC #PWR?
+L power:VCC #PWR022
 U 1 1 611E06BC
-P 3550 3800
-F 0 "#PWR?" H 3550 3650 50  0001 C CNN
-F 1 "VCC" H 3565 3973 50  0000 C CNN
-F 2 "" H 3550 3800 50  0001 C CNN
-F 3 "" H 3550 3800 50  0001 C CNN
-	1    3550 3800
+P 3800 4950
+F 0 "#PWR022" H 3800 4800 50  0001 C CNN
+F 1 "VCC" H 3815 5123 50  0000 C CNN
+F 2 "" H 3800 4950 50  0001 C CNN
+F 3 "" H 3800 4950 50  0001 C CNN
+	1    3800 4950
 	1    0    0    -1  
 $EndComp
+Text GLabel 7150 2100 2    50   Input ~ 0
+ICRX
+Text GLabel 7150 2000 2    50   Input ~ 0
+ICTX
+Text GLabel 5550 4150 2    50   Input ~ 0
+ICTX
+Text GLabel 5550 4450 2    50   Input ~ 0
+ICRX
+Text GLabel 7550 2800 2    50   Input ~ 0
+ICRST
+Text GLabel 5550 4750 2    50   Input ~ 0
+ICRST
+Text GLabel 5550 3950 2    50   Input ~ 0
+RX
+Text GLabel 5550 4250 2    50   Input ~ 0
+TX
+Text GLabel 5550 4550 2    50   Input ~ 0
+RST
+Text GLabel 5550 4050 2    50   Input ~ 0
+EXTRX
+Text GLabel 5550 4350 2    50   Input ~ 0
+EXTTX
+Text GLabel 5550 4650 2    50   Input ~ 0
+EXTRST
+Wire Wire Line
+	5450 3950 5550 3950
+Wire Wire Line
+	5450 4050 5550 4050
+Wire Wire Line
+	5450 4150 5550 4150
+Wire Wire Line
+	5450 4250 5550 4250
+Wire Wire Line
+	5450 4350 5550 4350
+Wire Wire Line
+	5450 4450 5550 4450
+Wire Wire Line
+	5450 4550 5550 4550
+Wire Wire Line
+	5450 4650 5550 4650
+Wire Wire Line
+	5450 4750 5550 4750
+$Comp
+L power:GND #PWR025
+U 1 1 6121168E
+P 5550 5150
+F 0 "#PWR025" H 5550 4900 50  0001 C CNN
+F 1 "GND" H 5555 4977 50  0000 C CNN
+F 2 "" H 5550 5150 50  0001 C CNN
+F 3 "" H 5550 5150 50  0001 C CNN
+	1    5550 5150
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5450 5150 5500 5150
+Wire Wire Line
+	5450 5050 5500 5050
+Wire Wire Line
+	5500 5050 5500 5150
+Connection ~ 5500 5150
+Wire Wire Line
+	5500 5150 5550 5150
+$Comp
+L power:VCC #PWR024
+U 1 1 6122B478
+P 5550 3750
+F 0 "#PWR024" H 5550 3600 50  0001 C CNN
+F 1 "VCC" H 5565 3923 50  0000 C CNN
+F 2 "" H 5550 3750 50  0001 C CNN
+F 3 "" H 5550 3750 50  0001 C CNN
+	1    5550 3750
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5450 3750 5550 3750
+$Comp
+L power:GND #PWR020
+U 1 1 61248935
+P 3550 3950
+F 0 "#PWR020" H 3550 3700 50  0001 C CNN
+F 1 "GND" H 3555 3777 50  0000 C CNN
+F 2 "" H 3550 3950 50  0001 C CNN
+F 3 "" H 3550 3950 50  0001 C CNN
+	1    3550 3950
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R6
+U 1 1 612495F2
+P 3800 3950
+F 0 "R6" H 3870 3996 50  0000 L CNN
+F 1 "10k" H 3870 3905 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3730 3950 50  0001 C CNN
+F 3 "~" H 3800 3950 50  0001 C CNN
+	1    3800 3950
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3550 3950 3650 3950
+Wire Wire Line
+	3950 3950 4050 3950
+Text GLabel 3950 4050 0    50   Input ~ 0
+MUXS0
+Text GLabel 3950 4150 0    50   Input ~ 0
+MUXS1
+Text GLabel 3950 4250 0    50   Input ~ 0
+MUXS2
+Wire Wire Line
+	3950 4050 4050 4050
+Wire Wire Line
+	3950 4150 4050 4150
+Wire Wire Line
+	3950 4250 4050 4250
+Text GLabel 2500 3200 2    50   Input ~ 0
+MUXS0
+Text GLabel 2500 3300 2    50   Input ~ 0
+MUXS1
+Text GLabel 2500 3400 2    50   Input ~ 0
+MUXS2
+Text GLabel 6500 4600 0    50   Input ~ 0
+EXTRX
+Text GLabel 6500 5200 0    50   Input ~ 0
+EXTTX
+Text GLabel 6500 5500 0    50   Input ~ 0
+EXTRST
+Text GLabel 10700 4000 2    50   Input ~ 0
+EXTRST
+Text GLabel 10700 4300 2    50   Input ~ 0
+EXTTX
+Text GLabel 10700 4900 2    50   Input ~ 0
+EXTRX
 $EndSCHEMATC
