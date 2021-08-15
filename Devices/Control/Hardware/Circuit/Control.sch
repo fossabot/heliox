@@ -96,17 +96,6 @@ Wire Wire Line
 Wire Wire Line
 	2400 1800 2500 1800
 $Comp
-L power:VCC #PWR013
-U 1 1 6116E743
-P 7850 3850
-F 0 "#PWR013" H 7850 3700 50  0001 C CNN
-F 1 "VCC" V 7865 3977 50  0000 L CNN
-F 2 "" H 7850 3850 50  0001 C CNN
-F 3 "" H 7850 3850 50  0001 C CNN
-	1    7850 3850
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR014
 U 1 1 6116FC1F
 P 7850 5050
@@ -300,8 +289,6 @@ Wire Wire Line
 	9850 4450 9350 4450
 NoConn ~ 9350 4750
 Wire Wire Line
-	2400 1300 2500 1300
-Wire Wire Line
 	2400 1400 2500 1400
 Wire Wire Line
 	2400 3200 2500 3200
@@ -313,58 +300,8 @@ Wire Wire Line
 	2400 3500 2500 3500
 Wire Wire Line
 	2400 3600 2500 3600
-Wire Wire Line
-	2400 3700 2500 3700
 NoConn ~ 1200 1600
 NoConn ~ 1200 1500
-$Comp
-L Connector_Generic:Conn_01x13 J4
-U 1 1 61285557
-P 8850 1500
-F 0 "J4" H 8930 1542 50  0000 L CNN
-F 1 "Conn_01x13" H 8930 1451 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x13_P1.00mm_Vertical" H 8850 1500 50  0001 C CNN
-F 3 "~" H 8850 1500 50  0001 C CNN
-	1    8850 1500
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR015
-U 1 1 61289C4F
-P 8550 900
-F 0 "#PWR015" H 8550 650 50  0001 C CNN
-F 1 "GND" V 8555 772 50  0000 R CNN
-F 2 "" H 8550 900 50  0001 C CNN
-F 3 "" H 8550 900 50  0001 C CNN
-	1    8550 900 
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	8550 900  8650 900 
-Wire Wire Line
-	8550 1000 8650 1000
-Wire Wire Line
-	8550 1100 8650 1100
-Wire Wire Line
-	8550 1200 8650 1200
-Wire Wire Line
-	8550 1300 8650 1300
-Wire Wire Line
-	8550 1400 8650 1400
-Wire Wire Line
-	8550 1500 8650 1500
-Wire Wire Line
-	8550 1600 8650 1600
-Wire Wire Line
-	8550 1700 8650 1700
-Wire Wire Line
-	8550 1800 8650 1800
-Wire Wire Line
-	8550 1900 8650 1900
-Wire Wire Line
-	8550 2000 8650 2000
-Wire Wire Line
-	8550 2100 8650 2100
 $Comp
 L Connector_Generic:Conn_01x04 J6
 U 1 1 613021A3
@@ -437,17 +374,15 @@ Wire Wire Line
 Wire Wire Line
 	8550 3100 8650 3100
 Wire Notes Line
-	8150 750  8150 3200
+	8150 2100 8150 3200
 Wire Notes Line
 	8150 3200 9450 3200
 Wire Notes Line
-	9450 3200 9450 750 
+	9450 3200 9450 2100
 Wire Notes Line
-	9450 750  8150 750 
-Text Notes 8150 750  0    50   ~ 0
+	9450 2100 8150 2100
+Text Notes 8150 2100 0    50   ~ 0
 Failsafe breakout pins
-Text Notes 8950 900  0    50   ~ 0
-Encoders
 Text Notes 8950 2300 0    50   ~ 0
 UART
 Text Notes 8950 2800 0    50   ~ 0
@@ -488,30 +423,6 @@ Text GLabel 8550 2900 0    50   Input ~ 0
 SDA
 Text GLabel 8550 3000 0    50   Input ~ 0
 SCL
-Text GLabel 8550 1800 0    50   Input ~ 0
-BTN1
-Text GLabel 8550 1900 0    50   Input ~ 0
-BTN2
-Text GLabel 8550 2000 0    50   Input ~ 0
-BTN3
-Text GLabel 8550 2100 0    50   Input ~ 0
-BTN4
-Text GLabel 8550 1000 0    50   Input ~ 0
-ENC1A
-Text GLabel 8550 1200 0    50   Input ~ 0
-ENC2A
-Text GLabel 8550 1400 0    50   Input ~ 0
-ENC3A
-Text GLabel 8550 1500 0    50   Input ~ 0
-ENC3B
-Text GLabel 8550 1100 0    50   Input ~ 0
-ENC1B
-Text GLabel 8550 1300 0    50   Input ~ 0
-ENC2B
-Text GLabel 8550 1600 0    50   Input ~ 0
-ENC4A
-Text GLabel 8550 1700 0    50   Input ~ 0
-ENC4B
 Text GLabel 6500 4300 0    50   Input ~ 0
 SDA
 Text GLabel 6500 4900 0    50   Input ~ 0
@@ -1231,19 +1142,6 @@ F 3 "" H 5200 1850 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5200 1850 5100 1850
-$Comp
-L Device:R R4
-U 1 1 61303408
-P 7850 4100
-F 0 "R4" H 7780 4054 50  0000 R CNN
-F 1 "40.2" H 7780 4145 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 7780 4100 50  0001 C CNN
-F 3 "~" H 7850 4100 50  0001 C CNN
-	1    7850 4100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7850 3850 7850 3950
 Wire Wire Line
 	6650 3000 6650 3100
 $Comp
@@ -1549,7 +1447,7 @@ Wire Wire Line
 	2450 4800 2450 4900
 Wire Wire Line
 	2450 5600 2450 5700
-Text GLabel 2500 1300 2    50   Input ~ 0
+Text GLabel 2500 2300 2    50   Input ~ 0
 STOPRST
 $Comp
 L Switch:SW_Push SW1
@@ -1620,10 +1518,41 @@ Wire Wire Line
 	2700 6550 2800 6550
 Wire Wire Line
 	3200 6550 3300 6550
-Text GLabel 2500 3700 2    50   Input ~ 0
+Text GLabel 2500 2400 2    50   Input ~ 0
 STOPRST-SIG
-NoConn ~ 2400 2200
-NoConn ~ 2400 2300
-NoConn ~ 2400 2400
 NoConn ~ 2400 2500
+Text GLabel 2500 2200 2    50   Input ~ 0
+EXTRST
+Wire Wire Line
+	2400 2200 2500 2200
+Wire Wire Line
+	2400 2300 2500 2300
+Wire Wire Line
+	2400 2400 2500 2400
+NoConn ~ 2400 1300
+NoConn ~ 2400 3700
+$Comp
+L power:VCC #PWR013
+U 1 1 6116E743
+P 7850 3850
+F 0 "#PWR013" H 7850 3700 50  0001 C CNN
+F 1 "VCC" V 7865 3977 50  0000 L CNN
+F 2 "" H 7850 3850 50  0001 C CNN
+F 3 "" H 7850 3850 50  0001 C CNN
+	1    7850 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7850 3850 7850 3950
+$Comp
+L Device:R R4
+U 1 1 61303408
+P 7850 4100
+F 0 "R4" H 7780 4054 50  0000 R CNN
+F 1 "40.2" H 7780 4145 50  0000 R CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 7780 4100 50  0001 C CNN
+F 3 "~" H 7850 4100 50  0001 C CNN
+	1    7850 4100
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
