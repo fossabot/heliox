@@ -1424,7 +1424,7 @@ F 3 "~" H 2350 4600 50  0001 C CNN
 	1    2350 4600
 	1    0    0    -1  
 $EndComp
-Text GLabel 2000 4600 0    50   Input ~ 0
+Text GLabel 1600 4600 0    50   Input ~ 0
 STOPRST
 Text GLabel 2450 5700 3    50   Input ~ 0
 RST
@@ -1529,8 +1529,6 @@ Wire Wire Line
 	2400 2300 2500 2300
 Wire Wire Line
 	2400 2400 2500 2400
-NoConn ~ 2400 1300
-NoConn ~ 2400 3700
 $Comp
 L power:VCC #PWR013
 U 1 1 6116E743
@@ -1555,4 +1553,25 @@ F 3 "~" H 7850 4100 50  0001 C CNN
 	1    7850 4100
 	1    0    0    -1  
 $EndComp
+Text GLabel 2500 3700 2    50   Input ~ 0
+EXTRX
+Wire Wire Line
+	2400 3700 2500 3700
+Text GLabel 2500 1300 2    50   Input ~ 0
+EXTTX
+Wire Wire Line
+	2400 1300 2500 1300
+$Comp
+L Device:R R?
+U 1 1 611A5CE7
+P 1850 4600
+F 0 "R?" H 1920 4646 50  0000 L CNN
+F 1 "1k" H 1920 4555 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1780 4600 50  0001 C CNN
+F 3 "~" H 1850 4600 50  0001 C CNN
+	1    1850 4600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1600 4600 1700 4600
 $EndSCHEMATC
