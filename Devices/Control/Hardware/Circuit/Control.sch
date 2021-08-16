@@ -1474,7 +1474,7 @@ $EndComp
 Wire Wire Line
 	2450 5200 2450 5300
 Text GLabel 1300 5050 0    50   Input ~ 0
-STOPRST-SIG
+STOPRST-BTN
 $Comp
 L power:GND #PWR026
 U 1 1 6122EB4F
@@ -1519,7 +1519,7 @@ Wire Wire Line
 Wire Wire Line
 	3200 6550 3300 6550
 Text GLabel 2500 2400 2    50   Input ~ 0
-STOPRST-SIG
+STOPRST-BTN
 NoConn ~ 2400 2500
 Text GLabel 2500 2200 2    50   Input ~ 0
 EXTRST
@@ -1574,4 +1574,181 @@ F 3 "~" H 1850 4600 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	1600 4600 1700 4600
+$Comp
+L MCU_Microchip_ATmega:ATmega328PB-AU U?
+U 1 1 611B4248
+P -1500 2550
+F 0 "U?" H -1500 2650 50  0000 C CNN
+F 1 "ATmega328PB-AU" H -1650 2550 50  0000 C CNN
+F 2 "Package_QFP:TQFP-32_7x7mm_P0.8mm" H -1500 2550 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/40001906C.pdf" H -1500 2550 50  0001 C CNN
+	1    -1500 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 611C40BF
+P -1500 4150
+F 0 "#PWR?" H -1500 3900 50  0001 C CNN
+F 1 "GND" H -1495 3977 50  0000 C CNN
+F 2 "" H -1500 4150 50  0001 C CNN
+F 3 "" H -1500 4150 50  0001 C CNN
+	1    -1500 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	-1500 4050 -1500 4150
+$Comp
+L power:VCC #PWR?
+U 1 1 611D004C
+P -1500 950
+F 0 "#PWR?" H -1500 800 50  0001 C CNN
+F 1 "VCC" H -1485 1123 50  0000 C CNN
+F 2 "" H -1500 950 50  0001 C CNN
+F 3 "" H -1500 950 50  0001 C CNN
+	1    -1500 950 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	-1500 950  -1500 1000
+Wire Wire Line
+	-1500 1000 -1400 1000
+Wire Wire Line
+	-1400 1000 -1400 1050
+Connection ~ -1500 1000
+Wire Wire Line
+	-1500 1000 -1500 1050
+NoConn ~ -2100 1350
+Text GLabel -800 2150 2    50   Input ~ 0
+XTAL2
+Text GLabel -800 1950 2    50   Input ~ 0
+SCK
+Text GLabel -800 1650 2    50   Input ~ 0
+MOSI
+Text GLabel -800 1750 2    50   Input ~ 0
+MISO
+Text GLabel -800 1350 2    50   Input ~ 0
+SIG1A
+Text GLabel -800 1450 2    50   Input ~ 0
+SIG1B
+Text GLabel -800 1850 2    50   Input ~ 0
+EXTTX
+Text GLabel -800 2050 2    50   Input ~ 0
+XTAL1
+Wire Wire Line
+	-900 2050 -900 2150
+Wire Wire Line
+	-900 2150 -800 2150
+Wire Wire Line
+	-900 1950 -900 2000
+Wire Wire Line
+	-900 2000 -850 2000
+Wire Wire Line
+	-850 2000 -850 2050
+Wire Wire Line
+	-850 2050 -800 2050
+Wire Wire Line
+	-900 1850 -900 1900
+Wire Wire Line
+	-900 1900 -850 1900
+Wire Wire Line
+	-850 1900 -850 1950
+Wire Wire Line
+	-850 1950 -800 1950
+Wire Wire Line
+	-900 1750 -900 1800
+Wire Wire Line
+	-900 1800 -850 1800
+Wire Wire Line
+	-850 1800 -850 1850
+Wire Wire Line
+	-850 1850 -800 1850
+Wire Wire Line
+	-900 1750 -800 1750
+Connection ~ -900 1750
+Text GLabel -800 1550 2    50   Input ~ 0
+EXTRX
+Wire Wire Line
+	-900 1650 -800 1650
+Wire Wire Line
+	-900 1650 -900 1600
+Wire Wire Line
+	-900 1600 -850 1600
+Wire Wire Line
+	-850 1600 -850 1550
+Wire Wire Line
+	-850 1550 -800 1550
+Connection ~ -900 1650
+Text GLabel -800 2250 2    50   Input ~ 0
+STOPRST
+Text GLabel -800 2350 2    50   Input ~ 0
+STOPRST-BTN
+Wire Wire Line
+	-900 2250 -800 2250
+Wire Wire Line
+	-900 2350 -800 2350
+Wire Wire Line
+	-900 2850 -800 2850
+Wire Wire Line
+	-900 2750 -800 2750
+Wire Wire Line
+	-900 2650 -800 2650
+Text GLabel -800 2650 2    50   Input ~ 0
+SDA
+Text GLabel -800 2750 2    50   Input ~ 0
+SCL
+Text GLabel -800 2850 2    50   Input ~ 0
+RST
+Wire Wire Line
+	-900 3050 -800 3050
+Wire Wire Line
+	-900 3150 -800 3150
+Wire Wire Line
+	-900 3250 -800 3250
+Wire Wire Line
+	-900 3350 -800 3350
+Wire Wire Line
+	-900 3450 -800 3450
+Wire Wire Line
+	-900 3550 -800 3550
+Wire Wire Line
+	-900 3650 -800 3650
+Text GLabel -800 3150 2    50   Input ~ 0
+TX
+Text GLabel -800 3050 2    50   Input ~ 0
+RX
+Text GLabel -800 3550 2    50   Input ~ 0
+SIG2A
+Text GLabel -800 3650 2    50   Input ~ 0
+SIG2B
+Text GLabel -800 3250 2    50   Input ~ 0
+MUXS0
+Text GLabel -800 3350 2    50   Input ~ 0
+MUXS1
+Text GLabel -800 3450 2    50   Input ~ 0
+MUXS2
+NoConn ~ -2100 3050
+NoConn ~ -2100 3150
+NoConn ~ -2100 3250
+NoConn ~ -2100 3350
+NoConn ~ -900 2450
+NoConn ~ -900 2550
+NoConn ~ -900 3750
+Wire Wire Line
+	-900 1550 -900 1500
+Wire Wire Line
+	-900 1500 -850 1500
+Wire Wire Line
+	-850 1500 -850 1450
+Wire Wire Line
+	-850 1450 -800 1450
+Wire Wire Line
+	-900 1450 -900 1400
+Wire Wire Line
+	-900 1400 -850 1400
+Wire Wire Line
+	-850 1400 -850 1350
+Wire Wire Line
+	-850 1350 -800 1350
+NoConn ~ -900 1350
 $EndSCHEMATC
