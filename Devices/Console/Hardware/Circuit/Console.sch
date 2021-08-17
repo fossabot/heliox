@@ -14,17 +14,6 @@ Comment3 ""
 Comment4 "Author: GHOSCHT"
 $EndDescr
 $Comp
-L MCU_Microchip_ATmega:ATmega328P-AU U1
-U 1 1 61124B57
-P 1800 2500
-F 0 "U1" H 1800 2650 50  0000 C CNN
-F 1 "ATmega328P-AU" H 1750 2550 50  0000 C CNN
-F 2 "Package_QFP:TQFP-32_7x7mm_P0.8mm" H 1800 2500 50  0001 C CIN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf" H 1800 2500 50  0001 C CNN
-	1    1800 2500
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:Rotary_Encoder_Switch SW1
 U 1 1 6112A1C1
 P 7100 1200
@@ -61,51 +50,6 @@ F 3 "~" H 6750 4100 50  0001 C CNN
 	1    6750 4100
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2400 1900 2500 1900
-Wire Wire Line
-	2400 2000 2500 2000
-$Comp
-L power:VCC #PWR02
-U 1 1 61153B27
-P 1800 900
-F 0 "#PWR02" H 1800 750 50  0001 C CNN
-F 1 "VCC" H 1815 1073 50  0000 C CNN
-F 2 "" H 1800 900 50  0001 C CNN
-F 3 "" H 1800 900 50  0001 C CNN
-	1    1800 900 
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1800 900  1800 950 
-Wire Wire Line
-	1800 950  1900 950 
-Wire Wire Line
-	1900 950  1900 1000
-Connection ~ 1800 950 
-Wire Wire Line
-	1800 950  1800 1000
-$Comp
-L power:GND #PWR03
-U 1 1 6115A165
-P 1800 4100
-F 0 "#PWR03" H 1800 3850 50  0001 C CNN
-F 1 "GND" H 1805 3927 50  0000 C CNN
-F 2 "" H 1800 4100 50  0001 C CNN
-F 3 "" H 1800 4100 50  0001 C CNN
-	1    1800 4100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1800 4000 1800 4100
-Wire Wire Line
-	2400 2800 2500 2800
-Wire Wire Line
-	2400 1600 2500 1600
-Wire Wire Line
-	2400 1700 2500 1700
-Wire Wire Line
-	2400 1800 2500 1800
 $Comp
 L power:VCC #PWR019
 U 1 1 6116E743
@@ -188,14 +132,6 @@ Wire Wire Line
 	9400 4850 9500 4850
 Wire Wire Line
 	7900 4850 8000 4850
-Wire Wire Line
-	2400 3000 2500 3000
-Wire Wire Line
-	2400 3100 2500 3100
-Wire Wire Line
-	2400 2700 2500 2700
-Wire Wire Line
-	2400 2600 2500 2600
 $Comp
 L Jumper:SolderJumper_2_Open JP3
 U 1 1 6118262C
@@ -456,14 +392,6 @@ Wire Wire Line
 Wire Wire Line
 	7400 3300 7500 3300
 Wire Wire Line
-	2400 2200 2500 2200
-Wire Wire Line
-	2400 2300 2500 2300
-Wire Wire Line
-	2400 2400 2500 2400
-Wire Wire Line
-	2400 2500 2500 2500
-Wire Wire Line
 	6700 1100 6800 1100
 Wire Wire Line
 	6700 1300 6800 1300
@@ -479,25 +407,6 @@ Wire Wire Line
 	6650 3100 6800 3100
 Wire Wire Line
 	6650 3300 6800 3300
-Wire Wire Line
-	2400 1300 2500 1300
-Wire Wire Line
-	2400 1400 2500 1400
-Wire Wire Line
-	2400 3200 2500 3200
-Wire Wire Line
-	2400 3300 2500 3300
-Wire Wire Line
-	2400 3400 2500 3400
-Wire Wire Line
-	2400 3500 2500 3500
-Wire Wire Line
-	2400 3600 2500 3600
-Wire Wire Line
-	2400 3700 2500 3700
-NoConn ~ 2400 1500
-NoConn ~ 1200 1600
-NoConn ~ 1200 1500
 $Comp
 L Connector_Generic:Conn_01x13 J3
 U 1 1 61285557
@@ -653,48 +562,6 @@ Wire Notes Line
 	6300 750  6300 3500
 Text Notes 6300 750  0    50   ~ 0
 Encoder input
-Text GLabel 2500 1300 2    50   Input ~ 0
-ENC4A
-Text GLabel 2500 1400 2    50   Input ~ 0
-ENC4B
-Text GLabel 2500 1600 2    50   Input ~ 0
-MOSI
-Text GLabel 2500 1700 2    50   Input ~ 0
-MISO
-Text GLabel 2500 1800 2    50   Input ~ 0
-SCK
-Text GLabel 2500 1900 2    50   Input ~ 0
-XTAL1
-Text GLabel 2500 2000 2    50   Input ~ 0
-XTAL2
-Text GLabel 2500 2200 2    50   Input ~ 0
-BTN1
-Text GLabel 2500 2300 2    50   Input ~ 0
-BTN2
-Text GLabel 2500 2400 2    50   Input ~ 0
-BTN3
-Text GLabel 2500 2500 2    50   Input ~ 0
-BTN4
-Text GLabel 2500 2600 2    50   Input ~ 0
-SDA
-Text GLabel 2500 2700 2    50   Input ~ 0
-SCL
-Text GLabel 2500 2800 2    50   Input ~ 0
-RST
-Text GLabel 2500 3100 2    50   Input ~ 0
-TX
-Text GLabel 2500 3200 2    50   Input ~ 0
-ENC1A
-Text GLabel 2500 3300 2    50   Input ~ 0
-ENC1B
-Text GLabel 2500 3400 2    50   Input ~ 0
-ENC2A
-Text GLabel 2500 3500 2    50   Input ~ 0
-ENC2B
-Text GLabel 2500 3600 2    50   Input ~ 0
-ENC3A
-Text GLabel 2500 3700 2    50   Input ~ 0
-ENC3B
 Text GLabel 6700 1100 0    50   Input ~ 0
 ENC1A
 Text GLabel 6700 1300 0    50   Input ~ 0
@@ -719,8 +586,6 @@ Text GLabel 7500 2650 2    50   Input ~ 0
 BTN3
 Text GLabel 7500 3300 2    50   Input ~ 0
 BTN4
-Text GLabel 2500 3000 2    50   Input ~ 0
-RX
 Text GLabel 8550 2400 0    50   Input ~ 0
 RX
 Text GLabel 8550 2500 0    50   Input ~ 0
@@ -773,13 +638,10 @@ Text GLabel 10750 5000 2    50   Input ~ 0
 SDA
 Text GLabel 6550 5300 0    50   Input ~ 0
 RST
-Text Notes 0    150  0    79   ~ 16
-Todo: add reset button, status rgb led and power led
 Wire Wire Line
 	7050 5000 6900 5000
 Text GLabel 10750 3800 2    50   Input ~ 0
 RST
-NoConn ~ 1200 1300
 Wire Notes Line
 	6300 5550 11000 5550
 Text Notes 1800 6950 0    50   ~ 0
@@ -916,8 +778,8 @@ Wire Wire Line
 	3700 6850 3700 7000
 Text Notes 1800 5700 0    50   ~ 0
 Reset pullup
-Text Notes 2450 5700 0    50   ~ 0
-Power decoupling capacitor
+Text Notes 550  2100 0    50   ~ 0
+ATmega decoupling capacitor
 Wire Notes Line
 	2200 5700 1800 5700
 Wire Notes Line
@@ -927,13 +789,13 @@ Wire Notes Line
 Wire Notes Line
 	1800 5700 1800 6800
 Wire Notes Line
-	2950 5700 2450 5700
+	1050 2100 550  2100
 Wire Notes Line
-	2950 6800 2950 5700
+	1050 3200 1050 2100
 Wire Notes Line
-	2450 6800 2950 6800
+	550  3200 1050 3200
 Wire Notes Line
-	2450 5700 2450 6800
+	550  2100 550  3200
 Text Notes 550  5700 0    50   ~ 0
 ATmega oscillator
 Wire Notes Line
@@ -1093,40 +955,40 @@ Wire Wire Line
 	1300 6050 1300 6300
 Connection ~ 1300 6300
 Wire Wire Line
-	2600 6400 2600 6500
+	700  2800 700  2900
 Wire Wire Line
-	2600 6000 2600 6100
+	700  2400 700  2500
 $Comp
 L Device:C C3
 U 1 1 6115564D
-P 2600 6250
-F 0 "C3" H 2715 6296 50  0000 L CNN
-F 1 "100n" H 2715 6205 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2638 6100 50  0001 C CNN
-F 3 "~" H 2600 6250 50  0001 C CNN
-	1    2600 6250
+P 700 2650
+F 0 "C3" H 815 2696 50  0000 L CNN
+F 1 "100n" H 815 2605 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 738 2500 50  0001 C CNN
+F 3 "~" H 700 2650 50  0001 C CNN
+	1    700  2650
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR06
 U 1 1 61155121
-P 2600 6500
-F 0 "#PWR06" H 2600 6250 50  0001 C CNN
-F 1 "GND" H 2605 6327 50  0000 C CNN
-F 2 "" H 2600 6500 50  0001 C CNN
-F 3 "" H 2600 6500 50  0001 C CNN
-	1    2600 6500
+P 700 2900
+F 0 "#PWR06" H 700 2650 50  0001 C CNN
+F 1 "GND" H 705 2727 50  0000 C CNN
+F 2 "" H 700 2900 50  0001 C CNN
+F 3 "" H 700 2900 50  0001 C CNN
+	1    700  2900
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:VCC #PWR05
 U 1 1 61154991
-P 2600 6000
-F 0 "#PWR05" H 2600 5850 50  0001 C CNN
-F 1 "VCC" H 2615 6173 50  0000 C CNN
-F 2 "" H 2600 6000 50  0001 C CNN
-F 3 "" H 2600 6000 50  0001 C CNN
-	1    2600 6000
+P 700 2400
+F 0 "#PWR05" H 700 2250 50  0001 C CNN
+F 1 "VCC" H 715 2573 50  0000 C CNN
+F 2 "" H 700 2400 50  0001 C CNN
+F 3 "" H 700 2400 50  0001 C CNN
+	1    700  2400
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1206,32 +1068,234 @@ F 3 "~" H 10550 5000 50  0001 C CNN
 	1    10550 5000
 	1    0    0    -1  
 $EndComp
-Text GLabel 2050 5000 0    50   Input ~ 0
+Text GLabel 2600 6050 0    50   Input ~ 0
 RST
 Wire Wire Line
-	2050 5000 2150 5000
+	2600 6050 2700 6050
 Wire Wire Line
-	2550 5000 2650 5000
+	3100 6050 3200 6050
 $Comp
 L power:GND #PWR0103
 U 1 1 612E73C3
-P 2650 5000
-F 0 "#PWR0103" H 2650 4750 50  0001 C CNN
-F 1 "GND" H 2655 4827 50  0000 C CNN
-F 2 "" H 2650 5000 50  0001 C CNN
-F 3 "" H 2650 5000 50  0001 C CNN
-	1    2650 5000
+P 3200 6050
+F 0 "#PWR0103" H 3200 5800 50  0001 C CNN
+F 1 "GND" H 3205 5877 50  0000 C CNN
+F 2 "" H 3200 6050 50  0001 C CNN
+F 3 "" H 3200 6050 50  0001 C CNN
+	1    3200 6050
 	0    -1   -1   0   
 $EndComp
 $Comp
 L Switch:SW_Push SW5
 U 1 1 6132D0B4
-P 2350 5000
-F 0 "SW5" H 2350 5285 50  0000 C CNN
-F 1 "SW_Push" H 2350 5194 50  0000 C CNN
-F 2 "SKRKAEE020:SKRKAEE020" H 2350 5200 50  0001 C CNN
-F 3 "~" H 2350 5200 50  0001 C CNN
-	1    2350 5000
+P 2900 6050
+F 0 "SW5" H 2900 6335 50  0000 C CNN
+F 1 "SW_Push" H 2900 6244 50  0000 C CNN
+F 2 "SKRKAEE020:SKRKAEE020" H 2900 6250 50  0001 C CNN
+F 3 "~" H 2900 6250 50  0001 C CNN
+	1    2900 6050
 	1    0    0    -1  
 $EndComp
+Wire Notes Line
+	2350 5700 2350 6200
+Wire Notes Line
+	2350 6200 3450 6200
+Wire Notes Line
+	3450 6200 3450 5700
+Wire Notes Line
+	3450 5700 2350 5700
+Text Notes 2350 5700 0    50   ~ 0
+Reset button
+$Comp
+L MCU_Microchip_ATmega:ATmega328PB-AU U1
+U 1 1 61C8D3E7
+P 2250 2500
+F 0 "U1" H 2200 2600 50  0000 C CNN
+F 1 "ATmega328PB-AU" H 2150 2500 50  0000 C CNN
+F 2 "Package_QFP:TQFP-32_7x7mm_P0.8mm" H 2250 2500 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/40001906C.pdf" H 2250 2500 50  0001 C CNN
+	1    2250 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR03
+U 1 1 61C958B0
+P 2250 4100
+F 0 "#PWR03" H 2250 3850 50  0001 C CNN
+F 1 "GND" H 2255 3927 50  0000 C CNN
+F 2 "" H 2250 4100 50  0001 C CNN
+F 3 "" H 2250 4100 50  0001 C CNN
+	1    2250 4100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2250 4000 2250 4100
+$Comp
+L power:VCC #PWR02
+U 1 1 61CA7464
+P 2250 900
+F 0 "#PWR02" H 2250 750 50  0001 C CNN
+F 1 "VCC" H 2265 1073 50  0000 C CNN
+F 2 "" H 2250 900 50  0001 C CNN
+F 3 "" H 2250 900 50  0001 C CNN
+	1    2250 900 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2250 900  2250 950 
+Wire Wire Line
+	2250 950  2350 950 
+Wire Wire Line
+	2350 950  2350 1000
+Connection ~ 2250 950 
+Wire Wire Line
+	2250 950  2250 1000
+Wire Wire Line
+	2850 1900 2950 1900
+Wire Wire Line
+	2850 2000 2950 2000
+Wire Wire Line
+	2850 2800 2950 2800
+Wire Wire Line
+	2850 1600 2950 1600
+Wire Wire Line
+	2850 1700 2950 1700
+Wire Wire Line
+	2850 1800 2950 1800
+Wire Wire Line
+	2850 3000 2950 3000
+Wire Wire Line
+	2850 3100 2950 3100
+Wire Wire Line
+	2850 2700 2950 2700
+Wire Wire Line
+	2850 2600 2950 2600
+Wire Wire Line
+	2850 2200 2950 2200
+Wire Wire Line
+	2850 2300 2950 2300
+Wire Wire Line
+	2850 2400 2950 2400
+Wire Wire Line
+	2850 2500 2950 2500
+Wire Wire Line
+	2850 1300 2950 1300
+Wire Wire Line
+	2850 1400 2950 1400
+Wire Wire Line
+	2850 3200 2950 3200
+Wire Wire Line
+	2850 3300 2950 3300
+Wire Wire Line
+	2850 3400 2950 3400
+Wire Wire Line
+	2850 3500 2950 3500
+Wire Wire Line
+	2850 3600 2950 3600
+Wire Wire Line
+	2850 3700 2950 3700
+Text GLabel 2950 1300 2    50   Input ~ 0
+ENC4A
+Text GLabel 2950 1400 2    50   Input ~ 0
+ENC4B
+Text GLabel 2950 1600 2    50   Input ~ 0
+MOSI
+Text GLabel 2950 1700 2    50   Input ~ 0
+MISO
+Text GLabel 2950 1800 2    50   Input ~ 0
+SCK
+Text GLabel 2950 1900 2    50   Input ~ 0
+XTAL1
+Text GLabel 2950 2000 2    50   Input ~ 0
+XTAL2
+Text GLabel 2950 2200 2    50   Input ~ 0
+BTN1
+Text GLabel 2950 2300 2    50   Input ~ 0
+BTN2
+Text GLabel 2950 2400 2    50   Input ~ 0
+BTN3
+Text GLabel 2950 2500 2    50   Input ~ 0
+BTN4
+Text GLabel 2950 2600 2    50   Input ~ 0
+SDA
+Text GLabel 2950 2700 2    50   Input ~ 0
+SCL
+Text GLabel 2950 2800 2    50   Input ~ 0
+RST
+Text GLabel 2950 3100 2    50   Input ~ 0
+TX
+Text GLabel 2950 3200 2    50   Input ~ 0
+ENC1A
+Text GLabel 2950 3300 2    50   Input ~ 0
+ENC1B
+Text GLabel 2950 3400 2    50   Input ~ 0
+ENC2A
+Text GLabel 2950 3500 2    50   Input ~ 0
+ENC2B
+Text GLabel 2950 3600 2    50   Input ~ 0
+ENC3A
+Text GLabel 2950 3700 2    50   Input ~ 0
+ENC3B
+Text GLabel 2950 3000 2    50   Input ~ 0
+RX
+NoConn ~ 1650 3000
+NoConn ~ 1650 3200
+NoConn ~ 1650 3100
+NoConn ~ 1650 3300
+NoConn ~ 1650 1300
+Text Notes 3600 3950 0    50   ~ 0
+Status LED
+Wire Notes Line
+	4900 3950 3600 3950
+Wire Notes Line
+	4900 5500 4900 3950
+Wire Notes Line
+	3600 5500 4900 5500
+Wire Notes Line
+	3600 3950 3600 5500
+$Comp
+L Device:LED D2
+U 1 1 61D1A3B1
+P 3700 4950
+F 0 "D2" V 3739 4832 50  0000 R CNN
+F 1 "17-21/BHC-XL2M2TY/3T" V 3648 4832 50  0000 R CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Castellated" H 3700 4950 50  0001 C CNN
+F 3 "~" H 3700 4950 50  0001 C CNN
+	1    3700 4950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 61D1A3B7
+P 3700 4500
+F 0 "R3" H 3630 4454 50  0000 R CNN
+F 1 "200" H 3630 4545 50  0000 R CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3630 4500 50  0001 C CNN
+F 3 "~" H 3700 4500 50  0001 C CNN
+	1    3700 4500
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR028
+U 1 1 61D1A3BD
+P 3700 5250
+F 0 "#PWR028" H 3700 5000 50  0001 C CNN
+F 1 "GND" H 3705 5077 50  0000 C CNN
+F 2 "" H 3700 5250 50  0001 C CNN
+F 3 "" H 3700 5250 50  0001 C CNN
+	1    3700 5250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3700 4200 3700 4350
+Wire Wire Line
+	3700 4650 3700 4800
+Wire Wire Line
+	3700 5100 3700 5250
+Text GLabel 3700 4200 1    50   Input ~ 0
+LED
+Text GLabel 2950 1500 2    50   Input ~ 0
+LED
+Wire Wire Line
+	2850 1500 2950 1500
 $EndSCHEMATC
