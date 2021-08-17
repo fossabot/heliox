@@ -1,3 +1,5 @@
 (fp_lib_table
   (lib (name CUI_TB006-508-03BE)(type KiCad)(uri ${KIPRJMOD}/Libraries/CUI_TB006-508-03BE.pretty)(options "")(descr ""))
+  (lib (name CUI_TB006-508-04BE)(type KiCad)(uri ${KIPRJMOD}/Libraries/CUI_TB006-508-04BE.pretty)(options "")(descr ""))
+  (lib (name CUI_TB006-508-02BE)(type KiCad)(uri ${KIPRJMOD}/Libraries/CUI_TB006-508-02BE.pretty)(options "")(descr ""))
 )
