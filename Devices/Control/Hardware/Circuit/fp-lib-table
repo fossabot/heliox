@@ -4,4 +4,5 @@
   (lib (name AVR-ISP)(type KiCad)(uri ${KIPRJMOD}/Libraries/AVR-ISP.pretty)(options "")(descr ""))
   (lib (name CD74HC4053PWR)(type KiCad)(uri ${KIPRJMOD}/Libraries/CD74HC4053PWR.pretty)(options "")(descr ""))
   (lib (name SKRKAEE020)(type KiCad)(uri ${KIPRJMOD}/Libraries/SKRKAEE020.pretty)(options "")(descr ""))
+  (lib (name CUI_TB006-508-04BE)(type KiCad)(uri "C:/Users/Philipp/Coding/Visual Studio Code/smart-lamp-control/Devices/Module/Hardware/Circuit/Libraries/CUI_TB006-508-04BE.pretty")(options "")(descr ""))
 )
