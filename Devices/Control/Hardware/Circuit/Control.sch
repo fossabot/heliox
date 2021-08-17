@@ -1523,7 +1523,6 @@ NoConn ~ 1450 3050
 NoConn ~ 1450 3150
 NoConn ~ 2650 2250
 NoConn ~ 2650 2350
-NoConn ~ 2650 3550
 Wire Wire Line
 	2650 1350 2650 1300
 Wire Wire Line
@@ -1830,4 +1829,59 @@ Wire Wire Line
 	15050 4500 15050 4600
 Connection ~ 15050 4500
 NoConn ~ 13700 4600
+Text Notes 550  7200 0    50   ~ 0
+Status LED
+Wire Notes Line
+	1850 7200 550  7200
+Wire Notes Line
+	1850 8750 1850 7200
+Wire Notes Line
+	550  8750 1850 8750
+Wire Notes Line
+	550  7200 550  8750
+$Comp
+L Device:LED D3
+U 1 1 61C08A60
+P 650 8200
+F 0 "D3" V 689 8082 50  0000 R CNN
+F 1 "17-21/BHC-XL2M2TY/3T" V 598 8082 50  0000 R CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Castellated" H 650 8200 50  0001 C CNN
+F 3 "~" H 650 8200 50  0001 C CNN
+	1    650  8200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R8
+U 1 1 61C08A66
+P 650 7750
+F 0 "R8" H 580 7704 50  0000 R CNN
+F 1 "200" H 580 7795 50  0000 R CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 580 7750 50  0001 C CNN
+F 3 "~" H 650 7750 50  0001 C CNN
+	1    650  7750
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0118
+U 1 1 61C08A6C
+P 650 8500
+F 0 "#PWR0118" H 650 8250 50  0001 C CNN
+F 1 "GND" H 655 8327 50  0000 C CNN
+F 2 "" H 650 8500 50  0001 C CNN
+F 3 "" H 650 8500 50  0001 C CNN
+	1    650  8500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	650  7450 650  7600
+Wire Wire Line
+	650  7900 650  8050
+Wire Wire Line
+	650  8350 650  8500
+Text GLabel 650  7450 1    50   Input ~ 0
+LED
+Text GLabel 2750 3550 2    50   Input ~ 0
+LED
+Wire Wire Line
+	2650 3550 2750 3550
 $EndSCHEMATC
