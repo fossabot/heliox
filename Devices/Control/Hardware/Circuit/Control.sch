@@ -230,7 +230,7 @@ U 1 1 613021A3
 P 5800 5300
 F 0 "J6" H 5880 5292 50  0000 L CNN
 F 1 "Conn_01x04" H 5880 5201 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x04_P1.00mm_Vertical" H 5800 5300 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 5800 5300 50  0001 C CNN
 F 3 "~" H 5800 5300 50  0001 C CNN
 	1    5800 5300
 	1    0    0    -1  
@@ -241,7 +241,7 @@ U 1 1 613031C0
 P 5800 4300
 F 0 "J5" H 5880 4292 50  0000 L CNN
 F 1 "Conn_01x04" H 5880 4201 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x04_P1.00mm_Vertical" H 5800 4300 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 5800 4300 50  0001 C CNN
 F 3 "~" H 5800 4300 50  0001 C CNN
 	1    5800 4300
 	1    0    0    -1  
@@ -471,7 +471,7 @@ Wire Wire Line
 	6700 10300 6700 10450
 Text Notes 1700 9050 0    50   ~ 0
 Reset pullup
-Text Notes 600  2600 0    50   ~ 0
+Text Notes 650  4000 0    50   ~ 0
 ATmega decoupling
 Wire Notes Line
 	2100 9050 1700 9050
@@ -482,13 +482,13 @@ Wire Notes Line
 Wire Notes Line
 	1700 9050 1700 10150
 Wire Notes Line
-	1100 2600 600  2600
+	1150 4000 650  4000
 Wire Notes Line
-	1100 3700 1100 2600
+	1150 5100 1150 4000
 Wire Notes Line
-	600  3700 1100 3700
+	650  5100 1150 5100
 Wire Notes Line
-	600  2600 600  3700
+	650  4000 650  5100
 Text Notes 550  9050 0    50   ~ 0
 ATmega oscillator
 Wire Notes Line
@@ -637,40 +637,40 @@ Wire Wire Line
 	1300 9400 1300 9650
 Connection ~ 1300 9650
 Wire Wire Line
-	750  3300 750  3400
+	800  4700 800  4800
 Wire Wire Line
-	750  2900 750  3000
+	800  4300 800  4400
 $Comp
 L Device:C C3
 U 1 1 6115564D
-P 750 3150
-F 0 "C3" H 865 3196 50  0000 L CNN
-F 1 "100n" H 865 3105 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 788 3000 50  0001 C CNN
-F 3 "~" H 750 3150 50  0001 C CNN
-	1    750  3150
+P 800 4550
+F 0 "C3" H 915 4596 50  0000 L CNN
+F 1 "100n" H 915 4505 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 838 4400 50  0001 C CNN
+F 3 "~" H 800 4550 50  0001 C CNN
+	1    800  4550
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR08
 U 1 1 61155121
-P 750 3400
-F 0 "#PWR08" H 750 3150 50  0001 C CNN
-F 1 "GND" H 755 3227 50  0000 C CNN
-F 2 "" H 750 3400 50  0001 C CNN
-F 3 "" H 750 3400 50  0001 C CNN
-	1    750  3400
+P 800 4800
+F 0 "#PWR08" H 800 4550 50  0001 C CNN
+F 1 "GND" H 805 4627 50  0000 C CNN
+F 2 "" H 800 4800 50  0001 C CNN
+F 3 "" H 800 4800 50  0001 C CNN
+	1    800  4800
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:VCC #PWR07
 U 1 1 61154991
-P 750 2900
-F 0 "#PWR07" H 750 2750 50  0001 C CNN
-F 1 "VCC" H 765 3073 50  0000 C CNN
-F 2 "" H 750 2900 50  0001 C CNN
-F 3 "" H 750 2900 50  0001 C CNN
-	1    750  2900
+P 800 4300
+F 0 "#PWR07" H 800 4150 50  0001 C CNN
+F 1 "VCC" H 815 4473 50  0000 C CNN
+F 2 "" H 800 4300 50  0001 C CNN
+F 3 "" H 800 4300 50  0001 C CNN
+	1    800  4300
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1201,11 +1201,11 @@ Wire Wire Line
 Wire Wire Line
 	10100 5700 10200 5700
 Text GLabel 10100 5800 0    50   Input ~ 0
-MUXS0
+MUX1S0
 Text GLabel 10100 5900 0    50   Input ~ 0
-MUXS1
+MUX1S1
 Text GLabel 10100 6000 0    50   Input ~ 0
-MUXS2
+MUX1S2
 Wire Wire Line
 	10100 5800 10200 5800
 Wire Wire Line
@@ -1421,8 +1421,6 @@ Text GLabel 2750 1150 2    50   Input ~ 0
 SIG1A
 Text GLabel 2750 1250 2    50   Input ~ 0
 SIG1B
-Text GLabel 2750 1650 2    50   Input ~ 0
-EXTTX
 Text GLabel 2750 1850 2    50   Input ~ 0
 XTAL1
 Wire Wire Line
@@ -1456,8 +1454,6 @@ Wire Wire Line
 Wire Wire Line
 	2650 1550 2750 1550
 Connection ~ 2650 1550
-Text GLabel 2750 1350 2    50   Input ~ 0
-EXTRX
 Wire Wire Line
 	2650 1450 2750 1450
 Wire Wire Line
@@ -1505,21 +1501,16 @@ Wire Wire Line
 	2650 3450 2750 3450
 Text GLabel 2750 2950 2    50   Input ~ 0
 TX
-Text GLabel 2750 2850 2    50   Input ~ 0
-RX
 Text GLabel 2750 3350 2    50   Input ~ 0
 SIG2A
 Text GLabel 2750 3450 2    50   Input ~ 0
 SIG2B
 Text GLabel 2750 3050 2    50   Input ~ 0
-MUXS0
+MUX1S0
 Text GLabel 2750 3150 2    50   Input ~ 0
-MUXS1
+MUX1S1
 Text GLabel 2750 3250 2    50   Input ~ 0
-MUXS2
-NoConn ~ 1450 2850
-NoConn ~ 1450 2950
-NoConn ~ 1450 3050
+MUX1S2
 NoConn ~ 1450 3150
 NoConn ~ 2650 2250
 NoConn ~ 2650 2350
@@ -1637,7 +1628,7 @@ Wire Notes Line
 Wire Notes Line
 	12100 5050 9350 5050
 Text Notes 9350 5050 0    50   ~ 0
-Serial Multiplexer
+Serial Multiplexer - USB to UART
 Wire Notes Line
 	550  10600 550  11150
 Wire Notes Line
@@ -1687,7 +1678,7 @@ U 1 1 61885232
 P 5800 4800
 F 0 "J4" H 5880 4792 50  0000 L CNN
 F 1 "Conn_01x04" H 5880 4701 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x04_P1.00mm_Vertical" H 5800 4800 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 5800 4800 50  0001 C CNN
 F 3 "~" H 5800 4800 50  0001 C CNN
 	1    5800 4800
 	1    0    0    -1  
@@ -1884,4 +1875,184 @@ Text GLabel 2750 3550 2    50   Input ~ 0
 LED
 Wire Wire Line
 	2650 3550 2750 3550
+Text GLabel 11700 8050 2    50   Input ~ 0
+MUXEXTTX
+Text GLabel 11700 8350 2    50   Input ~ 0
+MUXEXTRX
+Text GLabel 11700 8150 2    50   Input ~ 0
+EXTRX
+Text GLabel 11700 7850 2    50   Input ~ 0
+EXTTX
+Wire Wire Line
+	11600 7850 11700 7850
+Wire Wire Line
+	11600 8050 11700 8050
+Wire Wire Line
+	11600 8150 11700 8150
+Wire Wire Line
+	11600 8350 11700 8350
+$Comp
+L power:GND #PWR015
+U 1 1 61207BD8
+P 11700 9050
+F 0 "#PWR015" H 11700 8800 50  0001 C CNN
+F 1 "GND" H 11705 8877 50  0000 C CNN
+F 2 "" H 11700 9050 50  0001 C CNN
+F 3 "" H 11700 9050 50  0001 C CNN
+	1    11700 9050
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	11600 9050 11650 9050
+Wire Wire Line
+	11600 8950 11650 8950
+Wire Wire Line
+	11650 8950 11650 9050
+Connection ~ 11650 9050
+Wire Wire Line
+	11650 9050 11700 9050
+$Comp
+L power:VCC #PWR03
+U 1 1 61207BE3
+P 11700 7650
+F 0 "#PWR03" H 11700 7500 50  0001 C CNN
+F 1 "VCC" H 11715 7823 50  0000 C CNN
+F 2 "" H 11700 7650 50  0001 C CNN
+F 3 "" H 11700 7650 50  0001 C CNN
+	1    11700 7650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	11600 7650 11700 7650
+$Comp
+L power:GND #PWR02
+U 1 1 61207BEA
+P 9700 7850
+F 0 "#PWR02" H 9700 7600 50  0001 C CNN
+F 1 "GND" H 9705 7677 50  0000 C CNN
+F 2 "" H 9700 7850 50  0001 C CNN
+F 3 "" H 9700 7850 50  0001 C CNN
+	1    9700 7850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R9
+U 1 1 61207BF0
+P 9950 7850
+F 0 "R9" H 10020 7896 50  0000 L CNN
+F 1 "10k" H 10020 7805 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 9880 7850 50  0001 C CNN
+F 3 "~" H 9950 7850 50  0001 C CNN
+	1    9950 7850
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9700 7850 9800 7850
+Wire Wire Line
+	10100 7850 10200 7850
+Text GLabel 10100 7950 0    50   Input ~ 0
+MUX2S0
+Text GLabel 10100 8050 0    50   Input ~ 0
+MUX2S1
+Text GLabel 10100 8150 0    50   Input ~ 0
+MUX2S2
+Wire Wire Line
+	10100 7950 10200 7950
+Wire Wire Line
+	10100 8050 10200 8050
+Wire Wire Line
+	10100 8150 10200 8150
+$Comp
+L CD74HC4053PWR:CD74HC4053PWR U4
+U 1 1 61207BFE
+P 10900 8350
+F 0 "U4" H 10900 9320 50  0000 C CNN
+F 1 "CD74HC4053PWR" H 10900 9229 50  0000 C CNN
+F 2 "CD74HC4053PWR:SOP65P640X120-16N" H 10900 8350 50  0001 L BNN
+F 3 "" H 10900 8350 50  0001 L BNN
+	1    10900 8350
+	1    0    0    -1  
+$EndComp
+Wire Notes Line
+	9350 7200 9350 9200
+Wire Notes Line
+	9350 9200 12850 9200
+Wire Notes Line
+	12850 9200 12850 7200
+Wire Notes Line
+	12900 7200 9350 7200
+Text Notes 9350 7200 0    50   ~ 0
+Serial Multiplexer - External connection
+Text Notes 9600 7600 0    50   ~ 0
+pulldown to\npermanently enable\nmultiplexer
+$Comp
+L power:VCC #PWR030
+U 1 1 612205D1
+P 13250 9050
+F 0 "#PWR030" H 13250 8900 50  0001 C CNN
+F 1 "VCC" H 13265 9223 50  0000 C CNN
+F 2 "" H 13250 9050 50  0001 C CNN
+F 3 "" H 13250 9050 50  0001 C CNN
+	1    13250 9050
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR031
+U 1 1 612205D7
+P 13750 9050
+F 0 "#PWR031" H 13750 8800 50  0001 C CNN
+F 1 "GND" H 13755 8877 50  0000 C CNN
+F 2 "" H 13750 9050 50  0001 C CNN
+F 3 "" H 13750 9050 50  0001 C CNN
+	1    13750 9050
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C C8
+U 1 1 612205DD
+P 13500 9050
+F 0 "C8" H 13615 9096 50  0000 L CNN
+F 1 "100n" H 13615 9005 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 13538 8900 50  0001 C CNN
+F 3 "~" H 13500 9050 50  0001 C CNN
+	1    13500 9050
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	13250 9050 13350 9050
+Wire Wire Line
+	13650 9050 13750 9050
+Wire Notes Line
+	12950 9200 14050 9200
+Wire Notes Line
+	14050 9200 14050 8700
+Wire Notes Line
+	14000 8700 12950 8700
+Wire Notes Line
+	12950 8700 12950 9200
+Text Notes 14050 8700 2    50   ~ 0
+CD74HC4053PWR decoupling
+NoConn ~ 11600 8550
+NoConn ~ 11600 8650
+NoConn ~ 11600 8450
+Text GLabel 2750 1350 2    50   Input ~ 0
+MUXEXTTX
+Text GLabel 2750 1650 2    50   Input ~ 0
+MUXEXTRX
+Text GLabel 1350 2850 0    50   Input ~ 0
+MUX2S0
+Text GLabel 1350 2950 0    50   Input ~ 0
+MUX2S1
+Text GLabel 1350 3050 0    50   Input ~ 0
+MUX2S2
+Wire Wire Line
+	1350 2850 1450 2850
+Wire Wire Line
+	1350 2950 1450 2950
+Wire Wire Line
+	1350 3050 1450 3050
+NoConn ~ 11600 8250
+NoConn ~ 11600 7950
+Text GLabel 2750 2850 2    50   Input ~ 0
+RX
 $EndSCHEMATC
