@@ -4,14 +4,14 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
+Title "LED Module"
+Date "2021-08-19"
+Rev "v01"
 Comp ""
 Comment1 ""
 Comment2 ""
 Comment3 ""
-Comment4 ""
+Comment4 "Author: GHOSCHT"
 $EndDescr
 $Comp
 L Connector:Screw_Terminal_01x03 J1
