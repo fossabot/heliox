@@ -778,8 +778,8 @@ Wire Wire Line
 	3700 6850 3700 7000
 Text Notes 1800 5700 0    50   ~ 0
 Reset pullup
-Text Notes 550  2100 0    50   ~ 0
-ATmega decoupling capacitor
+Text Notes 650  1400 0    50   ~ 0
+ATmega decoupling 1
 Wire Notes Line
 	2200 5700 1800 5700
 Wire Notes Line
@@ -789,13 +789,13 @@ Wire Notes Line
 Wire Notes Line
 	1800 5700 1800 6800
 Wire Notes Line
-	1050 2100 550  2100
+	1150 1400 650  1400
 Wire Notes Line
-	1050 3200 1050 2100
+	1150 2500 1150 1400
 Wire Notes Line
-	550  3200 1050 3200
+	650  2500 1150 2500
 Wire Notes Line
-	550  2100 550  3200
+	650  1400 650  2500
 Text Notes 550  5700 0    50   ~ 0
 ATmega oscillator
 Wire Notes Line
@@ -955,40 +955,40 @@ Wire Wire Line
 	1300 6050 1300 6300
 Connection ~ 1300 6300
 Wire Wire Line
-	700  2800 700  2900
+	800  2100 800  2200
 Wire Wire Line
-	700  2400 700  2500
+	800  1700 800  1800
 $Comp
 L Device:C C3
 U 1 1 6115564D
-P 700 2650
-F 0 "C3" H 815 2696 50  0000 L CNN
-F 1 "100n" H 815 2605 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 738 2500 50  0001 C CNN
-F 3 "~" H 700 2650 50  0001 C CNN
-	1    700  2650
+P 800 1950
+F 0 "C3" H 915 1996 50  0000 L CNN
+F 1 "100n" H 915 1905 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 838 1800 50  0001 C CNN
+F 3 "~" H 800 1950 50  0001 C CNN
+	1    800  1950
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR06
 U 1 1 61155121
-P 700 2900
-F 0 "#PWR06" H 700 2650 50  0001 C CNN
-F 1 "GND" H 705 2727 50  0000 C CNN
-F 2 "" H 700 2900 50  0001 C CNN
-F 3 "" H 700 2900 50  0001 C CNN
-	1    700  2900
+P 800 2200
+F 0 "#PWR06" H 800 1950 50  0001 C CNN
+F 1 "GND" H 805 2027 50  0000 C CNN
+F 2 "" H 800 2200 50  0001 C CNN
+F 3 "" H 800 2200 50  0001 C CNN
+	1    800  2200
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:VCC #PWR05
 U 1 1 61154991
-P 700 2400
-F 0 "#PWR05" H 700 2250 50  0001 C CNN
-F 1 "VCC" H 715 2573 50  0000 C CNN
-F 2 "" H 700 2400 50  0001 C CNN
-F 3 "" H 700 2400 50  0001 C CNN
-	1    700  2400
+P 800 1700
+F 0 "#PWR05" H 800 1550 50  0001 C CNN
+F 1 "VCC" H 815 1873 50  0000 C CNN
+F 2 "" H 800 1700 50  0001 C CNN
+F 3 "" H 800 1700 50  0001 C CNN
+	1    800  1700
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1298,4 +1298,51 @@ Text GLabel 2950 1500 2    50   Input ~ 0
 LED
 Wire Wire Line
 	2850 1500 2950 1500
+Text Notes 650  2600 0    50   ~ 0
+ATmega decoupling 2
+Wire Notes Line
+	1150 2600 650  2600
+Wire Notes Line
+	1150 3700 1150 2600
+Wire Notes Line
+	650  3700 1150 3700
+Wire Notes Line
+	650  2600 650  3700
+Wire Wire Line
+	800  3300 800  3400
+Wire Wire Line
+	800  2900 800  3000
+$Comp
+L Device:C C4
+U 1 1 611FCAF6
+P 800 3150
+F 0 "C4" H 915 3196 50  0000 L CNN
+F 1 "100n" H 915 3105 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 838 3000 50  0001 C CNN
+F 3 "~" H 800 3150 50  0001 C CNN
+	1    800  3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0104
+U 1 1 611FCAFC
+P 800 3400
+F 0 "#PWR0104" H 800 3150 50  0001 C CNN
+F 1 "GND" H 805 3227 50  0000 C CNN
+F 2 "" H 800 3400 50  0001 C CNN
+F 3 "" H 800 3400 50  0001 C CNN
+	1    800  3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR0105
+U 1 1 611FCB02
+P 800 2900
+F 0 "#PWR0105" H 800 2750 50  0001 C CNN
+F 1 "VCC" H 815 3073 50  0000 C CNN
+F 2 "" H 800 2900 50  0001 C CNN
+F 3 "" H 800 2900 50  0001 C CNN
+	1    800  2900
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
