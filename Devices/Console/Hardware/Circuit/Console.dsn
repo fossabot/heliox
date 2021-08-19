@@ -45,12 +45,6 @@
     (component "AVR-ISP:AVR-ISP"
       (place J1 177356 -111696 front 0 (PN "AVR-ISP-6"))
     )
-    (component MountingHole:MountingHole_2.7mm_M2.5_Pad
-      (place PAD4 191389 -123508 front 0 (PN MountingHole_2.7mm_M2.5_Pad))
-      (place PAD3 101092 -123508 front 0 (PN MountingHole_2.7mm_M2.5_Pad))
-      (place PAD1 101092 -68008.5 front 0 (PN MountingHole_2.7mm_M2.5_Pad))
-      (place PAD2 191389 -68008.5 front 0 (PN MountingHole_2.7mm_M2.5_Pad))
-    )
     (component Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder::1
       (place C2 133414 -111570 front 0 (PN 22p))
     )
@@ -59,7 +53,7 @@
     )
     (component Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder
       (place R2 109918 -75565 front 0 (PN 200))
-      (place R1 158940 -105854 front 0 (PN 10k))
+      (place R1 158877 -117856 front 0 (PN 10k))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical
       (place J4 154496 -121793 front 90 (PN Conn_01x04))
@@ -102,10 +96,13 @@
       (place SW4 184340 -94640.4 front 0 (PN "PEC11R-4220F-S0012"))
     )
     (component LED_SMD:LED_0805_2012Metric_Castellated::1
-      (place D2 158940 -111696 front 180 (PN "17-21/BHC-XL2M2TY/3T"))
+      (place D2 158940 -110109 front 180 (PN "17-21/BHC-XL2M2TY/3T"))
     )
     (component Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder::1
-      (place R3 158940 -117792 front 180 (PN 200))
+      (place R3 158877 -113348 front 180 (PN 200))
+    )
+    (component Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder::2
+      (place C4 158919 -105854 front 0 (PN 100n))
     )
   )
   (library
@@ -148,23 +145,6 @@
       (pin Round[A]Pad_1700_um 2 -2540 1270)
       (pin Round[A]Pad_1700_um 3 0 -1270)
       (pin Round[A]Pad_1700_um 4 0 1270)
-    )
-    (image MountingHole:MountingHole_2.7mm_M2.5_Pad
-      (outline (path signal 50  2950 0  2870.48 -680.317  2636.22 -1323.96  2259.83 -1896.22
-            1761.62 -2366.26  1168.43 -2708.74  512.262 -2905.18  -171.527 -2945.01
-            -846.07 -2826.07  -1475 -2554.78  -2024.41 -2145.75  -2464.69 -1621.05
-            -2772.09 -1008.96  -2930.05 -342.474  -2930.05 342.474  -2772.09 1008.96
-            -2464.69 1621.05  -2024.41 2145.75  -1475 2554.78  -846.07 2826.07
-            -171.527 2945.01  512.262 2905.18  1168.43 2708.74  1761.62 2366.26
-            2259.83 1896.22  2636.22 1323.96  2870.48 680.317  2950 0))
-      (outline (path signal 150  2700 0  2621.54 -646.152  2390.73 -1254.75  2020.98 -1790.43
-            1533.78 -2222.06  957.433 -2524.54  325.449 -2680.31  -325.449 -2680.31
-            -957.433 -2524.54  -1533.78 -2222.06  -2020.98 -1790.43  -2390.73 -1254.75
-            -2621.54 -646.152  -2700 0  -2621.54 646.152  -2390.73 1254.75
-            -2020.98 1790.43  -1533.78 2222.06  -957.433 2524.54  -325.449 2680.31
-            325.449 2680.31  957.433 2524.54  1533.78 2222.06  2020.98 1790.43
-            2390.73 1254.75  2621.54 646.152  2700 0))
-      (pin Round[A]Pad_5400_um 1 0 0)
     )
     (image Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder::1
       (outline (path signal 50  1880 -980  -1880 -980))
@@ -511,6 +491,20 @@
       (pin RoundRect[T]Pad_1200x1400_250.95_um 1 -1000 0)
       (pin RoundRect[T]Pad_1200x1400_250.95_um 2 1000 0)
     )
+    (image Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder::2
+      (outline (path signal 50  1880 -980  -1880 -980))
+      (outline (path signal 50  1880 980  1880 -980))
+      (outline (path signal 50  -1880 980  1880 980))
+      (outline (path signal 50  -1880 -980  -1880 980))
+      (outline (path signal 120  -261.252 -735  261.252 -735))
+      (outline (path signal 120  -261.252 735  261.252 735))
+      (outline (path signal 100  1000 -625  -1000 -625))
+      (outline (path signal 100  1000 625  1000 -625))
+      (outline (path signal 100  -1000 625  1000 625))
+      (outline (path signal 100  -1000 -625  -1000 625))
+      (pin RoundRect[T]Pad_1175x1450_250.951_um 1 -1037.5 0)
+      (pin RoundRect[T]Pad_1175x1450_250.951_um 2 1037.5 0)
+    )
     (padstack Round[A]Pad_1550_um
       (shape (circle F.Cu 1550))
       (shape (circle B.Cu 1550))
@@ -519,11 +513,6 @@
     (padstack Round[A]Pad_1700_um
       (shape (circle F.Cu 1700))
       (shape (circle B.Cu 1700))
-      (attach off)
-    )
-    (padstack Round[A]Pad_5400_um
-      (shape (circle F.Cu 5400))
-      (shape (circle B.Cu 5400))
       (attach off)
     )
     (padstack Oval[A]Pad_1050x2100_um
@@ -656,10 +645,10 @@
     (net GND
       (pins C1-2 J1-6 C2-2 SW5-2 J4-1 D1-1 J3-1 J5-1 SW1-S1 SW1-C J2-A1B12 J2-B1A12
         J2-S1 J2-S2 J2-S3 J2-S4 C3-2 U1-5 U1-21 SW2-C SW2-S1 D2-1 SW3-S1 SW3-C SW4-C
-        SW4-S1)
+        SW4-S1 C4-2)
     )
     (net VCC
-      (pins J1-2 R2-2 J5-4 J2-A4B9 J2-B4A9 C3-1 R1-2 U1-4 U1-18)
+      (pins J1-2 R2-2 J5-4 J2-A4B9 J2-B4A9 C3-1 R1-2 U1-4 U1-18 C4-1)
     )
     (net XTAL1
       (pins C1-1 Y1-1 U1-7)
