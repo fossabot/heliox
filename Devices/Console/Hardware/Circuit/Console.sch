@@ -413,7 +413,7 @@ U 1 1 61285557
 P 8850 1500
 F 0 "J3" H 8930 1542 50  0000 L CNN
 F 1 "Conn_01x13" H 8930 1451 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x13_P1.00mm_Vertical" H 8850 1500 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x13_P2.54mm_Vertical" H 8850 1500 50  0001 C CNN
 F 3 "~" H 8850 1500 50  0001 C CNN
 	1    8850 1500
 	1    0    0    -1  
@@ -461,7 +461,7 @@ U 1 1 613021A3
 P 8850 2900
 F 0 "J5" H 8930 2892 50  0000 L CNN
 F 1 "Conn_01x04" H 8930 2801 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x04_P1.00mm_Vertical" H 8850 2900 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 8850 2900 50  0001 C CNN
 F 3 "~" H 8850 2900 50  0001 C CNN
 	1    8850 2900
 	1    0    0    -1  
@@ -472,7 +472,7 @@ U 1 1 613031C0
 P 8850 2400
 F 0 "J4" H 8930 2392 50  0000 L CNN
 F 1 "Conn_01x04" H 8930 2301 50  0000 L CNN
-F 2 "Connector_PinHeader_1.00mm:PinHeader_1x04_P1.00mm_Vertical" H 8850 2400 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 8850 2400 50  0001 C CNN
 F 3 "~" H 8850 2400 50  0001 C CNN
 	1    8850 2400
 	1    0    0    -1  
