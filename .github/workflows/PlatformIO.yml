@@ -31,6 +31,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install --upgrade platformio
       - name: Build console
-        run: pio run --environment Upload_UART --project-dir "./Devices/Console/Firmware"
+        run: pio run --project-dir "./Devices/Console/Firmware"
       - name: Build control
-        run: pio run --environment control --project-dir "./Devices/Control/Firmware"
+        run: pio run --project-dir "./Devices/Control/Firmware"
