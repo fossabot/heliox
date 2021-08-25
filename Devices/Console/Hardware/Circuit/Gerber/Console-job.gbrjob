@@ -7,7 +7,7 @@
       "Application": "Pcbnew",
       "Version":     "(5.1.10)-1"
     },
-    "CreationDate":  "2021-08-23T16:24:53+02:00"
+    "CreationDate":  "2021-08-25T15:30:51+02:00"
   },
   "GeneralSpecs":
   {
@@ -19,7 +19,7 @@
     },
     "Size":
     {
-      "X": 140.054,
+      "X": 102.054,
       "Y": 62.058
     },
     "LayerNumber": 2,
@@ -40,47 +40,47 @@
   "FilesAttributes":
   [
     {
-      "Path":  "Console-F_Cu.gbr",
+      "Path":  "Console-F_Cu.gtl",
       "FileFunction":  "Copper,L1,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Console-B_Cu.gbr",
+      "Path":  "Console-B_Cu.gbl",
       "FileFunction":  "Copper,L2,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Console-F_Paste.gbr",
+      "Path":  "Console-F_Paste.gtp",
       "FileFunction":  "SolderPaste,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Console-B_Paste.gbr",
+      "Path":  "Console-B_Paste.gbp",
       "FileFunction":  "SolderPaste,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Console-F_SilkS.gbr",
+      "Path":  "Console-F_SilkS.gto",
       "FileFunction":  "Legend,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Console-B_SilkS.gbr",
+      "Path":  "Console-B_SilkS.gbo",
       "FileFunction":  "Legend,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "Console-F_Mask.gbr",
+      "Path":  "Console-F_Mask.gts",
       "FileFunction":  "SolderMask,Top",
       "FilePolarity":  "Negative"
     },
     {
-      "Path":  "Console-B_Mask.gbr",
+      "Path":  "Console-B_Mask.gbs",
       "FileFunction":  "SolderMask,Bot",
       "FilePolarity":  "Negative"
     },
     {
-      "Path":  "Console-Edge_Cuts.gbr",
+      "Path":  "Console-Edge_Cuts.gm1",
       "FileFunction":  "Profile",
       "FilePolarity":  "Positive"
     }
