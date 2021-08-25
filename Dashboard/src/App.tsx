@@ -1,7 +1,8 @@
-import React from "react";
-import SerialPort from "serialport";
+import React, { useState } from "react";
 import { createGlobalStyle } from "styled-components";
+import SerialPort from "serialport";
 import Knob from "./Components/Knob";
+import SerialConnection from "./SerialConnection";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -15,15 +16,17 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const port = SerialConnection();
+
 const App = () => {
-  const port = new SerialPort("COM5", {
-    baudRate: 9600,
-    autoOpen: false,
-  });
+  const [counter, setCounter] = useState(0);
+
   const sendIncreaseHandler = () => {
+    setCounter(counter + 1);
     port.write("2i");
   };
   const sendDecreaseHandler = () => {
+    setCounter(counter - 1);
     port.write("2d");
   };
   const sendToggleHandler = () => {
@@ -37,6 +40,7 @@ const App = () => {
         increase={sendIncreaseHandler}
         decrease={sendDecreaseHandler}
         toggle={sendToggleHandler}
+        status={counter}
       />
       <button
         type="button"
@@ -45,6 +49,14 @@ const App = () => {
         }}
       >
         open
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          setCounter(counter + 1);
+        }}
+      >
+        increase
       </button>
       <button
         type="button"

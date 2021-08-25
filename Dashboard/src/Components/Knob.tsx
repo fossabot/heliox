@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { remote } from "electron";
 
@@ -24,6 +24,8 @@ const KnobSVG = styled.svg`
   }
   #Status {
   user-select: none;
+  vertical-align: middle;
+  display: inline-block;
 }
 `;
 
@@ -31,13 +33,15 @@ interface Proptypes {
   increase: () => void;
   decrease: () => void;
   toggle: () => void;
+  status: number;
 }
 
-const Knob = (props: Proptypes) => {
+const Knob = ({
+  increase, decrease, toggle, status,
+}: Proptypes) => {
   const overlayRef = useRef<SVGGElement>(null);
-
-  let isMouseDown = false;
-  let prevAngle = 0;
+  const [isMouseDown, setisMouseDown] = useState(false);
+  const [prevAngle, setPrevAngle] = useState(0);
 
   const move = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
     const relativePosX = e.nativeEvent.offsetX - SvgHeight / 2;
@@ -60,23 +64,23 @@ const Knob = (props: Proptypes) => {
 
     if (angle % steps === Math.round(angle % steps)) {
       if (prevAngle < angle) {
-        props.increase();
+        increase();
       } else if (prevAngle > angle) {
-        props.decrease();
+        decrease();
       }
     }
-    prevAngle = angle;
+    setPrevAngle(angle);
   };
 
   const mouseDownHandler: React.MouseEventHandler<SVGElement> = (e) => {
     if (e.button !== 2) {
       move(e);
-      isMouseDown = true;
+      setisMouseDown(true);
     }
   };
 
   const mouseUpHandler: React.MouseEventHandler<SVGElement> = () => {
-    isMouseDown = false;
+    setisMouseDown(false);
   };
 
   const mouseMoveHandler: React.MouseEventHandler<SVGElement> = (e) => {
@@ -91,7 +95,7 @@ const Knob = (props: Proptypes) => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 141.73 141.73"
         height={`${SvgHeight}px`}
-        onContextMenu={() => { props.toggle(); }}
+        onContextMenu={() => { toggle(); }}
         onMouseDown={mouseDownHandler}
         onMouseUp={mouseUpHandler}
         onMouseMove={mouseMoveHandler}
@@ -104,8 +108,8 @@ const Knob = (props: Proptypes) => {
           />
         </g>
         <g id="Status">
-          <text className="cls-2" transform="translate(53.61 77.41)">
-            255
+          <text className="cls-2" transform="translate(70.41 77.41)" textAnchor="middle">
+            {status}
           </text>
         </g>
         <g id="Overlay" ref={overlayRef}>
