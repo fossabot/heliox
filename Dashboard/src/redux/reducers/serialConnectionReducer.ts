@@ -1,0 +1,52 @@
+import { createReducer } from "typesafe-actions";
+import ISerialConnectionState from "../../interfaces/ISerialConnectionState";
+import { SerialConnectionActionTypes } from "../actions/serialConnectionActions";
+
+const initialState: ISerialConnectionState = {
+  port: null,
+  status: {
+    connecting: false,
+    connected: false,
+    error: null,
+  },
+};
+
+const SerialConnectionReducer = createReducer(initialState)
+  .handleType(SerialConnectionActionTypes.SET_SERIAL_PORT, (state, action) => ({
+    ...state,
+    port: action.payload,
+  }))
+  .handleType(SerialConnectionActionTypes.CONNECTION_START, (state) => ({
+    ...state,
+    status: {
+      connecting: true,
+      connected: false,
+      error: null,
+    },
+  }))
+  .handleType(SerialConnectionActionTypes.CONNECTION_FAILURE, (state, action) => ({
+    ...state,
+    status: {
+      connecting: false,
+      connected: false,
+      error: action.payload.message,
+    },
+  }))
+  .handleType(SerialConnectionActionTypes.CONNECTION_SUCCESS, (state) => ({
+    ...state,
+    status: {
+      connecting: false,
+      connected: true,
+      error: null,
+    },
+  }))
+  .handleType(SerialConnectionActionTypes.DISCONNECT, (state) => ({
+    ...state,
+    status: {
+      connecting: false,
+      connected: false,
+      error: null,
+    },
+  }));
+
+export default SerialConnectionReducer;
