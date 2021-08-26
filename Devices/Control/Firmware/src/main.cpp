@@ -76,8 +76,12 @@ void receiveEvent(int byteCount)
   char buffer[byteCount];
   for (int i = 0; i < byteCount; i++)
   {
+    if (i == byteCount)
+      break;
+
     buffer[i] = Wire.read();
   }
+
   memset(receivedI2cData, ' ', 3);
   strcpy(receivedI2cData, buffer);
 }
