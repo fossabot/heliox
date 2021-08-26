@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createGlobalStyle } from "styled-components";
 import SerialPort from "serialport";
 import Knob from "./Components/Knob";
-import SerialConnection from "./SerialConnection";
+import { port, parser } from "./SerialConnection";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -16,17 +16,28 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const port = SerialConnection();
-
 const App = () => {
-  const [counter, setCounter] = useState(0);
+  const [status, setStatus] = useState(0);
+  const SerialDataListener = (data: string) => {
+    const parsedData = data.split(",");
+    setStatus(parseInt(parsedData[2], 10));
+  };
+
+  useEffect(() => {
+    parser.on("data", SerialDataListener);
+    port.open();
+    return () => {
+      parser.removeListener("data", SerialDataListener);
+      port.close();
+    };
+  }, []);
 
   const sendIncreaseHandler = () => {
-    setCounter(counter + 1);
+    setStatus(status + 1);
     port.write("2i");
   };
   const sendDecreaseHandler = () => {
-    setCounter(counter - 1);
+    setStatus(status - 1);
     port.write("2d");
   };
   const sendToggleHandler = () => {
@@ -40,7 +51,7 @@ const App = () => {
         increase={sendIncreaseHandler}
         decrease={sendDecreaseHandler}
         toggle={sendToggleHandler}
-        status={counter}
+        status={status}
       />
       <button
         type="button"
@@ -49,14 +60,6 @@ const App = () => {
         }}
       >
         open
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          setCounter(counter + 1);
-        }}
-      >
-        increase
       </button>
       <button
         type="button"

@@ -1,11 +1,10 @@
-import SerialPort from "serialport";
+import SerialPort, { parsers } from "serialport";
 
-const newPort = () => {
-  const port = new SerialPort("COM5", {
-    baudRate: 9600,
-    autoOpen: false,
-  });
-  return port;
-};
+const port = new SerialPort("COM5", {
+  baudRate: 9600,
+  autoOpen: false,
+});
 
-export default newPort;
+const parser = port.pipe(new parsers.Readline({ delimiter: "\r\n" }));
+
+export { port, parser };
