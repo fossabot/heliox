@@ -39,7 +39,7 @@
   },
   "homepage": "./src",
   "scripts": {
-    "web": "webpack-dev-server --mode=development --hot",
+    "web": "webpack serve",
     "build": "webpack --mode=production",
     "start": "concurrently -k \"yarn web\" \"npm:electron\"",
     "electron": "wait-on tcp:8080 && electron .",
@@ -94,8 +94,8 @@
     "ts-loader": "^9.2.3",
     "wait-on": "^6.0.0",
     "webpack": "^5.41.1",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.0.0"
   },
   "presets": [
     "@babel/preset-env",

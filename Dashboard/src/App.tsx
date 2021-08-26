@@ -20,6 +20,7 @@ const App = () => {
   const [status, setStatus] = useState(0);
   const SerialDataListener = (data: string) => {
     const parsedData = data.split(",");
+    console.log(parsedData);
     setStatus(parseInt(parsedData[2], 10));
   };
 
