@@ -7,3 +7,12 @@
 </a>
 
 Uses: https://github.com/GHOSCHT/simple-electron-react-boilerplate
+
+Dashboard: node-gyp fails on sqlite3 build -> set default pyhton version to python 2
+```
+node-gyp --python /path/to/python2.7/python.exe
+```
+or
+```
+npm config set python /path/to/executable/python2.7
+```   
