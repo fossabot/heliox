@@ -25,9 +25,11 @@ const connect = (): ThunkResult<void> => async (dispatch, getState) => {
       dispatch(connectionFailure(error));
     }
   }, (error) => {
-    if (error.message === "Reading from COM port (ReadIOCompletion): Access denied") {
-      dispatch(connectionFailure(new Error("Device disconnected")));
-      dispatch(connectionEnd());
+    if (error !== null && error !== undefined) {
+      if (error.message === "Reading from COM port (ReadIOCompletion): Access denied") {
+        dispatch(connectionFailure(new Error(`Device ${state.serialConnection.port} disconnected`)));
+        dispatch(connectionEnd());
+      }
     }
   });
 };

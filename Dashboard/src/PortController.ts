@@ -32,7 +32,7 @@ class PortController {
     this.parser = this.port.pipe(new parsers.Readline({ delimiter: "\r\n" }));
   }
 
-  open(callback: (error:Error | null | undefined)=>void, onCloseCallback:(error:Error)=>void) {
+  open(callback: (error:Error | null | undefined)=>void, onCloseCallback:(error:Error | null | undefined)=>void) {
     if (this.isOpen) {
       throw new Error("Port already open");
     }
