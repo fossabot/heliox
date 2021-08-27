@@ -1,5 +1,5 @@
 import { action } from "typesafe-actions";
-import PortController from "../../SerialConnection";
+import PortController from "../../PortController";
 
 export enum SerialConnectionActionTypes {
     SET_SERIAL_PORT = "SET_SERIAL_PORT",

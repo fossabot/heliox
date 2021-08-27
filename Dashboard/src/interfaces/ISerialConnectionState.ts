@@ -1,4 +1,4 @@
-import PortController from "../SerialConnection";
+import PortController from "../PortController";
 
 export default interface ISerialConnectionState {
   port: string | null;
