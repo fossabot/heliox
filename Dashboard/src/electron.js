@@ -7,6 +7,7 @@ const isDev = require("electron-is-dev");
 const screenz = require("screenz");
 const els = require("electron-localshortcut");
 const devTools = require("electron-devtools-installer");
+const chalk = require("chalk");
 
 let tray = null;
 let mainWindow = null;
@@ -60,9 +61,13 @@ function createWindow() {
       : `file://${path.join(__dirname, "../build/index.html")}`,
   );
 
-  // Open the DevTools.
   if (isDev) {
     win.webContents.openDevTools({ mode: "detach" });
+
+    const remotedev = require("remotedev-server");
+    remotedev({ hostname: "localhost", port: 8000 }).then(() => {
+      console.log(chalk.blue("RemoteDev server running at http://localhost:8000/"));
+    });
   }
 
   // Register shortcut to open devtools
