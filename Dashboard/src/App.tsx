@@ -84,7 +84,7 @@ const App = () => {
         increase={sendIncreaseHandler}
         decrease={sendDecreaseHandler}
         toggle={sendToggleHandler}
-        status={status}
+        status={Math.floor((status / 255) * 100)}
       />
       <button
         type="button"
