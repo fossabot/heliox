@@ -64,8 +64,8 @@ function createWindow() {
   if (isDev) {
     win.webContents.openDevTools({ mode: "detach" });
 
-    const remotedev = require("remotedev-server");
-    remotedev({ hostname: "localhost", port: 8000 }).then(() => {
+    const reduxDevTools = require("@redux-devtools/cli").default;
+    reduxDevTools({ hostname: "localhost", port: 8000 }).then(() => {
       console.log(chalk.blue("RemoteDev server running at http://localhost:8000/"));
     });
   }
