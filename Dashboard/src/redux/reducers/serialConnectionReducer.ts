@@ -45,9 +45,9 @@ const SerialConnectionReducer = createReducer(initialState)
     ...state,
     portController: null,
     status: {
+      ...state.status,
       connecting: false,
       connected: false,
-      error: null,
     },
   }))
   .handleType(SerialConnectionActionTypes.SET_PORT_CONTROLLER, (state, action) => ({

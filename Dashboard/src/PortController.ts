@@ -7,9 +7,12 @@ class PortController {
 
   parser: any;
 
+  onCloseCallback: (error:Error)=>void;
+
   constructor() {
     this.path = null;
     this.port = null;
+    this.onCloseCallback = () => {};
   }
 
   get isOpen() {
@@ -29,7 +32,7 @@ class PortController {
     this.parser = this.port.pipe(new parsers.Readline({ delimiter: "\r\n" }));
   }
 
-  open(callback: (error:Error | null | undefined)=>void) {
+  open(callback: (error:Error | null | undefined)=>void, onCloseCallback:(error:Error)=>void) {
     if (this.isOpen) {
       throw new Error("Port already open");
     }
@@ -39,11 +42,14 @@ class PortController {
     }
 
     this.port.open((error) => callback(error));
+    this.port.on("close", onCloseCallback);
+    this.onCloseCallback = onCloseCallback;
   }
 
   close() {
     if (this.port) {
       this.port.close();
+      this.port.removeListener("data", this.onCloseCallback);
     }
   }
 }
