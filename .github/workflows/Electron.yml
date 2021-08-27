@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Upgrade node-gyp
-        run: npm install --global node-gyp@latest && npm config set node_gyp $(npm prefix -g)/lib/node_modules/node-gyp/bin/node-gyp.js
+        run: npm install --global node-gyp@latest && (for /f "delims=" %P in ('npm prefix -g') do npm config set node_gyp"%P\node_modules\node-gyp\bin\node-gyp.js")
       - name: Install dependencies
         run: cd Dashboard && yarn --network-timeout 1000000000
       - name: Build
