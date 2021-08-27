@@ -4,6 +4,7 @@ import { SerialConnectionActionTypes } from "../actions/serialConnectionActions"
 
 const initialState: ISerialConnectionState = {
   port: null,
+  portController: null,
   status: {
     connecting: false,
     connected: false,
@@ -40,13 +41,18 @@ const SerialConnectionReducer = createReducer(initialState)
       error: null,
     },
   }))
-  .handleType(SerialConnectionActionTypes.DISCONNECT, (state) => ({
+  .handleType(SerialConnectionActionTypes.CONNECTION_END, (state) => ({
     ...state,
+    portController: null,
     status: {
       connecting: false,
       connected: false,
       error: null,
     },
+  }))
+  .handleType(SerialConnectionActionTypes.SET_PORT_CONTROLLER, (state, action) => ({
+    ...state,
+    portController: action.payload,
   }));
 
 export default SerialConnectionReducer;

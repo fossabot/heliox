@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { createGlobalStyle } from "styled-components";
-import SerialPort from "serialport";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "typesafe-actions";
 import Knob from "./Components/Knob";
-import { port, parser } from "./SerialConnection";
+import { connect, disconnect } from "./redux/actions/asyncSerialConnectionActions";
+import { setSerialPort } from "./redux/actions/serialConnectionActions";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -18,6 +20,9 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   const [status, setStatus] = useState(0);
+  const dispatch = useDispatch();
+  const serialConnection = useSelector<RootState, RootState["serialConnection"]>((state) => state.serialConnection);
+
   const SerialDataListener = (data: string) => {
     const parsedData = data.split(",");
     console.log(parsedData);
@@ -25,24 +30,34 @@ const App = () => {
   };
 
   useEffect(() => {
-    parser.on("data", SerialDataListener);
-    port.open();
+    if (serialConnection.portController !== null) {
+      serialConnection.portController.parser.on("data", SerialDataListener);
+    }
+
     return () => {
-      parser.removeListener("data", SerialDataListener);
-      port.close();
+      if (serialConnection.portController !== null) {
+        serialConnection.portController.parser.removeListener("data", SerialDataListener);
+      }
     };
-  }, []);
+  }, [serialConnection]);
 
   const sendIncreaseHandler = () => {
-    setStatus(status + 1);
-    port.write("2i");
+    if (serialConnection.portController !== null && serialConnection.portController.port !== null) {
+      setStatus(status + 1);
+      serialConnection.portController.port.write("2i");
+    }
   };
   const sendDecreaseHandler = () => {
-    setStatus(status - 1);
-    port.write("2d");
+    if (serialConnection.portController !== null && serialConnection.portController.port !== null) {
+      setStatus(status - 1);
+      serialConnection.portController.port.write("2d");
+    }
   };
   const sendToggleHandler = () => {
-    port.write("2t");
+    if (serialConnection.portController !== null && serialConnection.portController.port !== null) {
+      setStatus(status - 1);
+      serialConnection.portController.port.write("2t");
+    }
   };
 
   return (
@@ -57,29 +72,19 @@ const App = () => {
       <button
         type="button"
         onClick={() => {
-          port.open();
+          dispatch(setSerialPort("COM5"));
+          dispatch(connect());
         }}
       >
-        open
+        connect
       </button>
       <button
         type="button"
         onClick={() => {
-          port.close();
+          dispatch(disconnect());
         }}
       >
-        close
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          const list = SerialPort.list();
-          list.then((arg) => {
-            console.log(arg);
-          });
-        }}
-      >
-        list
+        disconnect
       </button>
     </div>
   );
