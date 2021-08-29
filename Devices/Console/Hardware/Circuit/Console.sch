@@ -1345,4 +1345,114 @@ F 3 "" H 800 2900 50  0001 C CNN
 	1    800  2900
 	1    0    0    -1  
 $EndComp
+Text GLabel 1750 5350 0    50   Input ~ 0
+RX
+Text GLabel 800  5400 0    50   Input ~ 0
+SDA
+Text GLabel 800  5250 0    50   Input ~ 0
+SCL
+$Comp
+L Device:R R6
+U 1 1 612D3AC9
+P 1850 5050
+F 0 "R6" H 1920 5096 50  0000 L CNN
+F 1 "10k" H 1920 5005 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1780 5050 50  0001 C CNN
+F 3 "~" H 1850 5050 50  0001 C CNN
+	1    1850 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 612D449E
+P 900 5000
+F 0 "R4" H 970 5046 50  0000 L CNN
+F 1 "10k" H 970 4955 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 830 5000 50  0001 C CNN
+F 3 "~" H 900 5000 50  0001 C CNN
+	1    900  5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R5
+U 1 1 612D4F68
+P 1200 5000
+F 0 "R5" H 1270 5046 50  0000 L CNN
+F 1 "10k" H 1270 4955 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1130 5000 50  0001 C CNN
+F 3 "~" H 1200 5000 50  0001 C CNN
+	1    1200 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR029
+U 1 1 612D5381
+P 900 4750
+F 0 "#PWR029" H 900 4600 50  0001 C CNN
+F 1 "VCC" H 915 4923 50  0000 C CNN
+F 2 "" H 900 4750 50  0001 C CNN
+F 3 "" H 900 4750 50  0001 C CNN
+	1    900  4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR030
+U 1 1 612D5F66
+P 1200 4750
+F 0 "#PWR030" H 1200 4600 50  0001 C CNN
+F 1 "VCC" H 1215 4923 50  0000 C CNN
+F 2 "" H 1200 4750 50  0001 C CNN
+F 3 "" H 1200 4750 50  0001 C CNN
+	1    1200 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR031
+U 1 1 612D627E
+P 1850 4800
+F 0 "#PWR031" H 1850 4650 50  0001 C CNN
+F 1 "VCC" H 1865 4973 50  0000 C CNN
+F 2 "" H 1850 4800 50  0001 C CNN
+F 3 "" H 1850 4800 50  0001 C CNN
+	1    1850 4800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	800  5250 900  5250
+Wire Wire Line
+	900  5250 900  5150
+Wire Wire Line
+	800  5400 1200 5400
+Wire Wire Line
+	1200 5400 1200 5150
+Wire Wire Line
+	900  4750 900  4850
+Wire Wire Line
+	1200 4750 1200 4850
+Wire Wire Line
+	1750 5350 1850 5350
+Wire Wire Line
+	1850 5350 1850 5200
+Wire Wire Line
+	1850 4800 1850 4900
+Wire Notes Line
+	550  5500 1450 5500
+Wire Notes Line
+	1450 5500 1450 4500
+Wire Notes Line
+	1450 4500 550  4500
+Wire Notes Line
+	550  4500 550  5500
+Wire Notes Line
+	1550 5500 2100 5500
+Wire Notes Line
+	2100 5500 2100 4500
+Wire Notes Line
+	2100 4500 1550 4500
+Wire Notes Line
+	1550 4500 1550 5500
+Text Notes 550  4500 0    50   ~ 0
+I2C Pull-Ups
+Text Notes 1550 4500 0    50   ~ 0
+UART Pull-Up
 $EndSCHEMATC

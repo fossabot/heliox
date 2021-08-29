@@ -2049,4 +2049,112 @@ Wire Wire Line
 Wire Wire Line
 	15000 4600 15050 4600
 Connection ~ 15000 4500
+Text GLabel 7950 9900 0    50   Input ~ 0
+SDA
+Text GLabel 7950 9750 0    50   Input ~ 0
+SCL
+$Comp
+L Device:R R?
+U 1 1 612EAB9B
+P 8100 9500
+F 0 "R?" H 8170 9546 50  0000 L CNN
+F 1 "10k" H 8170 9455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 8030 9500 50  0001 C CNN
+F 3 "~" H 8100 9500 50  0001 C CNN
+	1    8100 9500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 612ECBE9
+P 8400 9500
+F 0 "R?" H 8470 9546 50  0000 L CNN
+F 1 "10k" H 8470 9455 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 8330 9500 50  0001 C CNN
+F 3 "~" H 8400 9500 50  0001 C CNN
+	1    8400 9500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 612ED1A9
+P 8100 9250
+F 0 "#PWR?" H 8100 9100 50  0001 C CNN
+F 1 "VCC" H 8115 9423 50  0000 C CNN
+F 2 "" H 8100 9250 50  0001 C CNN
+F 3 "" H 8100 9250 50  0001 C CNN
+	1    8100 9250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 612EDE07
+P 8400 9250
+F 0 "#PWR?" H 8400 9100 50  0001 C CNN
+F 1 "VCC" H 8415 9423 50  0000 C CNN
+F 2 "" H 8400 9250 50  0001 C CNN
+F 3 "" H 8400 9250 50  0001 C CNN
+	1    8400 9250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7950 9750 8100 9750
+Wire Wire Line
+	8100 9750 8100 9650
+Wire Wire Line
+	7950 9900 8400 9900
+Wire Wire Line
+	8400 9900 8400 9650
+Wire Wire Line
+	8100 9250 8100 9350
+Wire Wire Line
+	8400 9250 8400 9350
+Wire Notes Line
+	7700 10000 8600 10000
+Wire Notes Line
+	8600 10000 8600 9000
+Wire Notes Line
+	8600 9000 7700 9000
+Wire Notes Line
+	7700 9000 7700 10000
+Text Notes 7700 9000 0    50   ~ 0
+I2C Pull-Ups
+$Comp
+L Device:R R?
+U 1 1 61382EBC
+P 7850 10650
+F 0 "R?" H 7920 10696 50  0000 L CNN
+F 1 "10k" H 7920 10605 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 7780 10650 50  0001 C CNN
+F 3 "~" H 7850 10650 50  0001 C CNN
+	1    7850 10650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 61382EC8
+P 7850 10400
+F 0 "#PWR?" H 7850 10250 50  0001 C CNN
+F 1 "VCC" H 7865 10573 50  0000 C CNN
+F 2 "" H 7850 10400 50  0001 C CNN
+F 3 "" H 7850 10400 50  0001 C CNN
+	1    7850 10400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7850 10400 7850 10500
+Wire Notes Line
+	7700 11150 8100 11150
+Wire Notes Line
+	8100 11150 8100 10150
+Wire Notes Line
+	8100 10150 7700 10150
+Wire Notes Line
+	7700 10150 7700 11150
+Text Notes 7700 10150 0    50   ~ 0
+UART Pull-Up
+Text GLabel 7850 10900 3    50   Input ~ 0
+RX
+Wire Wire Line
+	7850 10800 7850 10900
 $EndSCHEMATC
