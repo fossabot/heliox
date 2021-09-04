@@ -67,7 +67,7 @@
     "fs-extra": "10.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-redux": "7.2.4",
+    "react-redux": "7.2.5",
     "react-select": "4.3.1",
     "redux": "4.1.1",
     "redux-thunk": "2.3.0",
