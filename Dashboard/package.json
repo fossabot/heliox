@@ -80,8 +80,8 @@
     "typescript": "4.4.2"
   },
   "devDependencies": {
-    "@babel/core": "7.15.0",
-    "@babel/preset-env": "7.15.0",
+    "@babel/core": "7.15.5",
+    "@babel/preset-env": "7.15.6",
     "@babel/preset-react": "7.14.5",
     "@types/react-select": "4.0.17",
     "@types/serialport": "8.0.2",
