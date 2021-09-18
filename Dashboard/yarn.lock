@@ -4637,15 +4637,15 @@ ejs@^3.1.6:
   dependencies:
     jake "^10.6.1"
 
-electron-acrylic-window@0.5.8:
-  version "0.5.8"
-  resolved "https://registry.yarnpkg.com/electron-acrylic-window/-/electron-acrylic-window-0.5.8.tgz#aa27782eed7e2404422c061cf5ee7637ca7d7612"
-  integrity sha512-qY+yEbPf4+GeALHZvcyHISYbEAP48WC2RerSnRO/PfyJB07TyEPH9GYYwJbQ0hEsXCiQK2bi57jHHf29m3RpXg==
+electron-acrylic-window@0.5.9:
+  version "0.5.9"
+  resolved "https://registry.yarnpkg.com/electron-acrylic-window/-/electron-acrylic-window-0.5.9.tgz#806dcb177bc1a731a90190fd1fa208489ef79a76"
+  integrity sha512-Eswf8a8UAq4QtFA65X4JnhLLUDGJJ9XePxzOeqd4f5PEkVmbXD/tCUgNwS8lqy1W/8ZaAQLqCi1cXlKAh7qaag==
   dependencies:
     "@seorii/win32-displayconfig" "^0.1.1"
     bindings "^1.5.0"
-    node-addon-api "^4.0.0"
-    node-gyp "^8.1.0"
+    node-addon-api "^4.2.0"
+    node-gyp "^8.2.0"
 
 electron-builder@22.11.7:
   version "22.11.7"
@@ -7869,6 +7869,11 @@ node-addon-api@^4.0.0:
   resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-4.1.0.tgz#f1722f1f60793584632ffffb79e12ca042c48bd0"
   integrity sha512-Zz1o1BDX2VtduiAt6kgiUl8jX1Vm3NMboljFYKQJ6ee8AGfiTvM2mlZFI3xPbqjs80rCQgiVJI/DjQ/1QJ0HwA==
 
+node-addon-api@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-4.2.0.tgz#117cbb5a959dff0992e1c586ae0393573e4d2a87"
+  integrity sha512-eazsqzwG2lskuzBqCGPi7Ac2UgOoMz8JVOXVhTvvPDYhthvNpefx8jWD8Np7Gv+2Sz0FlPWZk0nJV0z598Wn8Q==
+
 node-fetch@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
@@ -7897,7 +7902,7 @@ node-gyp@3.x:
     tar "^2.0.0"
     which "1"
 
-node-gyp@^8.1.0:
+node-gyp@^8.1.0, node-gyp@^8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/node-gyp/-/node-gyp-8.2.0.tgz#ef509ccdf5cef3b4d93df0690b90aa55ff8c7977"
   integrity sha512-KG8SdcoAnw2d6augGwl1kOayALUrXW/P2uOAm2J2+nmW/HjZo7y+8TDg7LejxbekOOSv3kzhq+NSUYkIDAX8eA==
