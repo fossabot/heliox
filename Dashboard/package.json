@@ -52,7 +52,7 @@
   "license": "ISC",
   "dependencies": {
     "@redux-devtools/cli": "1.0.0-9",
-    "@types/jest": "27.0.1",
+    "@types/jest": "27.0.2",
     "@types/node": "15.14.9",
     "@types/react": "17.0.24",
     "@types/react-dom": "17.0.9",
