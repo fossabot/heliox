@@ -102,7 +102,7 @@
     "file-loader": "6.2.0",
     "fork-ts-checker-webpack-plugin": "6.3.3",
     "html-webpack-plugin": "5.3.2",
-    "style-loader": "3.2.1",
+    "style-loader": "3.3.0",
     "ts-loader": "9.2.6",
     "wait-on": "6.0.0",
     "webpack": "5.54.0",
