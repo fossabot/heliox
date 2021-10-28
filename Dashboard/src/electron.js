@@ -9,8 +9,8 @@ const els = require("electron-localshortcut");
 const devTools = require("electron-devtools-installer");
 const chalk = require("chalk");
 
-const windowWidth = 1000;
-const windowHeight = 350;
+const windowWidth = 900;
+const windowHeight = 300;
 
 let tray = null;
 let mainWindow = null;
