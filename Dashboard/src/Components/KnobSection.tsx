@@ -21,29 +21,29 @@ const KnobSection = () => {
   };
 
   useEffect(() => {
-    if (serialConnection.portController !== null) {
+    if (serialConnection.portController !== null && serialConnection.portController !== undefined) {
       serialConnection.portController.parser.on("data", SerialDataListener);
     }
 
     return () => {
-      if (serialConnection.portController !== null) {
+      if (serialConnection.portController !== null && serialConnection.portController !== undefined) {
         serialConnection.portController.parser.removeListener("data", SerialDataListener);
       }
     };
   }, [serialConnection]);
 
   const sendIncreaseHandler = (index: number) => {
-    if (serialConnection.portController !== null && serialConnection.portController.port !== null) {
+    if (serialConnection.portController !== null && serialConnection.portController.port !== null && serialConnection.portController !== undefined) {
       serialConnection.portController.port.write(`${index}i`);
     }
   };
   const sendDecreaseHandler = (index: number) => {
-    if (serialConnection.portController !== null && serialConnection.portController.port !== null) {
+    if (serialConnection.portController !== null && serialConnection.portController.port !== null && serialConnection.portController !== undefined) {
       serialConnection.portController.port.write(`${index}d`);
     }
   };
   const sendToggleHandler = (index: number) => {
-    if (serialConnection.portController !== null && serialConnection.portController.port !== null) {
+    if (serialConnection.portController !== null && serialConnection.portController.port !== null && serialConnection.portController !== undefined) {
       serialConnection.portController.port.write(`${index}t`);
     }
   };

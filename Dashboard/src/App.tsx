@@ -6,6 +6,7 @@ import SerialPort from "serialport";
 import { connect, disconnect } from "./redux/actions/asyncSerialConnectionActions";
 import { setSerialPort } from "./redux/actions/serialConnectionActions";
 import KnobSection from "./Components/KnobSection";
+import { electronStore } from "./redux/store/index";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -57,6 +58,14 @@ const App = () => {
         }}
       >
         disconnect
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          electronStore.clear();
+        }}
+      >
+        reset storage
       </button>
       <Select
         value={portSelectionValue}
