@@ -9,6 +9,9 @@ const els = require("electron-localshortcut");
 const devTools = require("electron-devtools-installer");
 const chalk = require("chalk");
 
+const windowWidth = 1000;
+const windowHeight = 350;
+
 let tray = null;
 let mainWindow = null;
 const gotTheLock = app.requestSingleInstanceLock();
@@ -31,10 +34,10 @@ const getAssetPath = (...paths) => path.join(RESOURCES_PATH, ...paths);
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 620,
-    height: 350,
-    x: screenz.width - 620,
-    y: screenz.height - 350 - 40,
+    width: windowWidth,
+    height: windowHeight,
+    x: screenz.width - windowWidth,
+    y: screenz.height - windowHeight,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
@@ -152,6 +155,7 @@ if (!gotTheLock) {
     mainWindow.webContents.on("did-frame-finish-load", () => {
       // Create tray icon with context menu
       tray = createTray();
+      mainWindow.setBounds({ y: (screenz.height - mainWindow.getBounds().height) - tray.getBounds().height });
 
       // Listen to tray icon onclick event
       tray.on("click", () => {
