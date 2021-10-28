@@ -7,6 +7,7 @@ import SerialPort from "serialport";
 import Knob from "./Components/Knob";
 import { connect, disconnect } from "./redux/actions/asyncSerialConnectionActions";
 import { setSerialPort } from "./redux/actions/serialConnectionActions";
+import KnobSection from "./Components/KnobSection";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -86,6 +87,7 @@ const App = () => {
         toggle={sendToggleHandler}
         status={Math.floor((status / 255) * 100)}
       />
+      <KnobSection />
       <button
         type="button"
         onClick={() => {
