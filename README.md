@@ -1,4 +1,4 @@
-# light-control
+# heliox
 
 [![Electron Build](https://github.com/GHOSCHT/light-control/actions/workflows/Electron.yml/badge.svg)](https://github.com/GHOSCHT/light-control/actions/workflows/Electron.yml)
 [![PlatformIO Build](https://github.com/GHOSCHT/light-control/actions/workflows/PlatformIO.yml/badge.svg)](https://github.com/GHOSCHT/light-control/actions/workflows/PlatformIO.yml)
