@@ -5,7 +5,7 @@ import Select from "react-select";
 import SerialPort from "serialport";
 import KnobSection from "./Components/KnobSection";
 import { useAppDispatch } from "./redux/hooks";
-import { connect, setSerialPort } from "./redux/slices/serialConnectionSlice";
+import { connect, disconnect, setSerialPort } from "./redux/slices/serialConnectionSlice";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -53,7 +53,7 @@ const App = () => {
       <button
         type="button"
         onClick={() => {
-          // dispatch(disconnect());
+          dispatch(disconnect());
         }}
       >
         disconnect
