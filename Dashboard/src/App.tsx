@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { createGlobalStyle } from "styled-components";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import Select from "react-select";
 import SerialPort from "serialport";
-import { connect, disconnect } from "./redux/actions/asyncSerialConnectionActions";
-import { setSerialPort } from "./redux/actions/serialConnectionActions";
 import KnobSection from "./Components/KnobSection";
 
 const GlobalStyle = createGlobalStyle`
@@ -28,14 +26,14 @@ const fetchPorts = async () => {
 };
 
 const App = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   fetchPorts();
 
   const [portSelectionValue, setPortSelectionValue] = useState(options[0]);
   const handlePortChange = async (selectedOption: any) => {
     setPortSelectionValue(selectedOption);
-    dispatch(setSerialPort(selectedOption.value));
+    // dispatch(setSerialPort(selectedOption.value));
   };
 
   return (
@@ -45,7 +43,7 @@ const App = () => {
       <button
         type="button"
         onClick={() => {
-          dispatch(connect());
+          // dispatch(connect());
         }}
       >
         connect
@@ -53,7 +51,7 @@ const App = () => {
       <button
         type="button"
         onClick={() => {
-          dispatch(disconnect());
+          // dispatch(disconnect());
         }}
       >
         disconnect
