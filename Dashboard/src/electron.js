@@ -6,7 +6,7 @@ const { app, Tray, Menu } = require("electron");
 const isDev = require("electron-is-dev");
 const screenz = require("screenz");
 const els = require("electron-localshortcut");
-const devTools = require("electron-devtools-installer");
+const { default: installExtension, REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS } = require("electron-devtools-installer");
 const chalk = require("chalk");
 
 const windowWidth = 900;
@@ -16,9 +16,7 @@ let tray = null;
 let mainWindow = null;
 const gotTheLock = app.requestSingleInstanceLock();
 
-// Conditionally include the dev tools installer to load React Dev Tools
-const installExtension = devTools.default;
-const { REACT_DEVELOPER_TOOLS } = devTools;
+const extensions = [REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS];
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling
 if (require("electron-squirrel-startup")) {
@@ -146,9 +144,10 @@ if (!gotTheLock) {
     app.allowRendererProcessReuse = false;
     mainWindow = createWindow();
 
-    installExtension(REACT_DEVELOPER_TOOLS)
+    console.log("Installing extensions");
+    installExtension(extensions)
       .then((name) => console.log(`Added Extension:  ${name}`))
-      .catch((error) => console.log(`An error occurred: , ${error}`));
+      .catch((err) => console.log("An error occurred: ", err));
 
     mainWindow.setMenu(null);
 
