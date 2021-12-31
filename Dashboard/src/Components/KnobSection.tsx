@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-// import { RootState } from "typesafe-actions";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { sendMessage } from "../redux/slices/serialConnectionSlice";
+import Knob from "./Knob";
 
 const KnobContainer = styled.div`
 display: flex;
@@ -8,58 +10,35 @@ justify-content: space-between;
 margin: 1rem;
 `;
 
-const KnobSection = () =>
-// const [status, setStatus] = useState([{ id: 0, value: 0 }, { id: 1, value: 0 }, { id: 2, value: 0 }, { id: 3, value: 0 }]);
-// const serialConnection = useSelector<RootState, RootState["serialConnection"]>((state) => state.serialConnection);
+const ids: number[] = [0, 1, 2, 3];
 
-// const SerialDataListener = (data: string) => {
-//   const parsedData = data.split(",");
-//   console.log(parsedData);
-//   setStatus(status.map((element) => ({ ...element, value: parseInt(parsedData[element.id], 10) })));
-// };
-
-// useEffect(() => {
-//   if (serialConnection.portController !== null) {
-//     serialConnection.portController.parser.on("data", SerialDataListener);
-//   }
-
-//   return () => {
-//     if (serialConnection.portController !== null) {
-//       serialConnection.portController.parser.removeListener("data", SerialDataListener);
-//     }
-//   };
-// }, [serialConnection]);
-
-// const sendIncreaseHandler = (index: number) => {
-//   // if (serialConnection.portController !== null && serialConnection.portController.port !== null) {
-//   //   serialConnection.portController.port.write(`${index}i`);
-//   // }
-//   console.log(index);
-// };
-// const sendDecreaseHandler = (index: number) => {
-//   // if (serialConnection.portController !== null && serialConnection.portController.port !== null) {
-//   //   serialConnection.portController.port.write(`${index}d`);
-//   // }
-//   console.log(index);
-// };
-// const sendToggleHandler = (index: number) => {
-//   // if (serialConnection.portController !== null && serialConnection.portController.port !== null) {
-//   //   serialConnection.portController.port.write(`${index}t`);
-//   // }
-//   console.log(index);
-// };
-  // eslint-disable-next-line implicit-arrow-linebreak
-  (
+const KnobSection = () => {
+  const serialConnection = useAppSelector((state) => state.serialConnection);
+  const dispatch = useAppDispatch();
+  const sendIncreaseHandler = (index: number) => {
+    dispatch(sendMessage(`${index}i`));
+    console.log(index);
+  };
+  const sendDecreaseHandler = (index: number) => {
+    dispatch(sendMessage(`${index}d`));
+    console.log(index);
+  };
+  const sendToggleHandler = (index: number) => {
+    dispatch(sendMessage(`${index}t`));
+    console.log(index);
+  };
+  return (
     <KnobContainer>
-      {/* {status.map((element) => (
+      {ids.map((id) => (
         <Knob
-          key={element.id}
-          increase={() => { sendIncreaseHandler(element.id); }}
-          decrease={() => { sendDecreaseHandler(element.id); }}
-          toggle={() => { sendToggleHandler(element.id); }}
-          status={Math.floor((element.value / 255) * 100)}
+          key={id}
+          increase={() => { sendIncreaseHandler(id); }}
+          decrease={() => { sendDecreaseHandler(id); }}
+          toggle={() => { sendToggleHandler(id); }}
+          status={Math.floor((parseInt(serialConnection.message.split(",")[id], 10) / 255) * 100)}
         />
-      ))} */}
+      ))}
     </KnobContainer>
   );
+};
 export default KnobSection;

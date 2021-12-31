@@ -1,7 +1,7 @@
 import { Middleware, Action } from "@reduxjs/toolkit";
 import { RootState } from "../store/types.d";
 import {
-  connect, disconnect, setSerialPort, setMessage,
+  connect, disconnect, setSerialPort, setMessage, sendMessage,
 } from "../slices/serialConnectionSlice";
 import PortController from "../../serial/PortController";
 import store from "../store";
@@ -22,6 +22,8 @@ const serialConnection: Middleware<{}, RootState> = () => (next) => (action: Act
   } else if (setSerialPort.match(action)) {
     serialPort = new PortController(action.payload);
     console.log("setSerialPort");
+  } else if (sendMessage.match(action)) {
+    serialPort?.write(action.payload);
   }
   return next(action);
 };

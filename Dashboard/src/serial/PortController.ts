@@ -46,6 +46,10 @@ class PortController {
       this.port.removeListener("data", this.onCloseCallback);
     }
   }
+
+  write(message: string) {
+    this.port.write(message);
+  }
 }
 
 export default PortController;

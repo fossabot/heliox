@@ -45,12 +45,15 @@ export const serialConnectionSlice = createSlice({
     setMessage: (state, action: PayloadAction<string>) => {
       state.message = action.payload;
     },
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    sendMessage: (_state, _action: PayloadAction<string>) => {
+    },
   },
 });
 
 export const {
   setSerialPort, connectionStart, connectionSuccess, connectionFailure, connectionEnd,
-  connect, disconnect, setMessage,
+  connect, disconnect, setMessage, sendMessage,
 } = serialConnectionSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
