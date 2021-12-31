@@ -2,7 +2,7 @@ import { ThunkResult } from "typesafe-actions";
 import {
   connectionStart, connectionSuccess, connectionFailure, setPortController, connectionEnd,
 } from "./serialConnectionActions";
-import PortController from "../../PortController";
+import PortController from "../../serial/PortController";
 
 const connect = (): ThunkResult<void> => async (dispatch, getState) => {
   const state = getState();
