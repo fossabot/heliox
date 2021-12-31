@@ -1,9 +1,9 @@
 import thunk from "redux-thunk";
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./root-reducer";
-import logger from "../middlewares/logger";
+import serialConnection from "../middlewares/serialConnection";
 
-const middlewares = [thunk, logger];
+const middlewares = [thunk, serialConnection];
 
 const store = configureStore(
   {
