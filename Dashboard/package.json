@@ -52,10 +52,12 @@
   "license": "ISC",
   "dependencies": {
     "@redux-devtools/cli": "1.0.0-9",
+    "@reduxjs/toolkit": "^1.7.1",
     "@types/jest": "27.0.2",
     "@types/node": "15.14.9",
     "@types/react": "17.0.27",
     "@types/react-dom": "17.0.9",
+    "@types/react-redux": "^7.1.21",
     "@types/remote-redux-devtools": "0.5.5",
     "@types/styled-components": "5.1.14",
     "chalk": "4.1.2",

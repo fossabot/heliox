@@ -1,19 +1,15 @@
 import thunk from "redux-thunk";
-import { createStore, applyMiddleware } from "redux";
-import { RootAction, RootState } from "typesafe-actions";
-import composeEnhancers from "./utils";
+import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./root-reducer";
+import logger from "../middlewares/logger";
 
-const middlewares = [thunk];
+const middlewares = [thunk, logger];
 
-const enhancer = composeEnhancers(applyMiddleware(...middlewares));
-
-const initialState = {};
-
-const store = createStore<RootState, RootAction, any, any>(
-  rootReducer,
-  initialState,
-  enhancer,
+const store = configureStore(
+  {
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(middlewares),
+  },
 );
 
 export default store;
