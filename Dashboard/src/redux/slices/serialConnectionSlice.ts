@@ -6,7 +6,7 @@ import ISerialConnectionState from "../../interfaces/ISerialConnectionState";
 // Define the initial state using that type
 const initialState: ISerialConnectionState = {
   port: "",
-  message: "",
+  message: "0,0,0,0",
   status: {
     connecting: false,
     connected: false,
