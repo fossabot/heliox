@@ -39,10 +39,10 @@
   },
   "homepage": "./src",
   "scripts": {
-    "web": "webpack serve",
+    "web": "webpack serve --port 8420",
     "build": "webpack --mode=production",
     "start": "concurrently -k \"yarn web\" \"npm:electron\"",
-    "electron": "wait-on tcp:8080 && electron .",
+    "electron": "wait-on tcp:8420 && electron .",
     "package": "yarn build && electron-builder --publish never",
     "postinstall": "electron-builder install-app-deps",
     "lint": "cross-env NODE_ENV=development eslint . --cache --ext .js,.jsx,.ts,.tsx",
@@ -51,7 +51,6 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@redux-devtools/cli": "1.0.0-9",
     "@reduxjs/toolkit": "^1.7.1",
     "@types/jest": "27.0.2",
     "@types/node": "15.14.9",

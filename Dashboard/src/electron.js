@@ -7,7 +7,6 @@ const isDev = require("electron-is-dev");
 const screenz = require("screenz");
 const els = require("electron-localshortcut");
 const { default: installExtension, REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS } = require("electron-devtools-installer");
-const chalk = require("chalk");
 
 const windowWidth = 900;
 const windowHeight = 300;
@@ -58,17 +57,12 @@ function createWindow() {
   // and load the index.html of the app.
   win.loadURL(
     isDev
-      ? "http://localhost:8080"
+      ? "http://localhost:8420"
       : `file://${path.join(__dirname, "../build/index.html")}`,
   );
 
   if (isDev) {
     win.webContents.openDevTools({ mode: "detach" });
-
-    const reduxDevTools = require("@redux-devtools/cli").default;
-    reduxDevTools({ hostname: "localhost", port: 8000 }).then(() => {
-      console.log(chalk.blue("RemoteDev server running at http://localhost:8000/"));
-    });
   }
 
   // Register shortcut to open devtools
