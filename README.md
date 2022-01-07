@@ -4,6 +4,7 @@
 [![PlatformIO Build](https://github.com/GHOSCHT/light-control/actions/workflows/PlatformIO.yml/badge.svg)](https://github.com/GHOSCHT/light-control/actions/workflows/PlatformIO.yml)
 [![CodeQL](https://github.com/GHOSCHT/light-control/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/GHOSCHT/light-control/actions/workflows/codeql-analysis.yml)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/bdb8a994396345efab8271307f1ea155)](https://www.codacy.com/gh/GHOSCHT/light-control/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=GHOSCHT/light-control&amp;utm_campaign=Badge_Grade)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FGHOSCHT%2Fheliox.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FGHOSCHT%2Fheliox?ref=badge_shield)
 <a href="https://www.figma.com/file/fK5tEIw4Zx8AivuVbu79Lw/Light-Control">
   <img src="https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=figma&logoColor=white" />
 </a>
@@ -18,3 +19,7 @@ or
 ```
 npm config set python /path/to/executable/python2.7
 ```   
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FGHOSCHT%2Fheliox.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FGHOSCHT%2Fheliox?ref=badge_large)
